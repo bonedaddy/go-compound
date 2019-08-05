@@ -24,3 +24,29 @@ func Test_Client(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+
+func Test_CompoundAddresses(t *testing.T) {
+	type args struct {
+		token string
+	}
+	tests := []struct{
+		name string
+		args args
+		wantToken Address
+	}{
+		{"cBAT", args{"cBAT"}, CompoundBAT},
+		{"cDAI", args{"cDAI"}, CompoundDAI},
+		{"cETH", args{"cETH"}, CompoundETH},
+		{"cREP", args{"cREP"}, CompoundREP},
+		{"cUSDC", args{"cUSDC"}, CompoundUSDC},
+		{"cWBTC", args{"cWBTC"}, CompoundWBTC},
+		{"cZRX", args{"cZRX"}, CompoundZRX},
+	}
+
+	for _, tt := range tests {
+		if tok := CompoundTokens[tt.args.token]; tok != tt.wantToken {
+			t.Fatal("bad token type")
+		}
+	}
+}
