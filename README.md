@@ -36,3 +36,7 @@ The `pb` folder contains the protobufs the compound API which was sent to me by 
 * [Compound App](https://app.compound.finance/)
 * [Compound Website](https://compound.finance/)
 * [comproi](https://www.comproi.com/#)
+
+# Support
+
+If you like this application feel free to send me some ETH, or whatever (shit)coins you want to get rid of `0xc7459562777DDf3A1A7afefBE515E8479Bd3FDBD`.
