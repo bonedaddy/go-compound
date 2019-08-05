@@ -1,7 +1,9 @@
 package client
 
 import (
+	"context"
 	"testing"
+	"time"
 )
 
 var (
@@ -23,16 +25,20 @@ func Test_Client(t *testing.T) {
 	if _, err := client.GetCTokens(); err != nil {
 		t.Fatal(err)
 	}
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
+	defer cancel()
+	if err := client.WatchHealth(ctx, account); err != nil {
+		t.Fatal(err)
+	}
 }
-
 
 func Test_CompoundAddresses(t *testing.T) {
 	type args struct {
 		token string
 	}
-	tests := []struct{
-		name string
-		args args
+	tests := []struct {
+		name      string
+		args      args
 		wantToken Address
 	}{
 		{"cBAT", args{"cBAT"}, CompoundBAT},
