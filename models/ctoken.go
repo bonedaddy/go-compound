@@ -5,46 +5,46 @@ package models
 type CTokenResponse struct {
 	CToken []struct {
 		BorrowRate struct {
-			Value string `json:"value"`
-		} `json:"borrow_rate"`
+			Value string `json:"value,omitempty"`
+		} `json:"borrow_rate,omitempty"`
 		Cash struct {
-			Value string `json:"value"`
-		} `json:"cash"`
+			Value string `json:"value,omitempty"`
+		} `json:"cash,omitempty"`
 		CollateralFactor struct {
-			Value string `json:"value"`
-		} `json:"collateral_factor"`
+			Value string `json:"value,omitempty"`
+		} `json:"collateral_factor,omitempty"`
 		ExchangeRate struct {
-			Value string `json:"value"`
-		} `json:"exchange_rate"`
-		InterestRateModelAddress string `json:"interest_rate_model_address"`
-		Name                     string `json:"name"`
-		NumberOfBorrowers        int    `json:"number_of_borrowers"`
-		NumberOfSuppliers        int    `json:"number_of_suppliers"`
+			Value string `json:"value,omitempty"`
+		} `json:"exchange_rate,omitempty"`
+		InterestRateModelAddress string `json:"interest_rate_model_address,omitempty"`
+		Name                     string `json:"name,omitempty"`
+		NumberOfBorrowers        int    `json:"number_of_borrowers,omitempty"`
+		NumberOfSuppliers        int    `json:"number_of_suppliers,omitempty"`
 		Reserves                 struct {
-			Value string `json:"value"`
-		} `json:"reserves"`
+			Value string `json:"value,omitempty"`
+		} `json:"reserves,omitempty"`
 		SupplyRate struct {
-			Value string `json:"value"`
-		} `json:"supply_rate"`
-		Symbol       string `json:"symbol"`
-		TokenAddress string `json:"token_address"`
+			Value string `json:"value,omitempty"`
+		} `json:"supply_rate,omitempty"`
+		Symbol       string `json:"symbol,omitempty"`
+		TokenAddress string `json:"token_address,omitempty"`
 		TotalBorrows struct {
-			Value string `json:"value"`
-		} `json:"total_borrows"`
+			Value string `json:"value,omitempty"`
+		} `json:"total_borrows,omitempty"`
 		TotalSupply struct {
-			Value string `json:"value"`
-		} `json:"total_supply"`
-		UnderlyingAddress string `json:"underlying_address"`
-		UnderlyingName    string `json:"underlying_name"`
+			Value string `json:"value,omitempty"`
+		} `json:"total_supply,omitempty"`
+		UnderlyingAddress string `json:"underlying_address,omitempty"`
+		UnderlyingName    string `json:"underlying_name,omitempty"`
 		UnderlyingPrice   struct {
-			Value string `json:"value"`
-		} `json:"underlying_price"`
-		UnderlyingSymbol string `json:"underlying_symbol"`
-	} `json:"cToken"`
-	Error   interface{} `json:"error"`
+			Value string `json:"value,omitempty"`
+		} `json:"underlying_price,omitempty"`
+		UnderlyingSymbol string `json:"underlying_symbol,omitempty"`
+	} `json:"cToken,omitempty"`
+	Error   interface{} `json:"error,omitempty"`
 	Request struct {
-		Addresses      []string `json:"addresses"`
-		BlockNumber    int      `json:"block_number"`
-		BlockTimestamp int      `json:"block_timestamp"`
-	} `json:"request"`
+		Addresses      []string `json:"addresses,omitempty"`
+		BlockNumber    int      `json:"block_number,omitempty"`
+		BlockTimestamp int      `json:"block_timestamp,omitempty"`
+	} `json:"request,omitempty"`
 }

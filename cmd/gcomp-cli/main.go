@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
@@ -55,8 +57,35 @@ func loadCommands() cli.Commands {
 func loadAccountCommands() cli.Commands {
 	return cli.Commands{
 		cli.Command{
-			Name:    "account",
-			Usage:   "account management commands",
+			Name:        "account",
+			Usage:       "account management commands",
+			Description: "calling account by itself, intended for piping to jq command",
+			Action: func(c *cli.Context) error {
+				if c.String("eth.address") == "" {
+					return errors.New("eth.address flag is empty")
+				}
+				cl := client.NewClient(url)
+				resp, err := cl.GetAccount(c.String("eth.address"))
+				if err != nil {
+					return err
+				}
+				if len(resp.Accounts) == 0 {
+					return errors.New("an unexpected error occurred")
+				}
+				respBytes, err := json.Marshal(resp)
+				if err != nil {
+					return err
+				}
+				var pretty bytes.Buffer
+				if err = json.Indent(&pretty, respBytes, "", "\t"); err != nil {
+					return err
+				}
+				if err := json.Unmarshal(pretty.Bytes(), resp); err != nil {
+					return err
+				}
+				fmt.Println(string(pretty.Bytes()))
+				return nil
+			},
 			Aliases: []string{"acct"},
 			Subcommands: cli.Commands{
 				cli.Command{
@@ -92,6 +121,12 @@ func loadAccountCommands() cli.Commands {
 							Usage: "the address to lookup",
 						},
 					},
+				},
+			},
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "eth.address",
+					Usage: "the address to lookup",
 				},
 			},
 		},

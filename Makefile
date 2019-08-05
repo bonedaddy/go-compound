@@ -38,3 +38,8 @@ imports:
 .PHONY: fmt
 fmt:
 	find . -type f -name '*.go' -exec gofmt -s -w {} \;
+
+.PHONY: omit
+omit:
+	sed -i 's/\"`/,omitempty\"\`/g' models/account.go
+	sed -i 's/\"`/,omitempty\"\`/g' models/ctoken.go 
