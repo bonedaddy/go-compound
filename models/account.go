@@ -1,6 +1,6 @@
 package models
 
-// AccountResponse is a response to a 
+// AccountResponse is a response to a
 // https://api.compound.finance/api/v2/account?addresses[]= call
 type AccountResponse struct {
 	Accounts []struct {

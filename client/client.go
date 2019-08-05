@@ -43,9 +43,8 @@ func (c *Client) GetAccount(address string) (*models.AccountResponse, error) {
 	if err := json.Unmarshal(bodyBytes, response); err != nil {
 		return nil, err
 	}
-	return nil, nil
+	return response, nil
 }
-
 
 // GetAccounts is used to retrieve information on many accounts
 func (c *Client) GetAccounts() (*models.AccountResponse, error) {
