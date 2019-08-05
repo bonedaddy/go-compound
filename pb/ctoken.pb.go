@@ -4,12 +4,17 @@
 package API_Presidio
 
 import (
+	bytes "bytes"
 	context "context"
 	fmt "fmt"
+	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
+	io "io"
 	math "math"
+	reflect "reflect"
+	strings "strings"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -69,23 +74,31 @@ type CTokenRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *CTokenRequest) Reset()         { *m = CTokenRequest{} }
-func (m *CTokenRequest) String() string { return proto.CompactTextString(m) }
-func (*CTokenRequest) ProtoMessage()    {}
+func (m *CTokenRequest) Reset()      { *m = CTokenRequest{} }
+func (*CTokenRequest) ProtoMessage() {}
 func (*CTokenRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_70252b6cac540031, []int{0}
 }
 func (m *CTokenRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CTokenRequest.Unmarshal(m, b)
+	return m.Unmarshal(b)
 }
 func (m *CTokenRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CTokenRequest.Marshal(b, m, deterministic)
+	if deterministic {
+		return xxx_messageInfo_CTokenRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
 }
 func (m *CTokenRequest) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_CTokenRequest.Merge(m, src)
 }
 func (m *CTokenRequest) XXX_Size() int {
-	return xxx_messageInfo_CTokenRequest.Size(m)
+	return m.Size()
 }
 func (m *CTokenRequest) XXX_DiscardUnknown() {
 	xxx_messageInfo_CTokenRequest.DiscardUnknown(m)
@@ -189,23 +202,31 @@ type CToken struct {
 	XXX_sizecache            int32    `json:"-"`
 }
 
-func (m *CToken) Reset()         { *m = CToken{} }
-func (m *CToken) String() string { return proto.CompactTextString(m) }
-func (*CToken) ProtoMessage()    {}
+func (m *CToken) Reset()      { *m = CToken{} }
+func (*CToken) ProtoMessage() {}
 func (*CToken) Descriptor() ([]byte, []int) {
 	return fileDescriptor_70252b6cac540031, []int{1}
 }
 func (m *CToken) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CToken.Unmarshal(m, b)
+	return m.Unmarshal(b)
 }
 func (m *CToken) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CToken.Marshal(b, m, deterministic)
+	if deterministic {
+		return xxx_messageInfo_CToken.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
 }
 func (m *CToken) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_CToken.Merge(m, src)
 }
 func (m *CToken) XXX_Size() int {
-	return xxx_messageInfo_CToken.Size(m)
+	return m.Size()
 }
 func (m *CToken) XXX_DiscardUnknown() {
 	xxx_messageInfo_CToken.DiscardUnknown(m)
@@ -355,23 +376,31 @@ type CTokenResponse struct {
 	XXX_sizecache        int32     `json:"-"`
 }
 
-func (m *CTokenResponse) Reset()         { *m = CTokenResponse{} }
-func (m *CTokenResponse) String() string { return proto.CompactTextString(m) }
-func (*CTokenResponse) ProtoMessage()    {}
+func (m *CTokenResponse) Reset()      { *m = CTokenResponse{} }
+func (*CTokenResponse) ProtoMessage() {}
 func (*CTokenResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_70252b6cac540031, []int{2}
 }
 func (m *CTokenResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CTokenResponse.Unmarshal(m, b)
+	return m.Unmarshal(b)
 }
 func (m *CTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CTokenResponse.Marshal(b, m, deterministic)
+	if deterministic {
+		return xxx_messageInfo_CTokenResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
 }
 func (m *CTokenResponse) XXX_Merge(src proto.Message) {
 	xxx_messageInfo_CTokenResponse.Merge(m, src)
 }
 func (m *CTokenResponse) XXX_Size() int {
-	return xxx_messageInfo_CTokenResponse.Size(m)
+	return m.Size()
 }
 func (m *CTokenResponse) XXX_DiscardUnknown() {
 	xxx_messageInfo_CTokenResponse.DiscardUnknown(m)
@@ -410,49 +439,473 @@ func init() {
 func init() { proto.RegisterFile("ctoken.proto", fileDescriptor_70252b6cac540031) }
 
 var fileDescriptor_70252b6cac540031 = []byte{
-	// 659 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xcf, 0x4e, 0xdb, 0x4e,
-	0x10, 0xc7, 0x7f, 0x26, 0x10, 0xc8, 0xd8, 0x49, 0xc8, 0x82, 0x7e, 0x5a, 0x01, 0x07, 0x37, 0x3d,
-	0x10, 0xa9, 0xc5, 0xa8, 0xa9, 0xaa, 0xaa, 0x87, 0x1e, 0x00, 0x51, 0x09, 0xa9, 0x0d, 0xc8, 0xc9,
-	0xa5, 0x27, 0xcb, 0x71, 0x06, 0xb0, 0xb0, 0xbd, 0xee, 0xee, 0x86, 0x36, 0xd7, 0xbe, 0x42, 0xdf,
-	0xa4, 0x4f, 0xd0, 0x5b, 0x1f, 0xa0, 0xaf, 0xd0, 0x07, 0xa9, 0x3c, 0x6b, 0x93, 0x20, 0x59, 0x3d,
-	0xf5, 0x66, 0x7f, 0xe7, 0x33, 0xff, 0x76, 0x76, 0x07, 0x9c, 0x48, 0x8b, 0x3b, 0xcc, 0xbc, 0x5c,
-	0x0a, 0x2d, 0x98, 0x73, 0x72, 0x75, 0xe1, 0x5d, 0x49, 0x54, 0xf1, 0x2c, 0x16, 0x7b, 0xbd, 0x30,
-	0xcb, 0x84, 0x0e, 0x75, 0x2c, 0x32, 0x65, 0x80, 0x3d, 0x27, 0x12, 0x69, 0x2a, 0x4a, 0xbc, 0xbf,
-	0x80, 0xf6, 0xd9, 0xa4, 0x70, 0xf7, 0xf1, 0xd3, 0x1c, 0x95, 0x66, 0x07, 0xd0, 0x0a, 0x67, 0x33,
-	0x89, 0x4a, 0xa1, 0xe2, 0x96, 0xdb, 0x18, 0x38, 0xfe, 0x52, 0x60, 0x4f, 0xc0, 0x99, 0x26, 0x22,
-	0xba, 0x0b, 0xb2, 0x79, 0x3a, 0x45, 0xc9, 0xd7, 0x5c, 0x6b, 0xd0, 0xf6, 0x6d, 0xd2, 0x46, 0x24,
-	0xb1, 0x43, 0xe8, 0x1a, 0x44, 0xc7, 0x29, 0x2a, 0x1d, 0xa6, 0x39, 0x6f, 0x10, 0xd5, 0x21, 0x79,
-	0x52, 0xa9, 0xfd, 0xef, 0x4d, 0x68, 0x9a, 0xdc, 0xec, 0x29, 0xb4, 0xa9, 0x87, 0xa0, 0xcc, 0xc4,
-	0x2d, 0xd7, 0x1a, 0x38, 0xbe, 0x43, 0xe2, 0x89, 0xd1, 0xd8, 0x31, 0x38, 0x5a, 0xe8, 0x30, 0x09,
-	0xd4, 0x3c, 0xcf, 0x93, 0x05, 0xe5, 0xb6, 0x87, 0x8e, 0x57, 0x36, 0x1c, 0xc5, 0x0a, 0x7d, 0x9b,
-	0x88, 0x31, 0x01, 0xec, 0x45, 0x11, 0xb5, 0x70, 0x98, 0x0a, 0x29, 0xc5, 0x67, 0xc5, 0xd7, 0x6b,
-	0x3c, 0x4c, 0xcc, 0x53, 0x43, 0xb0, 0x01, 0x6c, 0x49, 0x54, 0x28, 0xef, 0x51, 0xf1, 0x8d, 0x1a,
-	0xfa, 0xc1, 0xca, 0x5c, 0x58, 0x8f, 0x42, 0x75, 0xcb, 0x9b, 0x35, 0x14, 0x59, 0x8a, 0xf4, 0xf8,
-	0x25, 0xba, 0x0d, 0xb3, 0x1b, 0x0c, 0x64, 0xa8, 0x91, 0x6f, 0xd6, 0xa5, 0xaf, 0x10, 0x3f, 0xd4,
-	0xc8, 0x8e, 0xc0, 0x36, 0xcd, 0x19, 0x87, 0xad, 0x1a, 0x07, 0x30, 0x40, 0x85, 0x9b, 0xd6, 0x0c,
-	0xde, 0xaa, 0xc3, 0x0d, 0x40, 0xf8, 0x1b, 0xe8, 0x45, 0x22, 0x49, 0x42, 0x8d, 0x32, 0x4c, 0x82,
-	0xeb, 0x30, 0xd2, 0x42, 0x72, 0xa8, 0x71, 0xda, 0x5e, 0x62, 0xef, 0x88, 0x62, 0x1e, 0xec, 0x98,
-	0x89, 0x07, 0xe2, 0xda, 0x9c, 0x7f, 0x8c, 0x52, 0x71, 0x9b, 0x06, 0xdb, 0x33, 0xa6, 0xcb, 0xeb,
-	0x71, 0x65, 0x78, 0xcc, 0x9b, 0x12, 0x0a, 0xde, 0x79, 0xcc, 0x9f, 0x56, 0x06, 0xf6, 0x1a, 0xb6,
-	0xe7, 0xd9, 0x0c, 0x65, 0xb2, 0x88, 0xb3, 0x9b, 0x20, 0x97, 0x71, 0x84, 0xbc, 0x5d, 0x53, 0x59,
-	0x77, 0x49, 0x5d, 0x15, 0x10, 0x3b, 0x02, 0xb6, 0xe2, 0x58, 0x5d, 0x9f, 0x0e, 0x5d, 0x9f, 0xde,
-	0xd2, 0x52, 0xdd, 0xa1, 0xff, 0xa1, 0xa9, 0x16, 0xe9, 0x54, 0x24, 0xbc, 0xeb, 0x5a, 0x83, 0x96,
-	0x5f, 0xfe, 0x31, 0x06, 0xeb, 0x59, 0x98, 0x22, 0xef, 0x91, 0x4a, 0xdf, 0xec, 0x19, 0xac, 0x04,
-	0x08, 0x4a, 0x37, 0x46, 0xc0, 0x4a, 0xb1, 0x63, 0x13, 0xe0, 0x10, 0x56, 0x4a, 0x0b, 0x28, 0xd6,
-	0x0e, 0xa1, 0x9d, 0xa5, 0x3c, 0x2a, 0xa2, 0xbe, 0x85, 0xfd, 0x38, 0xd3, 0x28, 0x51, 0x69, 0x9a,
-	0x5a, 0x90, 0x8a, 0x19, 0x26, 0x0f, 0x95, 0xef, 0x52, 0xe5, 0xbc, 0x42, 0x8a, 0xb9, 0x7d, 0x28,
-	0x80, 0xb2, 0x81, 0xfe, 0x4f, 0x0b, 0x3a, 0xd5, 0x83, 0x55, 0xb9, 0xc8, 0x14, 0x32, 0x17, 0x36,
-	0x50, 0x4a, 0x21, 0xe9, 0xd1, 0xd8, 0x43, 0xa0, 0x03, 0x3b, 0x2f, 0x14, 0xdf, 0x18, 0xd8, 0x2b,
-	0xd8, 0x94, 0xe6, 0x79, 0x97, 0x8f, 0x66, 0xdf, 0x5b, 0xdd, 0x12, 0xde, 0xa3, 0x0d, 0xe0, 0x57,
-	0x2c, 0x7b, 0x0e, 0xcd, 0x88, 0x2c, 0xbc, 0xe1, 0x36, 0x06, 0xf6, 0x70, 0xb7, 0xd6, 0xab, 0x64,
-	0xfa, 0x1e, 0x00, 0x65, 0x3b, 0x13, 0x33, 0x54, 0xcc, 0x81, 0xad, 0xd1, 0x65, 0x70, 0xee, 0xfb,
-	0x97, 0xfe, 0xf6, 0x7f, 0x8c, 0x41, 0xe7, 0x62, 0x34, 0x39, 0xf7, 0x47, 0x27, 0xef, 0x4b, 0xcd,
-	0x1a, 0xfe, 0xb0, 0xaa, 0xd5, 0x33, 0x46, 0x79, 0x5f, 0xcc, 0x72, 0x02, 0x4d, 0xb3, 0xca, 0xd8,
-	0xdf, 0xea, 0xdb, 0x3b, 0xa8, 0x37, 0x9a, 0xd3, 0xe8, 0x77, 0xbf, 0xfe, 0xfa, 0xfd, 0x6d, 0xad,
-	0xc5, 0x36, 0x8f, 0xcb, 0x58, 0x1f, 0xc1, 0xce, 0x85, 0xd2, 0xc1, 0x3f, 0x0b, 0xdd, 0xaf, 0x42,
-	0x4f, 0x9b, 0xb4, 0x43, 0x5f, 0xfe, 0x09, 0x00, 0x00, 0xff, 0xff, 0x6e, 0x68, 0x6b, 0x96, 0x82,
-	0x05, 0x00, 0x00,
+	// 737 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xbf, 0x6f, 0xdb, 0x38,
+	0x14, 0xc7, 0xc3, 0x38, 0x71, 0xe2, 0x27, 0xd9, 0x8e, 0x99, 0xe0, 0x40, 0x38, 0x81, 0xe0, 0xf3,
+	0x0d, 0x31, 0x70, 0x17, 0x19, 0xe7, 0xc3, 0xa1, 0xe8, 0xd0, 0x21, 0x09, 0x52, 0x20, 0x40, 0xeb,
+	0x04, 0xb2, 0x97, 0x4e, 0x82, 0x2c, 0xd3, 0x8e, 0x10, 0x49, 0x74, 0x49, 0x3a, 0xad, 0xb7, 0xa2,
+	0xff, 0x42, 0xff, 0x89, 0xce, 0x9d, 0x3a, 0x76, 0x6b, 0xc7, 0x02, 0x5d, 0x3a, 0xc6, 0x46, 0xff,
+	0x80, 0x8e, 0x1d, 0x0b, 0x91, 0x52, 0xec, 0x00, 0x42, 0xa7, 0x6e, 0xe4, 0xf7, 0x7d, 0xde, 0x0f,
+	0xf2, 0x91, 0x0f, 0x4c, 0x5f, 0xb2, 0x6b, 0x1a, 0xdb, 0x13, 0xce, 0x24, 0xc3, 0xe6, 0xf1, 0xe5,
+	0xb9, 0x7d, 0xc9, 0xa9, 0x08, 0x86, 0x01, 0xab, 0xd7, 0xbc, 0x38, 0x66, 0xd2, 0x93, 0x01, 0x8b,
+	0x85, 0x06, 0xea, 0xa6, 0xcf, 0xa2, 0x88, 0xa5, 0x78, 0xfd, 0x68, 0x1c, 0xc8, 0xab, 0xe9, 0xc0,
+	0xf6, 0x59, 0xd4, 0x1e, 0xb3, 0x31, 0x6b, 0x2b, 0x79, 0x30, 0x1d, 0xa9, 0x9d, 0xda, 0xa8, 0x95,
+	0xc6, 0x9b, 0x33, 0x28, 0x9f, 0xf6, 0x93, 0x6c, 0x0e, 0x7d, 0x3e, 0xa5, 0x42, 0xe2, 0x03, 0x28,
+	0x79, 0xc3, 0x21, 0xa7, 0x42, 0x50, 0x41, 0x50, 0xa3, 0xd0, 0x32, 0x9d, 0xa5, 0x80, 0xff, 0x04,
+	0x73, 0x10, 0x32, 0xff, 0xda, 0x8d, 0xa7, 0xd1, 0x80, 0x72, 0xb2, 0xde, 0x40, 0xad, 0xb2, 0x63,
+	0x28, 0xad, 0xab, 0x24, 0x7c, 0x08, 0x55, 0x8d, 0xc8, 0x20, 0xa2, 0x42, 0x7a, 0xd1, 0x84, 0x14,
+	0x14, 0x55, 0x51, 0x72, 0x3f, 0x53, 0x9b, 0xef, 0x8a, 0x50, 0xd4, 0xb9, 0xf1, 0x5f, 0x50, 0x56,
+	0x47, 0x76, 0xd3, 0x4c, 0x04, 0x35, 0x50, 0xcb, 0x74, 0x4c, 0x25, 0x1e, 0x6b, 0x0d, 0xb7, 0xc1,
+	0x94, 0x4c, 0x7a, 0xa1, 0x2b, 0xa6, 0x93, 0x49, 0x38, 0x53, 0xb9, 0x8d, 0x8e, 0x69, 0xa7, 0xf7,
+	0xe3, 0x07, 0x82, 0x3a, 0x86, 0x22, 0x7a, 0x0a, 0xc0, 0xff, 0x26, 0x51, 0x13, 0x87, 0x01, 0xe3,
+	0x9c, 0xbd, 0x10, 0x64, 0x23, 0xc7, 0x43, 0xc7, 0x3c, 0xd1, 0x04, 0x6e, 0xc1, 0x36, 0xa7, 0x82,
+	0xf2, 0x1b, 0x2a, 0xc8, 0x66, 0x0e, 0x7d, 0x67, 0xc5, 0x0d, 0xd8, 0xf0, 0x3d, 0x71, 0x45, 0x8a,
+	0x39, 0x94, 0xb2, 0x24, 0xe9, 0xe9, 0x4b, 0xff, 0xca, 0x8b, 0xc7, 0xd4, 0xe5, 0x9e, 0xa4, 0x64,
+	0x2b, 0x2f, 0x7d, 0x86, 0x38, 0x9e, 0xa4, 0xf8, 0x08, 0x0c, 0x7d, 0x38, 0xed, 0xb0, 0x9d, 0xe3,
+	0x00, 0x1a, 0xc8, 0x70, 0x7d, 0x34, 0x8d, 0x97, 0xf2, 0x70, 0x0d, 0x28, 0xfc, 0x21, 0xd4, 0x7c,
+	0x16, 0x86, 0x9e, 0xa4, 0xdc, 0x0b, 0xdd, 0x91, 0xe7, 0x4b, 0xc6, 0x09, 0xe4, 0x38, 0xed, 0x2c,
+	0xb1, 0xc7, 0x8a, 0xc2, 0x36, 0xec, 0xea, 0x8e, 0xbb, 0x6c, 0xa4, 0xef, 0x3f, 0xa0, 0x5c, 0x10,
+	0x43, 0x35, 0xb6, 0xa6, 0x4d, 0x17, 0xa3, 0x5e, 0x66, 0xb8, 0xcf, 0xeb, 0x12, 0x12, 0xde, 0xbc,
+	0xcf, 0x9f, 0x64, 0x06, 0xfc, 0x00, 0x76, 0xa6, 0xf1, 0x90, 0xf2, 0x70, 0x16, 0xc4, 0x63, 0x77,
+	0xc2, 0x03, 0x9f, 0x92, 0x72, 0x4e, 0x65, 0xd5, 0x25, 0x75, 0x99, 0x40, 0xf8, 0x08, 0xf0, 0x8a,
+	0x63, 0xf6, 0x7c, 0x2a, 0xea, 0xf9, 0xd4, 0x96, 0x96, 0xec, 0x0d, 0xfd, 0x01, 0x45, 0x31, 0x8b,
+	0x06, 0x2c, 0x24, 0xd5, 0x06, 0x6a, 0x95, 0x9c, 0x74, 0x87, 0x31, 0x6c, 0xc4, 0x5e, 0x44, 0x49,
+	0x4d, 0xa9, 0x6a, 0x8d, 0xff, 0x86, 0x95, 0x00, 0x6e, 0xea, 0x86, 0x15, 0xb0, 0x52, 0x6c, 0x4f,
+	0x07, 0x38, 0x84, 0x95, 0xd2, 0x5c, 0x15, 0x6b, 0x57, 0xa1, 0x95, 0xa5, 0xdc, 0x4d, 0xa2, 0x3e,
+	0x82, 0xfd, 0x20, 0x96, 0x94, 0x53, 0x21, 0x55, 0xd7, 0xdc, 0x88, 0x0d, 0x69, 0x78, 0x57, 0xf9,
+	0x9e, 0xaa, 0x9c, 0x64, 0x48, 0xd2, 0xb7, 0xa7, 0x09, 0x90, 0x1e, 0xa0, 0xf9, 0x11, 0x41, 0x25,
+	0xfb, 0xb0, 0x62, 0xc2, 0x62, 0x41, 0x71, 0x03, 0x36, 0x29, 0xe7, 0x8c, 0xab, 0x4f, 0x63, 0x74,
+	0x40, 0x5d, 0xd8, 0x59, 0xa2, 0x38, 0xda, 0x80, 0xff, 0x87, 0x2d, 0xae, 0xbf, 0x77, 0xfa, 0x69,
+	0xf6, 0xed, 0xd5, 0xa1, 0x62, 0xdf, 0x9b, 0x00, 0x4e, 0xc6, 0xe2, 0x7f, 0xa0, 0xe8, 0x2b, 0x0b,
+	0x29, 0x34, 0x0a, 0x2d, 0xa3, 0xb3, 0x97, 0xeb, 0x95, 0x32, 0x4d, 0x1b, 0x40, 0x65, 0x3b, 0x65,
+	0x43, 0x2a, 0xb0, 0x09, 0xdb, 0xdd, 0x0b, 0xf7, 0xcc, 0x71, 0x2e, 0x9c, 0x9d, 0x35, 0x8c, 0xa1,
+	0x72, 0xde, 0xed, 0x9f, 0x39, 0xdd, 0xe3, 0x27, 0xa9, 0x86, 0x3a, 0x1f, 0x50, 0x36, 0x7a, 0x7a,
+	0x94, 0xdf, 0x24, 0xbd, 0xec, 0x43, 0x51, 0x4f, 0x3e, 0xfc, 0xab, 0xfa, 0xea, 0x07, 0xf9, 0x46,
+	0x7d, 0x1b, 0xcd, 0xea, 0xeb, 0x2f, 0xdf, 0xde, 0xac, 0x97, 0xf0, 0x56, 0x3b, 0x8d, 0xf5, 0x0c,
+	0x8c, 0x09, 0x13, 0xd2, 0xfd, 0x6d, 0xa1, 0x9b, 0x59, 0xe8, 0x93, 0xd6, 0xd7, 0xb9, 0xb5, 0x76,
+	0x3b, 0xb7, 0xd0, 0xf7, 0xb9, 0x85, 0x7e, 0xcc, 0x2d, 0xf4, 0x6a, 0x61, 0xa1, 0xb7, 0x0b, 0x0b,
+	0xbd, 0x5f, 0x58, 0xe8, 0xd3, 0xc2, 0x42, 0x9f, 0x17, 0x16, 0xba, 0x5d, 0x58, 0x68, 0x50, 0x54,
+	0xd3, 0xf6, 0xbf, 0x9f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x4a, 0x5d, 0x70, 0x80, 0xdb, 0x05, 0x00,
+	0x00,
+}
+
+func (this *CTokenRequest) VerboseEqual(that interface{}) error {
+	if that == nil {
+		if this == nil {
+			return nil
+		}
+		return fmt.Errorf("that == nil && this != nil")
+	}
+
+	that1, ok := that.(*CTokenRequest)
+	if !ok {
+		that2, ok := that.(CTokenRequest)
+		if ok {
+			that1 = &that2
+		} else {
+			return fmt.Errorf("that is not of type *CTokenRequest")
+		}
+	}
+	if that1 == nil {
+		if this == nil {
+			return nil
+		}
+		return fmt.Errorf("that is type *CTokenRequest but is nil && this != nil")
+	} else if this == nil {
+		return fmt.Errorf("that is type *CTokenRequest but is not nil && this == nil")
+	}
+	if len(this.Addresses) != len(that1.Addresses) {
+		return fmt.Errorf("Addresses this(%v) Not Equal that(%v)", len(this.Addresses), len(that1.Addresses))
+	}
+	for i := range this.Addresses {
+		if !bytes.Equal(this.Addresses[i], that1.Addresses[i]) {
+			return fmt.Errorf("Addresses this[%v](%v) Not Equal that[%v](%v)", i, this.Addresses[i], i, that1.Addresses[i])
+		}
+	}
+	if this.BlockNumber != that1.BlockNumber {
+		return fmt.Errorf("BlockNumber this(%v) Not Equal that(%v)", this.BlockNumber, that1.BlockNumber)
+	}
+	if this.BlockTimestamp != that1.BlockTimestamp {
+		return fmt.Errorf("BlockTimestamp this(%v) Not Equal that(%v)", this.BlockTimestamp, that1.BlockTimestamp)
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return fmt.Errorf("XXX_unrecognized this(%v) Not Equal that(%v)", this.XXX_unrecognized, that1.XXX_unrecognized)
+	}
+	return nil
+}
+func (this *CTokenRequest) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*CTokenRequest)
+	if !ok {
+		that2, ok := that.(CTokenRequest)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if len(this.Addresses) != len(that1.Addresses) {
+		return false
+	}
+	for i := range this.Addresses {
+		if !bytes.Equal(this.Addresses[i], that1.Addresses[i]) {
+			return false
+		}
+	}
+	if this.BlockNumber != that1.BlockNumber {
+		return false
+	}
+	if this.BlockTimestamp != that1.BlockTimestamp {
+		return false
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return false
+	}
+	return true
+}
+func (this *CToken) VerboseEqual(that interface{}) error {
+	if that == nil {
+		if this == nil {
+			return nil
+		}
+		return fmt.Errorf("that == nil && this != nil")
+	}
+
+	that1, ok := that.(*CToken)
+	if !ok {
+		that2, ok := that.(CToken)
+		if ok {
+			that1 = &that2
+		} else {
+			return fmt.Errorf("that is not of type *CToken")
+		}
+	}
+	if that1 == nil {
+		if this == nil {
+			return nil
+		}
+		return fmt.Errorf("that is type *CToken but is nil && this != nil")
+	} else if this == nil {
+		return fmt.Errorf("that is type *CToken but is not nil && this == nil")
+	}
+	if !bytes.Equal(this.TokenAddress, that1.TokenAddress) {
+		return fmt.Errorf("TokenAddress this(%v) Not Equal that(%v)", this.TokenAddress, that1.TokenAddress)
+	}
+	if !this.TotalSupply.Equal(that1.TotalSupply) {
+		return fmt.Errorf("TotalSupply this(%v) Not Equal that(%v)", this.TotalSupply, that1.TotalSupply)
+	}
+	if !this.TotalBorrows.Equal(that1.TotalBorrows) {
+		return fmt.Errorf("TotalBorrows this(%v) Not Equal that(%v)", this.TotalBorrows, that1.TotalBorrows)
+	}
+	if !this.Reserves.Equal(that1.Reserves) {
+		return fmt.Errorf("Reserves this(%v) Not Equal that(%v)", this.Reserves, that1.Reserves)
+	}
+	if !this.Cash.Equal(that1.Cash) {
+		return fmt.Errorf("Cash this(%v) Not Equal that(%v)", this.Cash, that1.Cash)
+	}
+	if !this.ExchangeRate.Equal(that1.ExchangeRate) {
+		return fmt.Errorf("ExchangeRate this(%v) Not Equal that(%v)", this.ExchangeRate, that1.ExchangeRate)
+	}
+	if !this.SupplyRate.Equal(that1.SupplyRate) {
+		return fmt.Errorf("SupplyRate this(%v) Not Equal that(%v)", this.SupplyRate, that1.SupplyRate)
+	}
+	if !this.BorrowRate.Equal(that1.BorrowRate) {
+		return fmt.Errorf("BorrowRate this(%v) Not Equal that(%v)", this.BorrowRate, that1.BorrowRate)
+	}
+	if !this.CollateralFactor.Equal(that1.CollateralFactor) {
+		return fmt.Errorf("CollateralFactor this(%v) Not Equal that(%v)", this.CollateralFactor, that1.CollateralFactor)
+	}
+	if this.NumberOfSuppliers != that1.NumberOfSuppliers {
+		return fmt.Errorf("NumberOfSuppliers this(%v) Not Equal that(%v)", this.NumberOfSuppliers, that1.NumberOfSuppliers)
+	}
+	if this.NumberOfBorrowers != that1.NumberOfBorrowers {
+		return fmt.Errorf("NumberOfBorrowers this(%v) Not Equal that(%v)", this.NumberOfBorrowers, that1.NumberOfBorrowers)
+	}
+	if !this.UnderlyingPrice.Equal(that1.UnderlyingPrice) {
+		return fmt.Errorf("UnderlyingPrice this(%v) Not Equal that(%v)", this.UnderlyingPrice, that1.UnderlyingPrice)
+	}
+	if !bytes.Equal(this.UnderlyingAddress, that1.UnderlyingAddress) {
+		return fmt.Errorf("UnderlyingAddress this(%v) Not Equal that(%v)", this.UnderlyingAddress, that1.UnderlyingAddress)
+	}
+	if this.Symbol != that1.Symbol {
+		return fmt.Errorf("Symbol this(%v) Not Equal that(%v)", this.Symbol, that1.Symbol)
+	}
+	if this.Name != that1.Name {
+		return fmt.Errorf("Name this(%v) Not Equal that(%v)", this.Name, that1.Name)
+	}
+	if this.UnderlyingSymbol != that1.UnderlyingSymbol {
+		return fmt.Errorf("UnderlyingSymbol this(%v) Not Equal that(%v)", this.UnderlyingSymbol, that1.UnderlyingSymbol)
+	}
+	if this.UnderlyingName != that1.UnderlyingName {
+		return fmt.Errorf("UnderlyingName this(%v) Not Equal that(%v)", this.UnderlyingName, that1.UnderlyingName)
+	}
+	if !bytes.Equal(this.InterestRateModelAddress, that1.InterestRateModelAddress) {
+		return fmt.Errorf("InterestRateModelAddress this(%v) Not Equal that(%v)", this.InterestRateModelAddress, that1.InterestRateModelAddress)
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return fmt.Errorf("XXX_unrecognized this(%v) Not Equal that(%v)", this.XXX_unrecognized, that1.XXX_unrecognized)
+	}
+	return nil
+}
+func (this *CToken) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*CToken)
+	if !ok {
+		that2, ok := that.(CToken)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if !bytes.Equal(this.TokenAddress, that1.TokenAddress) {
+		return false
+	}
+	if !this.TotalSupply.Equal(that1.TotalSupply) {
+		return false
+	}
+	if !this.TotalBorrows.Equal(that1.TotalBorrows) {
+		return false
+	}
+	if !this.Reserves.Equal(that1.Reserves) {
+		return false
+	}
+	if !this.Cash.Equal(that1.Cash) {
+		return false
+	}
+	if !this.ExchangeRate.Equal(that1.ExchangeRate) {
+		return false
+	}
+	if !this.SupplyRate.Equal(that1.SupplyRate) {
+		return false
+	}
+	if !this.BorrowRate.Equal(that1.BorrowRate) {
+		return false
+	}
+	if !this.CollateralFactor.Equal(that1.CollateralFactor) {
+		return false
+	}
+	if this.NumberOfSuppliers != that1.NumberOfSuppliers {
+		return false
+	}
+	if this.NumberOfBorrowers != that1.NumberOfBorrowers {
+		return false
+	}
+	if !this.UnderlyingPrice.Equal(that1.UnderlyingPrice) {
+		return false
+	}
+	if !bytes.Equal(this.UnderlyingAddress, that1.UnderlyingAddress) {
+		return false
+	}
+	if this.Symbol != that1.Symbol {
+		return false
+	}
+	if this.Name != that1.Name {
+		return false
+	}
+	if this.UnderlyingSymbol != that1.UnderlyingSymbol {
+		return false
+	}
+	if this.UnderlyingName != that1.UnderlyingName {
+		return false
+	}
+	if !bytes.Equal(this.InterestRateModelAddress, that1.InterestRateModelAddress) {
+		return false
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return false
+	}
+	return true
+}
+func (this *CTokenResponse) VerboseEqual(that interface{}) error {
+	if that == nil {
+		if this == nil {
+			return nil
+		}
+		return fmt.Errorf("that == nil && this != nil")
+	}
+
+	that1, ok := that.(*CTokenResponse)
+	if !ok {
+		that2, ok := that.(CTokenResponse)
+		if ok {
+			that1 = &that2
+		} else {
+			return fmt.Errorf("that is not of type *CTokenResponse")
+		}
+	}
+	if that1 == nil {
+		if this == nil {
+			return nil
+		}
+		return fmt.Errorf("that is type *CTokenResponse but is nil && this != nil")
+	} else if this == nil {
+		return fmt.Errorf("that is type *CTokenResponse but is not nil && this == nil")
+	}
+	if !this.Error.Equal(that1.Error) {
+		return fmt.Errorf("Error this(%v) Not Equal that(%v)", this.Error, that1.Error)
+	}
+	if !this.Request.Equal(that1.Request) {
+		return fmt.Errorf("Request this(%v) Not Equal that(%v)", this.Request, that1.Request)
+	}
+	if len(this.CToken) != len(that1.CToken) {
+		return fmt.Errorf("CToken this(%v) Not Equal that(%v)", len(this.CToken), len(that1.CToken))
+	}
+	for i := range this.CToken {
+		if !this.CToken[i].Equal(that1.CToken[i]) {
+			return fmt.Errorf("CToken this[%v](%v) Not Equal that[%v](%v)", i, this.CToken[i], i, that1.CToken[i])
+		}
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return fmt.Errorf("XXX_unrecognized this(%v) Not Equal that(%v)", this.XXX_unrecognized, that1.XXX_unrecognized)
+	}
+	return nil
+}
+func (this *CTokenResponse) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*CTokenResponse)
+	if !ok {
+		that2, ok := that.(CTokenResponse)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if !this.Error.Equal(that1.Error) {
+		return false
+	}
+	if !this.Request.Equal(that1.Request) {
+		return false
+	}
+	if len(this.CToken) != len(that1.CToken) {
+		return false
+	}
+	for i := range this.CToken {
+		if !this.CToken[i].Equal(that1.CToken[i]) {
+			return false
+		}
+	}
+	if !bytes.Equal(this.XXX_unrecognized, that1.XXX_unrecognized) {
+		return false
+	}
+	return true
+}
+func (this *CTokenRequest) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 7)
+	s = append(s, "&API_Presidio.CTokenRequest{")
+	s = append(s, "Addresses: "+fmt.Sprintf("%#v", this.Addresses)+",\n")
+	s = append(s, "BlockNumber: "+fmt.Sprintf("%#v", this.BlockNumber)+",\n")
+	s = append(s, "BlockTimestamp: "+fmt.Sprintf("%#v", this.BlockTimestamp)+",\n")
+	if this.XXX_unrecognized != nil {
+		s = append(s, "XXX_unrecognized:"+fmt.Sprintf("%#v", this.XXX_unrecognized)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *CToken) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 22)
+	s = append(s, "&API_Presidio.CToken{")
+	s = append(s, "TokenAddress: "+fmt.Sprintf("%#v", this.TokenAddress)+",\n")
+	if this.TotalSupply != nil {
+		s = append(s, "TotalSupply: "+fmt.Sprintf("%#v", this.TotalSupply)+",\n")
+	}
+	if this.TotalBorrows != nil {
+		s = append(s, "TotalBorrows: "+fmt.Sprintf("%#v", this.TotalBorrows)+",\n")
+	}
+	if this.Reserves != nil {
+		s = append(s, "Reserves: "+fmt.Sprintf("%#v", this.Reserves)+",\n")
+	}
+	if this.Cash != nil {
+		s = append(s, "Cash: "+fmt.Sprintf("%#v", this.Cash)+",\n")
+	}
+	if this.ExchangeRate != nil {
+		s = append(s, "ExchangeRate: "+fmt.Sprintf("%#v", this.ExchangeRate)+",\n")
+	}
+	if this.SupplyRate != nil {
+		s = append(s, "SupplyRate: "+fmt.Sprintf("%#v", this.SupplyRate)+",\n")
+	}
+	if this.BorrowRate != nil {
+		s = append(s, "BorrowRate: "+fmt.Sprintf("%#v", this.BorrowRate)+",\n")
+	}
+	if this.CollateralFactor != nil {
+		s = append(s, "CollateralFactor: "+fmt.Sprintf("%#v", this.CollateralFactor)+",\n")
+	}
+	s = append(s, "NumberOfSuppliers: "+fmt.Sprintf("%#v", this.NumberOfSuppliers)+",\n")
+	s = append(s, "NumberOfBorrowers: "+fmt.Sprintf("%#v", this.NumberOfBorrowers)+",\n")
+	if this.UnderlyingPrice != nil {
+		s = append(s, "UnderlyingPrice: "+fmt.Sprintf("%#v", this.UnderlyingPrice)+",\n")
+	}
+	s = append(s, "UnderlyingAddress: "+fmt.Sprintf("%#v", this.UnderlyingAddress)+",\n")
+	s = append(s, "Symbol: "+fmt.Sprintf("%#v", this.Symbol)+",\n")
+	s = append(s, "Name: "+fmt.Sprintf("%#v", this.Name)+",\n")
+	s = append(s, "UnderlyingSymbol: "+fmt.Sprintf("%#v", this.UnderlyingSymbol)+",\n")
+	s = append(s, "UnderlyingName: "+fmt.Sprintf("%#v", this.UnderlyingName)+",\n")
+	s = append(s, "InterestRateModelAddress: "+fmt.Sprintf("%#v", this.InterestRateModelAddress)+",\n")
+	if this.XXX_unrecognized != nil {
+		s = append(s, "XXX_unrecognized:"+fmt.Sprintf("%#v", this.XXX_unrecognized)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *CTokenResponse) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 7)
+	s = append(s, "&API_Presidio.CTokenResponse{")
+	if this.Error != nil {
+		s = append(s, "Error: "+fmt.Sprintf("%#v", this.Error)+",\n")
+	}
+	if this.Request != nil {
+		s = append(s, "Request: "+fmt.Sprintf("%#v", this.Request)+",\n")
+	}
+	if this.CToken != nil {
+		s = append(s, "CToken: "+fmt.Sprintf("%#v", this.CToken)+",\n")
+	}
+	if this.XXX_unrecognized != nil {
+		s = append(s, "XXX_unrecognized:"+fmt.Sprintf("%#v", this.XXX_unrecognized)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func valueToGoStringCtoken(v interface{}, typ string) string {
+	rv := reflect.ValueOf(v)
+	if rv.IsNil() {
+		return "nil"
+	}
+	pv := reflect.Indirect(rv).Interface()
+	return fmt.Sprintf("func(v %v) *%v { return &v } ( %#v )", typ, typ, pv)
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -559,3 +1012,1691 @@ var _CTokenService_serviceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "ctoken.proto",
 }
+
+func (m *CTokenRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *CTokenRequest) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if len(m.Addresses) > 0 {
+		for _, b := range m.Addresses {
+			dAtA[i] = 0xa
+			i++
+			i = encodeVarintCtoken(dAtA, i, uint64(len(b)))
+			i += copy(dAtA[i:], b)
+		}
+	}
+	if m.BlockNumber != 0 {
+		dAtA[i] = 0x10
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.BlockNumber))
+	}
+	if m.BlockTimestamp != 0 {
+		dAtA[i] = 0x18
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.BlockTimestamp))
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *CToken) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *CToken) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if len(m.TokenAddress) > 0 {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.TokenAddress)))
+		i += copy(dAtA[i:], m.TokenAddress)
+	}
+	if m.TotalSupply != nil {
+		dAtA[i] = 0x12
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.TotalSupply.Size()))
+		n1, err := m.TotalSupply.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n1
+	}
+	if m.TotalBorrows != nil {
+		dAtA[i] = 0x22
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.TotalBorrows.Size()))
+		n2, err := m.TotalBorrows.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n2
+	}
+	if m.Reserves != nil {
+		dAtA[i] = 0x2a
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.Reserves.Size()))
+		n3, err := m.Reserves.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n3
+	}
+	if m.Cash != nil {
+		dAtA[i] = 0x32
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.Cash.Size()))
+		n4, err := m.Cash.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n4
+	}
+	if m.ExchangeRate != nil {
+		dAtA[i] = 0x3a
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.ExchangeRate.Size()))
+		n5, err := m.ExchangeRate.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n5
+	}
+	if m.SupplyRate != nil {
+		dAtA[i] = 0x42
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.SupplyRate.Size()))
+		n6, err := m.SupplyRate.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n6
+	}
+	if m.BorrowRate != nil {
+		dAtA[i] = 0x4a
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.BorrowRate.Size()))
+		n7, err := m.BorrowRate.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n7
+	}
+	if m.CollateralFactor != nil {
+		dAtA[i] = 0x52
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.CollateralFactor.Size()))
+		n8, err := m.CollateralFactor.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n8
+	}
+	if m.NumberOfSuppliers != 0 {
+		dAtA[i] = 0x58
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.NumberOfSuppliers))
+	}
+	if m.NumberOfBorrowers != 0 {
+		dAtA[i] = 0x60
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.NumberOfBorrowers))
+	}
+	if m.UnderlyingPrice != nil {
+		dAtA[i] = 0x6a
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.UnderlyingPrice.Size()))
+		n9, err := m.UnderlyingPrice.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n9
+	}
+	if len(m.UnderlyingAddress) > 0 {
+		dAtA[i] = 0x72
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.UnderlyingAddress)))
+		i += copy(dAtA[i:], m.UnderlyingAddress)
+	}
+	if len(m.Symbol) > 0 {
+		dAtA[i] = 0x7a
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.Symbol)))
+		i += copy(dAtA[i:], m.Symbol)
+	}
+	if len(m.Name) > 0 {
+		dAtA[i] = 0x8a
+		i++
+		dAtA[i] = 0x1
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.Name)))
+		i += copy(dAtA[i:], m.Name)
+	}
+	if len(m.UnderlyingSymbol) > 0 {
+		dAtA[i] = 0x92
+		i++
+		dAtA[i] = 0x1
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.UnderlyingSymbol)))
+		i += copy(dAtA[i:], m.UnderlyingSymbol)
+	}
+	if len(m.UnderlyingName) > 0 {
+		dAtA[i] = 0x9a
+		i++
+		dAtA[i] = 0x1
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.UnderlyingName)))
+		i += copy(dAtA[i:], m.UnderlyingName)
+	}
+	if len(m.InterestRateModelAddress) > 0 {
+		dAtA[i] = 0xa2
+		i++
+		dAtA[i] = 0x1
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(len(m.InterestRateModelAddress)))
+		i += copy(dAtA[i:], m.InterestRateModelAddress)
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func (m *CTokenResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *CTokenResponse) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if m.Error != nil {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.Error.Size()))
+		n10, err := m.Error.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n10
+	}
+	if m.Request != nil {
+		dAtA[i] = 0x12
+		i++
+		i = encodeVarintCtoken(dAtA, i, uint64(m.Request.Size()))
+		n11, err := m.Request.MarshalTo(dAtA[i:])
+		if err != nil {
+			return 0, err
+		}
+		i += n11
+	}
+	if len(m.CToken) > 0 {
+		for _, msg := range m.CToken {
+			dAtA[i] = 0x1a
+			i++
+			i = encodeVarintCtoken(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		i += copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	return i, nil
+}
+
+func encodeVarintCtoken(dAtA []byte, offset int, v uint64) int {
+	for v >= 1<<7 {
+		dAtA[offset] = uint8(v&0x7f | 0x80)
+		v >>= 7
+		offset++
+	}
+	dAtA[offset] = uint8(v)
+	return offset + 1
+}
+func NewPopulatedCTokenRequest(r randyCtoken, easy bool) *CTokenRequest {
+	this := &CTokenRequest{}
+	v1 := r.Intn(10)
+	this.Addresses = make([][]byte, v1)
+	for i := 0; i < v1; i++ {
+		v2 := r.Intn(100)
+		this.Addresses[i] = make([]byte, v2)
+		for j := 0; j < v2; j++ {
+			this.Addresses[i][j] = byte(r.Intn(256))
+		}
+	}
+	this.BlockNumber = uint32(r.Uint32())
+	this.BlockTimestamp = uint32(r.Uint32())
+	if !easy && r.Intn(10) != 0 {
+		this.XXX_unrecognized = randUnrecognizedCtoken(r, 4)
+	}
+	return this
+}
+
+func NewPopulatedCToken(r randyCtoken, easy bool) *CToken {
+	this := &CToken{}
+	v3 := r.Intn(100)
+	this.TokenAddress = make([]byte, v3)
+	for i := 0; i < v3; i++ {
+		this.TokenAddress[i] = byte(r.Intn(256))
+	}
+	if r.Intn(10) != 0 {
+		this.TotalSupply = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.TotalBorrows = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.Reserves = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.Cash = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.ExchangeRate = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.SupplyRate = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.BorrowRate = NewPopulatedPrecise(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.CollateralFactor = NewPopulatedPrecise(r, easy)
+	}
+	this.NumberOfSuppliers = uint32(r.Uint32())
+	this.NumberOfBorrowers = uint32(r.Uint32())
+	if r.Intn(10) != 0 {
+		this.UnderlyingPrice = NewPopulatedPrecise(r, easy)
+	}
+	v4 := r.Intn(100)
+	this.UnderlyingAddress = make([]byte, v4)
+	for i := 0; i < v4; i++ {
+		this.UnderlyingAddress[i] = byte(r.Intn(256))
+	}
+	this.Symbol = string(randStringCtoken(r))
+	this.Name = string(randStringCtoken(r))
+	this.UnderlyingSymbol = string(randStringCtoken(r))
+	this.UnderlyingName = string(randStringCtoken(r))
+	v5 := r.Intn(100)
+	this.InterestRateModelAddress = make([]byte, v5)
+	for i := 0; i < v5; i++ {
+		this.InterestRateModelAddress[i] = byte(r.Intn(256))
+	}
+	if !easy && r.Intn(10) != 0 {
+		this.XXX_unrecognized = randUnrecognizedCtoken(r, 21)
+	}
+	return this
+}
+
+func NewPopulatedCTokenResponse(r randyCtoken, easy bool) *CTokenResponse {
+	this := &CTokenResponse{}
+	if r.Intn(10) != 0 {
+		this.Error = NewPopulatedError(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		this.Request = NewPopulatedCTokenRequest(r, easy)
+	}
+	if r.Intn(10) != 0 {
+		v6 := r.Intn(5)
+		this.CToken = make([]*CToken, v6)
+		for i := 0; i < v6; i++ {
+			this.CToken[i] = NewPopulatedCToken(r, easy)
+		}
+	}
+	if !easy && r.Intn(10) != 0 {
+		this.XXX_unrecognized = randUnrecognizedCtoken(r, 4)
+	}
+	return this
+}
+
+type randyCtoken interface {
+	Float32() float32
+	Float64() float64
+	Int63() int64
+	Int31() int32
+	Uint32() uint32
+	Intn(n int) int
+}
+
+func randUTF8RuneCtoken(r randyCtoken) rune {
+	ru := r.Intn(62)
+	if ru < 10 {
+		return rune(ru + 48)
+	} else if ru < 36 {
+		return rune(ru + 55)
+	}
+	return rune(ru + 61)
+}
+func randStringCtoken(r randyCtoken) string {
+	v7 := r.Intn(100)
+	tmps := make([]rune, v7)
+	for i := 0; i < v7; i++ {
+		tmps[i] = randUTF8RuneCtoken(r)
+	}
+	return string(tmps)
+}
+func randUnrecognizedCtoken(r randyCtoken, maxFieldNumber int) (dAtA []byte) {
+	l := r.Intn(5)
+	for i := 0; i < l; i++ {
+		wire := r.Intn(4)
+		if wire == 3 {
+			wire = 5
+		}
+		fieldNumber := maxFieldNumber + r.Intn(100)
+		dAtA = randFieldCtoken(dAtA, r, fieldNumber, wire)
+	}
+	return dAtA
+}
+func randFieldCtoken(dAtA []byte, r randyCtoken, fieldNumber int, wire int) []byte {
+	key := uint32(fieldNumber)<<3 | uint32(wire)
+	switch wire {
+	case 0:
+		dAtA = encodeVarintPopulateCtoken(dAtA, uint64(key))
+		v8 := r.Int63()
+		if r.Intn(2) == 0 {
+			v8 *= -1
+		}
+		dAtA = encodeVarintPopulateCtoken(dAtA, uint64(v8))
+	case 1:
+		dAtA = encodeVarintPopulateCtoken(dAtA, uint64(key))
+		dAtA = append(dAtA, byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)))
+	case 2:
+		dAtA = encodeVarintPopulateCtoken(dAtA, uint64(key))
+		ll := r.Intn(100)
+		dAtA = encodeVarintPopulateCtoken(dAtA, uint64(ll))
+		for j := 0; j < ll; j++ {
+			dAtA = append(dAtA, byte(r.Intn(256)))
+		}
+	default:
+		dAtA = encodeVarintPopulateCtoken(dAtA, uint64(key))
+		dAtA = append(dAtA, byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)), byte(r.Intn(256)))
+	}
+	return dAtA
+}
+func encodeVarintPopulateCtoken(dAtA []byte, v uint64) []byte {
+	for v >= 1<<7 {
+		dAtA = append(dAtA, uint8(uint64(v)&0x7f|0x80))
+		v >>= 7
+	}
+	dAtA = append(dAtA, uint8(v))
+	return dAtA
+}
+func (m *CTokenRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Addresses) > 0 {
+		for _, b := range m.Addresses {
+			l = len(b)
+			n += 1 + l + sovCtoken(uint64(l))
+		}
+	}
+	if m.BlockNumber != 0 {
+		n += 1 + sovCtoken(uint64(m.BlockNumber))
+	}
+	if m.BlockTimestamp != 0 {
+		n += 1 + sovCtoken(uint64(m.BlockTimestamp))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *CToken) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.TokenAddress)
+	if l > 0 {
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.TotalSupply != nil {
+		l = m.TotalSupply.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.TotalBorrows != nil {
+		l = m.TotalBorrows.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.Reserves != nil {
+		l = m.Reserves.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.Cash != nil {
+		l = m.Cash.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.ExchangeRate != nil {
+		l = m.ExchangeRate.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.SupplyRate != nil {
+		l = m.SupplyRate.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.BorrowRate != nil {
+		l = m.BorrowRate.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.CollateralFactor != nil {
+		l = m.CollateralFactor.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.NumberOfSuppliers != 0 {
+		n += 1 + sovCtoken(uint64(m.NumberOfSuppliers))
+	}
+	if m.NumberOfBorrowers != 0 {
+		n += 1 + sovCtoken(uint64(m.NumberOfBorrowers))
+	}
+	if m.UnderlyingPrice != nil {
+		l = m.UnderlyingPrice.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	l = len(m.UnderlyingAddress)
+	if l > 0 {
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	l = len(m.Symbol)
+	if l > 0 {
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	l = len(m.Name)
+	if l > 0 {
+		n += 2 + l + sovCtoken(uint64(l))
+	}
+	l = len(m.UnderlyingSymbol)
+	if l > 0 {
+		n += 2 + l + sovCtoken(uint64(l))
+	}
+	l = len(m.UnderlyingName)
+	if l > 0 {
+		n += 2 + l + sovCtoken(uint64(l))
+	}
+	l = len(m.InterestRateModelAddress)
+	if l > 0 {
+		n += 2 + l + sovCtoken(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *CTokenResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Error != nil {
+		l = m.Error.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if m.Request != nil {
+		l = m.Request.Size()
+		n += 1 + l + sovCtoken(uint64(l))
+	}
+	if len(m.CToken) > 0 {
+		for _, e := range m.CToken {
+			l = e.Size()
+			n += 1 + l + sovCtoken(uint64(l))
+		}
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func sovCtoken(x uint64) (n int) {
+	for {
+		n++
+		x >>= 7
+		if x == 0 {
+			break
+		}
+	}
+	return n
+}
+func sozCtoken(x uint64) (n int) {
+	return sovCtoken(uint64((x << 1) ^ uint64((int64(x) >> 63))))
+}
+func (this *CTokenRequest) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&CTokenRequest{`,
+		`Addresses:` + fmt.Sprintf("%v", this.Addresses) + `,`,
+		`BlockNumber:` + fmt.Sprintf("%v", this.BlockNumber) + `,`,
+		`BlockTimestamp:` + fmt.Sprintf("%v", this.BlockTimestamp) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func (this *CToken) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&CToken{`,
+		`TokenAddress:` + fmt.Sprintf("%v", this.TokenAddress) + `,`,
+		`TotalSupply:` + strings.Replace(fmt.Sprintf("%v", this.TotalSupply), "Precise", "Precise", 1) + `,`,
+		`TotalBorrows:` + strings.Replace(fmt.Sprintf("%v", this.TotalBorrows), "Precise", "Precise", 1) + `,`,
+		`Reserves:` + strings.Replace(fmt.Sprintf("%v", this.Reserves), "Precise", "Precise", 1) + `,`,
+		`Cash:` + strings.Replace(fmt.Sprintf("%v", this.Cash), "Precise", "Precise", 1) + `,`,
+		`ExchangeRate:` + strings.Replace(fmt.Sprintf("%v", this.ExchangeRate), "Precise", "Precise", 1) + `,`,
+		`SupplyRate:` + strings.Replace(fmt.Sprintf("%v", this.SupplyRate), "Precise", "Precise", 1) + `,`,
+		`BorrowRate:` + strings.Replace(fmt.Sprintf("%v", this.BorrowRate), "Precise", "Precise", 1) + `,`,
+		`CollateralFactor:` + strings.Replace(fmt.Sprintf("%v", this.CollateralFactor), "Precise", "Precise", 1) + `,`,
+		`NumberOfSuppliers:` + fmt.Sprintf("%v", this.NumberOfSuppliers) + `,`,
+		`NumberOfBorrowers:` + fmt.Sprintf("%v", this.NumberOfBorrowers) + `,`,
+		`UnderlyingPrice:` + strings.Replace(fmt.Sprintf("%v", this.UnderlyingPrice), "Precise", "Precise", 1) + `,`,
+		`UnderlyingAddress:` + fmt.Sprintf("%v", this.UnderlyingAddress) + `,`,
+		`Symbol:` + fmt.Sprintf("%v", this.Symbol) + `,`,
+		`Name:` + fmt.Sprintf("%v", this.Name) + `,`,
+		`UnderlyingSymbol:` + fmt.Sprintf("%v", this.UnderlyingSymbol) + `,`,
+		`UnderlyingName:` + fmt.Sprintf("%v", this.UnderlyingName) + `,`,
+		`InterestRateModelAddress:` + fmt.Sprintf("%v", this.InterestRateModelAddress) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func (this *CTokenResponse) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&CTokenResponse{`,
+		`Error:` + strings.Replace(fmt.Sprintf("%v", this.Error), "Error", "Error", 1) + `,`,
+		`Request:` + strings.Replace(fmt.Sprintf("%v", this.Request), "CTokenRequest", "CTokenRequest", 1) + `,`,
+		`CToken:` + strings.Replace(fmt.Sprintf("%v", this.CToken), "CToken", "CToken", 1) + `,`,
+		`XXX_unrecognized:` + fmt.Sprintf("%v", this.XXX_unrecognized) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func valueToStringCtoken(v interface{}) string {
+	rv := reflect.ValueOf(v)
+	if rv.IsNil() {
+		return "nil"
+	}
+	pv := reflect.Indirect(rv).Interface()
+	return fmt.Sprintf("*%v", pv)
+}
+func (m *CTokenRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowCtoken
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: CTokenRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: CTokenRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Addresses", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Addresses = append(m.Addresses, make([]byte, postIndex-iNdEx))
+			copy(m.Addresses[len(m.Addresses)-1], dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field BlockNumber", wireType)
+			}
+			m.BlockNumber = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.BlockNumber |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field BlockTimestamp", wireType)
+			}
+			m.BlockTimestamp = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.BlockTimestamp |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipCtoken(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *CToken) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowCtoken
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: CToken: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: CToken: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TokenAddress", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TokenAddress = append(m.TokenAddress[:0], dAtA[iNdEx:postIndex]...)
+			if m.TokenAddress == nil {
+				m.TokenAddress = []byte{}
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TotalSupply", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.TotalSupply == nil {
+				m.TotalSupply = &Precise{}
+			}
+			if err := m.TotalSupply.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TotalBorrows", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.TotalBorrows == nil {
+				m.TotalBorrows = &Precise{}
+			}
+			if err := m.TotalBorrows.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Reserves", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Reserves == nil {
+				m.Reserves = &Precise{}
+			}
+			if err := m.Reserves.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Cash", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Cash == nil {
+				m.Cash = &Precise{}
+			}
+			if err := m.Cash.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 7:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ExchangeRate", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.ExchangeRate == nil {
+				m.ExchangeRate = &Precise{}
+			}
+			if err := m.ExchangeRate.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 8:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field SupplyRate", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.SupplyRate == nil {
+				m.SupplyRate = &Precise{}
+			}
+			if err := m.SupplyRate.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 9:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field BorrowRate", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.BorrowRate == nil {
+				m.BorrowRate = &Precise{}
+			}
+			if err := m.BorrowRate.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 10:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CollateralFactor", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.CollateralFactor == nil {
+				m.CollateralFactor = &Precise{}
+			}
+			if err := m.CollateralFactor.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 11:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NumberOfSuppliers", wireType)
+			}
+			m.NumberOfSuppliers = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.NumberOfSuppliers |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 12:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field NumberOfBorrowers", wireType)
+			}
+			m.NumberOfBorrowers = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.NumberOfBorrowers |= uint32(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 13:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UnderlyingPrice", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.UnderlyingPrice == nil {
+				m.UnderlyingPrice = &Precise{}
+			}
+			if err := m.UnderlyingPrice.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 14:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UnderlyingAddress", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UnderlyingAddress = append(m.UnderlyingAddress[:0], dAtA[iNdEx:postIndex]...)
+			if m.UnderlyingAddress == nil {
+				m.UnderlyingAddress = []byte{}
+			}
+			iNdEx = postIndex
+		case 15:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Symbol", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Symbol = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 17:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Name = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 18:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UnderlyingSymbol", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UnderlyingSymbol = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 19:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field UnderlyingName", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.UnderlyingName = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 20:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field InterestRateModelAddress", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.InterestRateModelAddress = append(m.InterestRateModelAddress[:0], dAtA[iNdEx:postIndex]...)
+			if m.InterestRateModelAddress == nil {
+				m.InterestRateModelAddress = []byte{}
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipCtoken(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *CTokenResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowCtoken
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: CTokenResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: CTokenResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Error", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Error == nil {
+				m.Error = &Error{}
+			}
+			if err := m.Error.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Request", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Request == nil {
+				m.Request = &CTokenRequest{}
+			}
+			if err := m.Request.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CToken", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.CToken = append(m.CToken, &CToken{})
+			if err := m.CToken[len(m.CToken)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipCtoken(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthCtoken
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func skipCtoken(dAtA []byte) (n int, err error) {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return 0, ErrIntOverflowCtoken
+			}
+			if iNdEx >= l {
+				return 0, io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		wireType := int(wire & 0x7)
+		switch wireType {
+		case 0:
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return 0, ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return 0, io.ErrUnexpectedEOF
+				}
+				iNdEx++
+				if dAtA[iNdEx-1] < 0x80 {
+					break
+				}
+			}
+			return iNdEx, nil
+		case 1:
+			iNdEx += 8
+			return iNdEx, nil
+		case 2:
+			var length int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return 0, ErrIntOverflowCtoken
+				}
+				if iNdEx >= l {
+					return 0, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				length |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if length < 0 {
+				return 0, ErrInvalidLengthCtoken
+			}
+			iNdEx += length
+			if iNdEx < 0 {
+				return 0, ErrInvalidLengthCtoken
+			}
+			return iNdEx, nil
+		case 3:
+			for {
+				var innerWire uint64
+				var start int = iNdEx
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return 0, ErrIntOverflowCtoken
+					}
+					if iNdEx >= l {
+						return 0, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					innerWire |= (uint64(b) & 0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				innerWireType := int(innerWire & 0x7)
+				if innerWireType == 4 {
+					break
+				}
+				next, err := skipCtoken(dAtA[start:])
+				if err != nil {
+					return 0, err
+				}
+				iNdEx = start + next
+				if iNdEx < 0 {
+					return 0, ErrInvalidLengthCtoken
+				}
+			}
+			return iNdEx, nil
+		case 4:
+			return iNdEx, nil
+		case 5:
+			iNdEx += 4
+			return iNdEx, nil
+		default:
+			return 0, fmt.Errorf("proto: illegal wireType %d", wireType)
+		}
+	}
+	panic("unreachable")
+}
+
+var (
+	ErrInvalidLengthCtoken = fmt.Errorf("proto: negative length found during unmarshaling")
+	ErrIntOverflowCtoken   = fmt.Errorf("proto: integer overflow")
+)
