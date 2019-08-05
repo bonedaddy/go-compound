@@ -6,7 +6,7 @@ type Config struct {
 	Address string `yaml:"address"`
 	// map of names to contract address
 	// ex. cDAI key could be used to return the cDAI contract address
-	Contracts map[string]string `yaml:"contracts"`
+	Contracts  map[string]string `yaml:"contracts"`
 	Blockchain `yaml:"blockchain"`
 }
 
@@ -18,5 +18,5 @@ type Blockchain struct {
 	// the json keyfile for our ethereum account
 	KeyFile string `yaml:"key_file"`
 	// the password to unlock the json keyfile
-	KeyPass string `yaml"key_pass"`
+	KeyPass string `yaml:"key_pass"`
 }
