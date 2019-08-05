@@ -2,15 +2,12 @@
 
 `go-compound` is a Golang client, and library for interacting with the compound.finace API, and eventually providing means to execute on-chain transactions. It comes with a small CLI providing access to convience functions like retrieving account health, etc...
 
-Eventually it will also ship with a [sampler](https://github.com/sqshq/sampler) config for dank console based metrics.
+# Contents
 
-The `pb` folder contains the protobufs the compound API which was sent to me by a compound.finance developer through discord. At the moment there appears ot be some issue with using the API and unmarshaling into protobus so don't use them for now. Instead use the `models` folder which was done using https://mholt.github.io/json-to-go/.
-
-# Use Cases
-
-* Interacting with compound.finance API with golang programs
-* Writing a compound.finance bot
-* Monitoring your compound.finance borrows, interests, etc...
+* `client` contains a client library to build applications that use the compound.finance API
+* `cmd` contains a small command-line client
+* `models` contains Golang types for the various responses that the API gives. Currently it has types for `CTokenService` and `AccountService` responses.
+* `pb` contains protobuf definitions for the compound APIs. Do not use
 
 # Current Capabilities
 
@@ -19,15 +16,26 @@ The `pb` folder contains the protobufs the compound API which was sent to me by 
 * Complete [AccountService](https://compound.finance/developers/api#AccountService) calls
 * Complete [CTokenService](https://compound.finance/developers/api#CTokenService) calls
 
-## Helpers
+## Client Library
 
+* Access to APIs via Golang programs
 * Watch account health, printing if account is at liquidation risk, or nearing liquidation risk.
+* Helper functions to rerieve supply interested, and borrow interest
 
 ## CLI
 
 * Pretty print full  `AccountService::AccountResponse` information, suitable for piping to `jq`
 * Retrieve account health
 * Retrieve supply interest earned for a particular token
+* Retrieve borrow interest owed for a particular token
+
+# Long Term Goals
+
+* Include a [sampler](https://github.com/sqshq/sampler) config for dank console based metrics.
+* Enable persisting retrieve data locally in a DB for fast lookups
+* Enable report generation of your holdings
+* Enable the `MarketHistoryService` API
+* Enable graphing of `MarketHistoryService` metrics
 
 # Links
 

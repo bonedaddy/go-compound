@@ -53,6 +53,15 @@ func (c *Client) GetSupplyInterestEarned(token Address, resp *models.AccountResp
 	return tkn.LifetimeSupplyInterestAccrued.Value, nil
 }
 
+// GetBorrowInterestedAccrued is used to retrieve the interest you owe for borrowing
+func (c *Client) GetBorrowInterestedAccrued(token Address, resp *models.AccountResponse) (string, error) {
+	tkn, err := models.GetTokenByAddress(token.String(), resp)
+	if err != nil {
+		return "", err
+	}
+	return tkn.LifetimeBorrowInterestAccrued.Value, nil
+}
+
 // sendRequest is used to send a request, and return the given body bytes
 func (c *Client) sendRequest(url string) ([]byte, error) {
 	request, err := http.NewRequest("GET", url, nil)
