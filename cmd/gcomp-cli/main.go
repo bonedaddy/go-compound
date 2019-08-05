@@ -122,6 +122,45 @@ func loadAccountCommands() cli.Commands {
 						},
 					},
 				},
+				cli.Command{
+					Name:  "supply-interest",
+					Usage: "get supply-interest earned",
+					Action: func(c *cli.Context) error {
+						if c.String("eth.address") == "" {
+							return errors.New("eth.address flag is empty")
+						}
+						if c.String("token.name") == "" {
+							return errors.New("token.name flag is empty")
+						}
+						cl := client.NewClient(url)
+						resp, err := cl.GetAccount(c.String("eth.address"))
+						if err != nil {
+							return err
+						}
+						if len(resp.Accounts) == 0 {
+							return errors.New("an unexpected error occurred")
+						}
+						interest, err := cl.GetSupplyInterestEarned(
+							client.CompoundTokens[c.String("token.name")],
+							resp,
+						)
+						if err != nil {
+							return err
+						}
+						fmt.Println("interest earned: ", interest)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "eth.address, ea",
+							Usage: "the address to lookup",
+						},
+						cli.StringFlag{
+							Name:  "token.name, tn",
+							Usage: "the compound token being supplied",
+						},
+					},
+				},
 			},
 			Flags: []cli.Flag{
 				cli.StringFlag{

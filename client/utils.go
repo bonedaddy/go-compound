@@ -3,8 +3,9 @@ package client
 import (
 	"io/ioutil"
 	"net/http"
-)
 
+	"github.com/postables/go-compound/models"
+)
 
 // Address is a compound contract address type
 type Address string
@@ -30,19 +31,28 @@ const (
 	CompoundZRX = Address("0xb3319f5d18bc0d84dd1b4825dcde5d5f7266d407")
 )
 
-
 var (
 	// CompoundTokens is map containing the name, and address of all compound tokens
 	CompoundTokens = map[string]Address{
-		"cBAT": CompoundBAT,
-		"cDAI": CompoundDAI,
-		"cETH": CompoundETH,
-		"cREP": CompoundREP,
+		"cBAT":  CompoundBAT,
+		"cDAI":  CompoundDAI,
+		"cETH":  CompoundETH,
+		"cREP":  CompoundREP,
 		"cUSDC": CompoundUSDC,
 		"cWBTC": CompoundWBTC,
-		"cZRX": CompoundZRX,
+		"cZRX":  CompoundZRX,
 	}
 )
+
+// GetSupplyInterestEarned is used to retrieve the interest earned by supply a particular token
+func (c *Client) GetSupplyInterestEarned(token Address, resp *models.AccountResponse) (string, error) {
+	tkn, err := models.GetTokenByAddress(token.String(), resp)
+	if err != nil {
+		return "", err
+	}
+	return tkn.LifetimeSupplyInterestAccrued.Value, nil
+}
+
 // sendRequest is used to send a request, and return the given body bytes
 func (c *Client) sendRequest(url string) ([]byte, error) {
 	request, err := http.NewRequest("GET", url, nil)

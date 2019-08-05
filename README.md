@@ -26,7 +26,8 @@ The `pb` folder contains the protobufs the compound API which was sent to me by 
 ## CLI
 
 * Pretty print full  `AccountService::AccountResponse` information, suitable for piping to `jq`
-* Print account health
+* Retrieve account health
+* Retrieve supply interest earned for a particular token
 
 # Links
 
