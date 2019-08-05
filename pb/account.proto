@@ -2,22 +2,8 @@ syntax = "proto3";
 
 import "annotations.proto";
 import "common.proto";
-import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
 package API.Presidio;
-
-option (gogoproto.gostring_all) = true;
-option (gogoproto.equal_all) = true;
-option (gogoproto.verbose_equal_all) = true;
-option (gogoproto.goproto_stringer_all) = false;
-option (gogoproto.stringer_all) =  true;
-option (gogoproto.populate_all) = true;
-option (gogoproto.testgen_all) = true;
-// uncomment to enable bench generation
-// option (gogoproto.benchgen_all) = true;
-option (gogoproto.marshaler_all) = true;
-option (gogoproto.sizer_all) = true;
-option (gogoproto.unmarshaler_all) = true;
 
 /**
   * The request to the account API can specify a number filters, such

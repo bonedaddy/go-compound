@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package API;
+package API.Presidio;
 
 // doc-false
 message Error {
