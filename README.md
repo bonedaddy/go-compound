@@ -1,5 +1,7 @@
 # go-compound
 
+> **WARNING: this code deals with money both by making blockchain calls and returning information that can be used to lose/gain money. Please use cautiously and dont come complaining if you end up losing money.**
+
 `go-compound` is a Golang client, and library for interacting with the compound.finace API, and eventually providing means to execute on-chain transactions. It comes with a small CLI providing access to convience functions like retrieving account health, etc...
 
 # Contents
