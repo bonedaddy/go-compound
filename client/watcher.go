@@ -42,7 +42,9 @@ func (c *Client) WatchHealth(ctx context.Context, address string) error {
 				return err
 			}
 			if health <= 1.0 {
-				fmt.Println("account nearing liquidation")
+				fmt.Println("account at risk of liquidation")
+			} else if health <= 1.2 {
+				fmt.Println("account nearing liquidation risk")
 			}
 		}
 	}
