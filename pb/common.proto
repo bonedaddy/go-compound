@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package API;
+
+// doc-false
+message Error {
+	uint32 error_code = 1;
+	string message = 2;
+	map<string, string> field_errors = 3;
+}
+
+// doc-false
+message Bytes32 {
+	bytes value = 1;
+}
+
+// For non-negative numbers only.
+message Precise {
+	// The full UNSIGNED number in string form. max value is 2^257 - 1,
+	// aka 231584178474632390847141970017375815706539969331281128078915168015826259279871
+	string value = 1;
+}
+
+// doc-false
+message SignedPrecise {
+	// The full SIGNED number in string form.
+	string value = 1;
+}
+
+// doc-false
+message CurrencyAmount {
+	string symbol = 1;
+	Precise amount = 2;
+}
+
+// Used for paginating results.
+message PaginationSummary {
+	// The current page number
+	uint32 page_number = 1;
+	// The number of entries to show per page.
+	uint32 page_size = 2;
+	// The number of items matching the request across all pages.
+	uint32 total_entries = 3;
+	// The number of pages need to show total_entries at the given page_size.
+	uint32 total_pages = 4;
+}
+
+/**
+ * Custom data types that are shared between services.
+ */
+service SharedDataTypes {}

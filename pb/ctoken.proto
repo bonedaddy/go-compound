@@ -1,0 +1,158 @@
+syntax = "proto3";
+
+import "annotations.proto";
+import "common.proto";
+
+package API.Presidio;
+
+/**
+  * The request to the cToken API can specify a number filters, such
+  * as which tokens to retrieve information about or moment in time.
+  * The following shows an example set of request
+  * parameters in JSON:
+  * <code>{
+  *   "addresses": [] // returns all tokens if empty or not included
+  *   "block_timestamp": 0 // returns latest information if given 0
+  * }</code>
+  */
+message CTokenRequest {
+    // List of token addresses to filter on, e.g.: ["0x...", ,"0x..."] [Optional]
+    repeated bytes addresses = 1;
+    // Only one of block_number or block timestamp should be provided. If provided, API returns data for given block number from our historical data. Otherwise, API defaults to returning the latest information. [Optional]
+    uint32 block_number = 2;
+    // Only one of block_number or block timestamp should be provided. If provided, API returns data for given block timestamp from our historical data. Otherwise, API defaults to returning the latest information. [Optional]
+    uint32 block_timestamp = 3;
+}
+
+/**
+  * This includes a list of cTokens contextualized to the full market.
+  * <code>{
+  *  "cToken": [{
+  *    "borrow_rate": {"value": "0.051453109785093843"},
+  *    "cash": {"value": "514.078443"},
+  *    "collateral_factor": {"value": "0.80000000000000000"},
+  *    "exchange_rate": {"value": "0.020024242770802729"},
+  *    "interest_rate_model_address": "0x1a43bfd39b15dcf444e17ab408c4b5be32deb7f5",
+  *    "name": "Compound USD Coin",
+  *    "number_of_borrowers": 3,
+  *    "number_of_suppliers": 34,
+  *    "reserves": {"value": "0"},
+  *    "supply_rate": {"value": "0.013237112532748109"},
+  *    "symbol": "cUSDC",
+  *    "token_address": "0x5b281a6dda0b271e91ae35de655ad301c976edb1",
+  *    "total_borrows": {"value": "178.064546"},
+  *    "total_supply": {"value": "34565.25157651"},
+  *    "underlying_address": "0x4dbcdf9b62e891a7cec5a2568c3f4faf9e8abe2b",
+  *    "underlying_name": "USD Coin",
+  *    "underlying_price": {"value": "0.0041368287055953530000000000"},
+  *    "underlying_symbol":"USDC"
+  *   }],
+  *  "error": null,
+  *  "request": {
+  *    "addresses": ["0x5b281a6dda0b271e91ae35de655ad301c976edb1"],
+  *    "block_number": 4515576,
+  *    "block_timestamp": 0
+  *   }
+  * }</code>
+  */
+message CToken {
+    // The public Ethereum address of the cToken
+    bytes token_address = 1;
+
+    // The number of cTokens in existence
+    Precise total_supply = 2;
+
+    // The amount of underlying tokens borrowed from the cToken
+    Precise total_borrows = 4;
+
+    // The amount of underylying tokens held by reserves
+    Precise reserves = 5;
+
+    // The current liquidity of the cToken
+    Precise cash = 6;
+
+    // The cToken / underlying exchange rate. This rate increases over time
+    // as supply interest accrues.
+    Precise exchange_rate = 7;
+
+    // The floating supply interest rate
+    Precise supply_rate = 8;
+
+    // The floating borrow interest rate
+    Precise borrow_rate = 9;
+
+    // The amount of the value of the underlying token that will count as collateral.
+    // eg. cEth with collataral factor 0.75 means 1 eth of supply allows 0.75 eth of
+    // borrowing.
+    Precise collateral_factor = 10;
+
+    // The number of accounts holding this cToken
+    uint32 number_of_suppliers = 11;
+
+    // The number of accounts with oustanding borrows
+    uint32 number_of_borrowers = 12;
+
+    // The price of the underlying token in eth
+    Precise underlying_price = 13;
+
+    // The address of the underlying token
+    bytes underlying_address = 14;
+
+    // The symbol of the ctoken
+    string symbol = 15;
+
+    // The name of the ctoken
+    string name = 17;
+
+    // The symbol of the underlying token
+    string underlying_symbol = 18;
+
+    // The name of the underlying token
+    string underlying_name = 19;
+
+    // The address of the interest rate model
+    bytes interest_rate_model_address = 20;
+}
+
+/*
+ * The cToken API returns an overall picture of cTokens matching the filter.
+ */
+message CTokenResponse {
+    /* If set and non-zero, indicates an error returning data.
+     * <pre>NO_ERROR = 0
+     * INTERNAL_ERROR = 1
+     */
+    Error error = 1;
+
+    enum errorCodes {
+        NO_ERROR = 0;
+        INTERNAL_ERROR = 1;
+    }
+
+    // The request parameters are echoed in the response.
+    CTokenRequest request = 2;
+
+    // The list of cToken (see <ref>CToken</ref> below) matching the requested filter.
+    repeated CToken cToken = 3;
+}
+
+/**
+ * <p><i>Note: This service is experimental (alpha) and subject to change.</i></p>
+ * The CToken API retrieves information for all cTokens.
+ * You can use this API to pull data about all cTokens:
+ * <code>// Retreives list all cTokens
+ * fetch("API_BASE_URL/api/v2/ctoken");
+ *
+ * // or return details for a single cToken
+ * fetch("API_BASE_URL/api/v2/ctoken?addresses[]=0x00..");</code>
+ *
+ */
+service CTokenService {
+    rpc ctoken(CTokenRequest) returns (CTokenResponse) {
+        option (google.api.http) = { get: "/ctoken" };
+    }
+
+    rpc post_ctoken(CTokenRequest) returns (CTokenResponse) {
+        option (google.api.http) = { post: "/ctoken" };
+    }
+}
