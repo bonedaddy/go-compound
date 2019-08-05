@@ -8,8 +8,7 @@ import (
 	"github.com/postables/go-compound/models"
 )
 
-// Client is a helper struct that gives access to both
-// the account service and ctoken service
+// Client is used to interact with the compound.finance api
 type Client struct {
 	url    string
 	client *http.Client
