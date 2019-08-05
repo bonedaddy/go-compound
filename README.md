@@ -1,8 +1,8 @@
 # go-compound
 
-Golang API for compound.finace
+`go-compound` is a Golang client, and library for interacting with the compound.finace API, and eventually providing means to execute on-chain transactions. It comes with a small CLI providing access to convience functions like retrieving account health, etc...
 
-To get the API to respond using protobufs, we need to use `Content-Type` of `application/x-protobuf`.
+Eventually it will also ship with a [sampler](https://github.com/sqshq/sampler) config for dank console based metrics.
 
 The `pb` folder contains the protobufs the compound API which was sent to me by a compound.finance developer through discord. At the moment there appears ot be some issue with using the API and unmarshaling into protobus so don't use them for now. Instead use the `models` folder which was done using https://mholt.github.io/json-to-go/.
 
