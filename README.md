@@ -9,3 +9,7 @@ The `pb` folder contains the protobufs the compound API which was sent to me by 
 # Links
 
 * [API Docs](https://compound.finance/developers/api)
+* [Compound GitHub](https://github.com/compound-finance/)
+* [Compound App](https://app.compound.finance/)
+* [Compound Website](https://compound.finance/)
+* [comproi](https://www.comproi.com/#)
