@@ -108,11 +108,6 @@ func loadAccountCommands() cli.Commands {
 							return err
 						}
 						fmt.Println("account health: ", health)
-						if health <= 1.0 {
-							fmt.Printf("health is %v and at risk of liquidation\n", health)
-						} else if health <= 1.2 {
-							fmt.Printf("health is %v and nearing liquidation\n", health)
-						}
 						return nil
 					},
 					Flags: []cli.Flag{
