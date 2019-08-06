@@ -6,6 +6,7 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
 	cbat "github.com/postables/go-compound/bindings/cbat"
@@ -145,4 +146,75 @@ func (bc *BClient) GetBorrowRate(ctx context.Context, address Address) (*big.Int
 		return nil, err
 	}
 	return rate, nil
+}
+
+// LiquidateOpts is used to provide input parameters to
+// LiquidateBorrow functinos
+type LiquidateOpts struct {
+	Borrower         common.Address
+	RepayAmount      *big.Int
+	CTokenCollateral Address
+}
+
+// GetLiqd is used to liquidate a borrower
+func (bc *BClient) GetLiqd(ctx context.Context, borrowToken Address, opts LiquidateOpts) error {
+	var (
+		tx  *types.Transaction
+		err error
+	)
+	switch borrowToken {
+	case CompoundBAT:
+		contract, err := cbat.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundETH:
+		contract, err := ceth.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.CTokenCollateral.EthAddress())
+	case CompoundREP:
+		contract, err := crep.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundUSDC:
+		contract, err := cusdc.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundWBTC:
+		contract, err := cwbtc.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundZRX:
+		contract, err := czrx.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	}
+	if err != nil {
+		return err
+	}
+	rcpt, err := bind.WaitMined(ctx, bc.client, tx)
+	if err != nil {
+		return err
+	}
+	if rcpt.Status != 1 {
+		return errors.New("tx receipt status is not 1, indicating a failure occurred")
+	}
+	return nil
 }
