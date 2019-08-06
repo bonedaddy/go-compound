@@ -53,3 +53,8 @@
 # Support
 
 If you like this application feel free to send me some ETH, or whatever (shit)coins you want to get rid of `0xc7459562777DDf3A1A7afefBE515E8479Bd3FDBD`.
+
+# Misc Q&A's
+
+* Q: on the compound token contracts, what's the different between `exchangeRateCurrent` and `exchangeRateStored`
+* A: Current calls accrueInterest - stored returns the last computed value
