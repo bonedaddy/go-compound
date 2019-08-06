@@ -6,6 +6,8 @@
 
 # Contents
 
+* `abi` contains json abi definitions for various compound smart contracts
+* `bindigns` contains `abigen` generated golang bindings for the various abi's
 * `client` contains a client library to build applications that use the compound.finance API
 * `cmd` contains a small command-line client
 * `models` contains Golang types for the various responses that the API gives. Currently it has types for `CTokenService` and `AccountService` responses.
