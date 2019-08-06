@@ -126,11 +126,13 @@ func loadAccountCommands() cli.Commands {
 					Name:  "supply-interest",
 					Usage: "get supply-interest earned",
 					Action: func(c *cli.Context) error {
-						if c.String("eth.address") == "" {
-							return errors.New("eth.address flag is empty")
-						}
-						if c.String("token.name") == "" {
-							return errors.New("token.name flag is empty")
+						if !c.Bool("total") {
+							if c.String("eth.address") == "" {
+								return errors.New("eth.address flag is empty")
+							}
+							if c.String("token.name") == "" {
+								return errors.New("token.name flag is empty")
+							}
 						}
 						cl := client.NewClient(url)
 						resp, err := cl.GetAccount(c.String("eth.address"))
@@ -140,10 +142,15 @@ func loadAccountCommands() cli.Commands {
 						if len(resp.Accounts) == 0 {
 							return errors.New("an unexpected error occurred")
 						}
-						interest, err := cl.GetSupplyInterestEarned(
-							client.CompoundTokens[c.String("token.name")],
-							resp,
-						)
+						var interest float64
+						if !c.Bool("total") {
+							interest, err = cl.GetSupplyInterestEarned(
+								client.CompoundTokens[c.String("token.name")],
+								resp,
+							)
+						} else {
+							interest, err = cl.GetTotalSupplyInterestedEarned(resp)
+						}
 						if err != nil {
 							return err
 						}
@@ -158,6 +165,10 @@ func loadAccountCommands() cli.Commands {
 						cli.StringFlag{
 							Name:  "token.name, tn",
 							Usage: "the compound token being supplied",
+						},
+						cli.BoolFlag{
+							Name:  "total",
+							Usage: "whether or not to collect total interest",
 						},
 					},
 				},

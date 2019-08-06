@@ -55,13 +55,37 @@ var (
 	}
 )
 
+// GetTotalSupplyInterestedEarned is used to return the total supply interest earned for a particular account
+func (c *Client) GetTotalSupplyInterestedEarned(resp *models.AccountResponse) (float64, error) {
+	if len(resp.Accounts) == 0 {
+		return 0, errors.New("no accounts found")
+	}
+	var (
+		account = resp.Accounts[0]
+		value   float64
+	)
+	for _, tk := range account.Tokens {
+		// skip tokens with no balance
+		if tk.LifetimeSupplyInterestAccrued.Value == "0" ||
+			tk.LifetimeSupplyInterestAccrued.Value == "0.0" {
+			continue
+		}
+		val, err := strconv.ParseFloat(tk.LifetimeSupplyInterestAccrued.Value, 64)
+		if err != nil {
+			return 0, err
+		}
+		value = value + val
+	}
+	return value, nil
+}
+
 // GetSupplyInterestEarned is used to retrieve the interest earned by supply a particular token
-func (c *Client) GetSupplyInterestEarned(token Address, resp *models.AccountResponse) (string, error) {
+func (c *Client) GetSupplyInterestEarned(token Address, resp *models.AccountResponse) (float64, error) {
 	tkn, err := models.GetTokenByAddress(token.String(), resp)
 	if err != nil {
-		return "", err
+		return 0, err
 	}
-	return tkn.LifetimeSupplyInterestAccrued.Value, nil
+	return strconv.ParseFloat(tkn.LifetimeSupplyInterestAccrued.Value, 64)
 }
 
 // GetBorrowInterestedAccrued is used to retrieve the interest you owe for borrowing
