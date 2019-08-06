@@ -1,12 +1,12 @@
 .PHONY: bindings
 bindings:
-	abigen --abi abi/cbat.json --pkg bindings --out bindings/cbat/cbat.go
-	abigen --abi abi/cdai.json --pkg bindings --out bindings/cdai/cdai.go
-	abigen --abi abi/ceth.json --pkg bindings --out bindings/ceth/ceth.go
-	abigen --abi abi/crep.json --pkg bindings --out bindings/crep/crep.go
-	abigen --abi abi/cusdc.json --pkg bindings --out bindings/cusdc/cusdc.go
-	abigen --abi abi/cwbtc.json --pkg bindings --out bindings/cwbtc/cwbtc.go
-	abigen --abi abi/czrx.json --pkg bindings --out bindings/czrx/czrx.go
+	abigen --abi abi/cbat.json --pkg cbat --out bindings/cbat/cbat.go
+	abigen --abi abi/cdai.json --pkg cdai --out bindings/cdai/cdai.go
+	abigen --abi abi/ceth.json --pkg ceth --out bindings/ceth/ceth.go
+	abigen --abi abi/crep.json --pkg crep --out bindings/crep/crep.go
+	abigen --abi abi/cusdc.json --pkg cusdc --out bindings/cusdc/cusdc.go
+	abigen --abi abi/cwbtc.json --pkg cwbtc --out bindings/cwbtc/cwbtc.go
+	abigen --abi abi/czrx.json --pkg czrx --out bindings/czrx/czrx.go
 
 .PHONY: gen
 gen:
