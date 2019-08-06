@@ -1,7 +1,7 @@
 // Code generated - DO NOT EDIT.
 // This file is a generated binding and any manual changes will be lost.
 
-package cwbtc
+package bindings
 
 import (
 	"math/big"
@@ -27,107 +27,107 @@ var (
 	_ = event.NewSubscription
 )
 
-// CwbtcABI is the input ABI used to generate the binding from.
-const CwbtcABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x06fdde03\"},{\"constant\":false,\"inputs\":[{\"name\":\"spender\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x095ea7b3\"},{\"constant\":false,\"inputs\":[{\"name\":\"repayAmount\",\"type\":\"uint256\"}],\"name\":\"repayBorrow\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x0e752702\"},{\"constant\":true,\"inputs\":[],\"name\":\"reserveFactorMantissa\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x173b9904\"},{\"constant\":false,\"inputs\":[{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"borrowBalanceCurrent\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x17bfdfbc\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x18160ddd\"},{\"constant\":true,\"inputs\":[],\"name\":\"exchangeRateStored\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x182df0f5\"},{\"constant\":false,\"inputs\":[{\"name\":\"src\",\"type\":\"address\"},{\"name\":\"dst\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x23b872dd\"},{\"constant\":false,\"inputs\":[{\"name\":\"borrower\",\"type\":\"address\"},{\"name\":\"repayAmount\",\"type\":\"uint256\"}],\"name\":\"repayBorrowBehalf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x2608f818\"},{\"constant\":true,\"inputs\":[],\"name\":\"pendingAdmin\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x26782247\"},{\"constant\":true,\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x313ce567\"},{\"constant\":false,\"inputs\":[{\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOfUnderlying\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x3af9e669\"},{\"constant\":true,\"inputs\":[],\"name\":\"getCash\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x3b1d21a2\"},{\"constant\":false,\"inputs\":[{\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"_setComptroller\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x4576b5db\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalBorrows\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x47bd3718\"},{\"constant\":true,\"inputs\":[],\"name\":\"comptroller\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x5fe3b567\"},{\"constant\":false,\"inputs\":[{\"name\":\"reduceAmount\",\"type\":\"uint256\"}],\"name\":\"_reduceReserves\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x601a0bf1\"},{\"constant\":true,\"inputs\":[],\"name\":\"initialExchangeRateMantissa\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x675d972c\"},{\"constant\":true,\"inputs\":[],\"name\":\"accrualBlockNumber\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x6c540baf\"},{\"constant\":true,\"inputs\":[],\"name\":\"underlying\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x6f307dc3\"},{\"constant\":true,\"inputs\":[{\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x70a08231\"},{\"constant\":false,\"inputs\":[],\"name\":\"totalBorrowsCurrent\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x73acee98\"},{\"constant\":false,\"inputs\":[{\"name\":\"redeemAmount\",\"type\":\"uint256\"}],\"name\":\"redeemUnderlying\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x852a12e3\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalReserves\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x8f840ddd\"},{\"constant\":true,\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x95d89b41\"},{\"constant\":true,\"inputs\":[{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"borrowBalanceStored\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x95dd9193\"},{\"constant\":false,\"inputs\":[{\"name\":\"mintAmount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xa0712d68\"},{\"constant\":false,\"inputs\":[],\"name\":\"accrueInterest\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xa6afed95\"},{\"constant\":false,\"inputs\":[{\"name\":\"dst\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xa9059cbb\"},{\"constant\":true,\"inputs\":[],\"name\":\"borrowIndex\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xaa5af0fd\"},{\"constant\":true,\"inputs\":[],\"name\":\"supplyRatePerBlock\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xae9d70b0\"},{\"constant\":false,\"inputs\":[{\"name\":\"liquidator\",\"type\":\"address\"},{\"name\":\"borrower\",\"type\":\"address\"},{\"name\":\"seizeTokens\",\"type\":\"uint256\"}],\"name\":\"seize\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xb2a02ff1\"},{\"constant\":false,\"inputs\":[{\"name\":\"newPendingAdmin\",\"type\":\"address\"}],\"name\":\"_setPendingAdmin\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xb71d1a0c\"},{\"constant\":false,\"inputs\":[],\"name\":\"exchangeRateCurrent\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xbd6d894d\"},{\"constant\":true,\"inputs\":[{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"getAccountSnapshot\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xc37f68e2\"},{\"constant\":false,\"inputs\":[{\"name\":\"borrowAmount\",\"type\":\"uint256\"}],\"name\":\"borrow\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xc5ebeaec\"},{\"constant\":false,\"inputs\":[{\"name\":\"redeemTokens\",\"type\":\"uint256\"}],\"name\":\"redeem\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xdb006a75\"},{\"constant\":true,\"inputs\":[{\"name\":\"owner\",\"type\":\"address\"},{\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xdd62ed3e\"},{\"constant\":false,\"inputs\":[],\"name\":\"_acceptAdmin\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xe9c714f2\"},{\"constant\":false,\"inputs\":[{\"name\":\"newInterestRateModel\",\"type\":\"address\"}],\"name\":\"_setInterestRateModel\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xf2b3abbd\"},{\"constant\":true,\"inputs\":[],\"name\":\"interestRateModel\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xf3fdb15a\"},{\"constant\":false,\"inputs\":[{\"name\":\"borrower\",\"type\":\"address\"},{\"name\":\"repayAmount\",\"type\":\"uint256\"},{\"name\":\"cTokenCollateral\",\"type\":\"address\"}],\"name\":\"liquidateBorrow\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xf5e3c462\"},{\"constant\":true,\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xf851a440\"},{\"constant\":true,\"inputs\":[],\"name\":\"borrowRatePerBlock\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xf8f9da28\"},{\"constant\":false,\"inputs\":[{\"name\":\"newReserveFactorMantissa\",\"type\":\"uint256\"}],\"name\":\"_setReserveFactor\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xfca7820b\"},{\"constant\":true,\"inputs\":[],\"name\":\"isCToken\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xfe9c44ae\"},{\"inputs\":[{\"name\":\"underlying_\",\"type\":\"address\"},{\"name\":\"comptroller_\",\"type\":\"address\"},{\"name\":\"interestRateModel_\",\"type\":\"address\"},{\"name\":\"initialExchangeRateMantissa_\",\"type\":\"uint256\"},{\"name\":\"name_\",\"type\":\"string\"},{\"name\":\"symbol_\",\"type\":\"string\"},{\"name\":\"decimals_\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"signature\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"interestAccumulated\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"borrowIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBorrows\",\"type\":\"uint256\"}],\"name\":\"AccrueInterest\",\"type\":\"event\",\"signature\":\"0x875352fb3fadeb8c0be7cbbe8ff761b308fa7033470cd0287f02f3436fd76cb9\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"minter\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"mintAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"mintTokens\",\"type\":\"uint256\"}],\"name\":\"Mint\",\"type\":\"event\",\"signature\":\"0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"redeemer\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"redeemAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"redeemTokens\",\"type\":\"uint256\"}],\"name\":\"Redeem\",\"type\":\"event\",\"signature\":\"0xe5b754fb1abb7f01b499791d0b820ae3b6af3424ac1c59768edb53f4ec31a929\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"borrower\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"borrowAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"accountBorrows\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBorrows\",\"type\":\"uint256\"}],\"name\":\"Borrow\",\"type\":\"event\",\"signature\":\"0x13ed6866d4e1ee6da46f845c46d7e54120883d75c5ea9a2dacc1c4ca8984ab80\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"payer\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"borrower\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"repayAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"accountBorrows\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBorrows\",\"type\":\"uint256\"}],\"name\":\"RepayBorrow\",\"type\":\"event\",\"signature\":\"0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"liquidator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"borrower\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"repayAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"cTokenCollateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"seizeTokens\",\"type\":\"uint256\"}],\"name\":\"LiquidateBorrow\",\"type\":\"event\",\"signature\":\"0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldPendingAdmin\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newPendingAdmin\",\"type\":\"address\"}],\"name\":\"NewPendingAdmin\",\"type\":\"event\",\"signature\":\"0xca4f2f25d0898edd99413412fb94012f9e54ec8142f9b093e7720646a95b16a9\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldAdmin\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"NewAdmin\",\"type\":\"event\",\"signature\":\"0xf9ffabca9c8276e99321725bcb43fb076a6c66a54b7f21c4e8146d8519b417dc\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldComptroller\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"NewComptroller\",\"type\":\"event\",\"signature\":\"0x7ac369dbd14fa5ea3f473ed67cc9d598964a77501540ba6751eb0b3decf5870d\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldInterestRateModel\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newInterestRateModel\",\"type\":\"address\"}],\"name\":\"NewMarketInterestRateModel\",\"type\":\"event\",\"signature\":\"0xedffc32e068c7c95dfd4bdfd5c4d939a084d6b11c4199eac8436ed234d72f926\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldReserveFactorMantissa\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"newReserveFactorMantissa\",\"type\":\"uint256\"}],\"name\":\"NewReserveFactor\",\"type\":\"event\",\"signature\":\"0xaaa68312e2ea9d50e16af5068410ab56e1a1fd06037b1a35664812c30f821460\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"reduceAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"newTotalReserves\",\"type\":\"uint256\"}],\"name\":\"ReservesReduced\",\"type\":\"event\",\"signature\":\"0x3bad0c59cf2f06e7314077049f48a93578cd16f5ef92329f1dab1420a99c177e\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"error\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"info\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"detail\",\"type\":\"uint256\"}],\"name\":\"Failure\",\"type\":\"event\",\"signature\":\"0x45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa0\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\",\"signature\":\"0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\",\"signature\":\"0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925\"}]"
+// BindingsABI is the input ABI used to generate the binding from.
+const BindingsABI = "[{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x06fdde03\"},{\"constant\":false,\"inputs\":[{\"name\":\"spender\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x095ea7b3\"},{\"constant\":false,\"inputs\":[{\"name\":\"repayAmount\",\"type\":\"uint256\"}],\"name\":\"repayBorrow\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x0e752702\"},{\"constant\":true,\"inputs\":[],\"name\":\"reserveFactorMantissa\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x173b9904\"},{\"constant\":false,\"inputs\":[{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"borrowBalanceCurrent\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x17bfdfbc\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x18160ddd\"},{\"constant\":true,\"inputs\":[],\"name\":\"exchangeRateStored\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x182df0f5\"},{\"constant\":false,\"inputs\":[{\"name\":\"src\",\"type\":\"address\"},{\"name\":\"dst\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x23b872dd\"},{\"constant\":false,\"inputs\":[{\"name\":\"borrower\",\"type\":\"address\"},{\"name\":\"repayAmount\",\"type\":\"uint256\"}],\"name\":\"repayBorrowBehalf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x2608f818\"},{\"constant\":true,\"inputs\":[],\"name\":\"pendingAdmin\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x26782247\"},{\"constant\":true,\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x313ce567\"},{\"constant\":false,\"inputs\":[{\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOfUnderlying\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x3af9e669\"},{\"constant\":true,\"inputs\":[],\"name\":\"getCash\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x3b1d21a2\"},{\"constant\":false,\"inputs\":[{\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"_setComptroller\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x4576b5db\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalBorrows\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x47bd3718\"},{\"constant\":true,\"inputs\":[],\"name\":\"comptroller\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x5fe3b567\"},{\"constant\":false,\"inputs\":[{\"name\":\"reduceAmount\",\"type\":\"uint256\"}],\"name\":\"_reduceReserves\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x601a0bf1\"},{\"constant\":true,\"inputs\":[],\"name\":\"initialExchangeRateMantissa\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x675d972c\"},{\"constant\":true,\"inputs\":[],\"name\":\"accrualBlockNumber\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x6c540baf\"},{\"constant\":true,\"inputs\":[],\"name\":\"underlying\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x6f307dc3\"},{\"constant\":true,\"inputs\":[{\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x70a08231\"},{\"constant\":false,\"inputs\":[],\"name\":\"totalBorrowsCurrent\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x73acee98\"},{\"constant\":false,\"inputs\":[{\"name\":\"redeemAmount\",\"type\":\"uint256\"}],\"name\":\"redeemUnderlying\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0x852a12e3\"},{\"constant\":true,\"inputs\":[],\"name\":\"totalReserves\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x8f840ddd\"},{\"constant\":true,\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x95d89b41\"},{\"constant\":true,\"inputs\":[{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"borrowBalanceStored\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0x95dd9193\"},{\"constant\":false,\"inputs\":[{\"name\":\"mintAmount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xa0712d68\"},{\"constant\":false,\"inputs\":[],\"name\":\"accrueInterest\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xa6afed95\"},{\"constant\":false,\"inputs\":[{\"name\":\"dst\",\"type\":\"address\"},{\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xa9059cbb\"},{\"constant\":true,\"inputs\":[],\"name\":\"borrowIndex\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xaa5af0fd\"},{\"constant\":true,\"inputs\":[],\"name\":\"supplyRatePerBlock\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xae9d70b0\"},{\"constant\":false,\"inputs\":[{\"name\":\"liquidator\",\"type\":\"address\"},{\"name\":\"borrower\",\"type\":\"address\"},{\"name\":\"seizeTokens\",\"type\":\"uint256\"}],\"name\":\"seize\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xb2a02ff1\"},{\"constant\":false,\"inputs\":[{\"name\":\"newPendingAdmin\",\"type\":\"address\"}],\"name\":\"_setPendingAdmin\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xb71d1a0c\"},{\"constant\":false,\"inputs\":[],\"name\":\"exchangeRateCurrent\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xbd6d894d\"},{\"constant\":true,\"inputs\":[{\"name\":\"account\",\"type\":\"address\"}],\"name\":\"getAccountSnapshot\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xc37f68e2\"},{\"constant\":false,\"inputs\":[{\"name\":\"borrowAmount\",\"type\":\"uint256\"}],\"name\":\"borrow\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xc5ebeaec\"},{\"constant\":false,\"inputs\":[{\"name\":\"redeemTokens\",\"type\":\"uint256\"}],\"name\":\"redeem\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xdb006a75\"},{\"constant\":true,\"inputs\":[{\"name\":\"owner\",\"type\":\"address\"},{\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xdd62ed3e\"},{\"constant\":false,\"inputs\":[],\"name\":\"_acceptAdmin\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xe9c714f2\"},{\"constant\":false,\"inputs\":[{\"name\":\"newInterestRateModel\",\"type\":\"address\"}],\"name\":\"_setInterestRateModel\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xf2b3abbd\"},{\"constant\":true,\"inputs\":[],\"name\":\"interestRateModel\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xf3fdb15a\"},{\"constant\":false,\"inputs\":[{\"name\":\"borrower\",\"type\":\"address\"},{\"name\":\"repayAmount\",\"type\":\"uint256\"},{\"name\":\"cTokenCollateral\",\"type\":\"address\"}],\"name\":\"liquidateBorrow\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xf5e3c462\"},{\"constant\":true,\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xf851a440\"},{\"constant\":true,\"inputs\":[],\"name\":\"borrowRatePerBlock\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xf8f9da28\"},{\"constant\":false,\"inputs\":[{\"name\":\"newReserveFactorMantissa\",\"type\":\"uint256\"}],\"name\":\"_setReserveFactor\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\",\"signature\":\"0xfca7820b\"},{\"constant\":true,\"inputs\":[],\"name\":\"isCToken\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\",\"signature\":\"0xfe9c44ae\"},{\"inputs\":[{\"name\":\"underlying_\",\"type\":\"address\"},{\"name\":\"comptroller_\",\"type\":\"address\"},{\"name\":\"interestRateModel_\",\"type\":\"address\"},{\"name\":\"initialExchangeRateMantissa_\",\"type\":\"uint256\"},{\"name\":\"name_\",\"type\":\"string\"},{\"name\":\"symbol_\",\"type\":\"string\"},{\"name\":\"decimals_\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\",\"signature\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"interestAccumulated\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"borrowIndex\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBorrows\",\"type\":\"uint256\"}],\"name\":\"AccrueInterest\",\"type\":\"event\",\"signature\":\"0x875352fb3fadeb8c0be7cbbe8ff761b308fa7033470cd0287f02f3436fd76cb9\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"minter\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"mintAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"mintTokens\",\"type\":\"uint256\"}],\"name\":\"Mint\",\"type\":\"event\",\"signature\":\"0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"redeemer\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"redeemAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"redeemTokens\",\"type\":\"uint256\"}],\"name\":\"Redeem\",\"type\":\"event\",\"signature\":\"0xe5b754fb1abb7f01b499791d0b820ae3b6af3424ac1c59768edb53f4ec31a929\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"borrower\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"borrowAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"accountBorrows\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBorrows\",\"type\":\"uint256\"}],\"name\":\"Borrow\",\"type\":\"event\",\"signature\":\"0x13ed6866d4e1ee6da46f845c46d7e54120883d75c5ea9a2dacc1c4ca8984ab80\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"payer\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"borrower\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"repayAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"accountBorrows\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"totalBorrows\",\"type\":\"uint256\"}],\"name\":\"RepayBorrow\",\"type\":\"event\",\"signature\":\"0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"liquidator\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"borrower\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"repayAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"cTokenCollateral\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"seizeTokens\",\"type\":\"uint256\"}],\"name\":\"LiquidateBorrow\",\"type\":\"event\",\"signature\":\"0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldPendingAdmin\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newPendingAdmin\",\"type\":\"address\"}],\"name\":\"NewPendingAdmin\",\"type\":\"event\",\"signature\":\"0xca4f2f25d0898edd99413412fb94012f9e54ec8142f9b093e7720646a95b16a9\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldAdmin\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newAdmin\",\"type\":\"address\"}],\"name\":\"NewAdmin\",\"type\":\"event\",\"signature\":\"0xf9ffabca9c8276e99321725bcb43fb076a6c66a54b7f21c4e8146d8519b417dc\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldComptroller\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newComptroller\",\"type\":\"address\"}],\"name\":\"NewComptroller\",\"type\":\"event\",\"signature\":\"0x7ac369dbd14fa5ea3f473ed67cc9d598964a77501540ba6751eb0b3decf5870d\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldInterestRateModel\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"newInterestRateModel\",\"type\":\"address\"}],\"name\":\"NewMarketInterestRateModel\",\"type\":\"event\",\"signature\":\"0xedffc32e068c7c95dfd4bdfd5c4d939a084d6b11c4199eac8436ed234d72f926\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"oldReserveFactorMantissa\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"newReserveFactorMantissa\",\"type\":\"uint256\"}],\"name\":\"NewReserveFactor\",\"type\":\"event\",\"signature\":\"0xaaa68312e2ea9d50e16af5068410ab56e1a1fd06037b1a35664812c30f821460\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"admin\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"reduceAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"newTotalReserves\",\"type\":\"uint256\"}],\"name\":\"ReservesReduced\",\"type\":\"event\",\"signature\":\"0x3bad0c59cf2f06e7314077049f48a93578cd16f5ef92329f1dab1420a99c177e\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"error\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"info\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"detail\",\"type\":\"uint256\"}],\"name\":\"Failure\",\"type\":\"event\",\"signature\":\"0x45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa0\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\",\"signature\":\"0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\",\"signature\":\"0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925\"}]"
 
-// Cwbtc is an auto generated Go binding around an Ethereum contract.
-type Cwbtc struct {
-	CwbtcCaller     // Read-only binding to the contract
-	CwbtcTransactor // Write-only binding to the contract
-	CwbtcFilterer   // Log filterer for contract events
+// Bindings is an auto generated Go binding around an Ethereum contract.
+type Bindings struct {
+	BindingsCaller     // Read-only binding to the contract
+	BindingsTransactor // Write-only binding to the contract
+	BindingsFilterer   // Log filterer for contract events
 }
 
-// CwbtcCaller is an auto generated read-only Go binding around an Ethereum contract.
-type CwbtcCaller struct {
+// BindingsCaller is an auto generated read-only Go binding around an Ethereum contract.
+type BindingsCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// CwbtcTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type CwbtcTransactor struct {
+// BindingsTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type BindingsTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// CwbtcFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type CwbtcFilterer struct {
+// BindingsFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type BindingsFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// CwbtcSession is an auto generated Go binding around an Ethereum contract,
+// BindingsSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type CwbtcSession struct {
-	Contract     *Cwbtc            // Generic contract binding to set the session for
+type BindingsSession struct {
+	Contract     *Bindings         // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// CwbtcCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// BindingsCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type CwbtcCallerSession struct {
-	Contract *CwbtcCaller  // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type BindingsCallerSession struct {
+	Contract *BindingsCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts   // Call options to use throughout this session
 }
 
-// CwbtcTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// BindingsTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type CwbtcTransactorSession struct {
-	Contract     *CwbtcTransactor  // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type BindingsTransactorSession struct {
+	Contract     *BindingsTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts   // Transaction auth options to use throughout this session
 }
 
-// CwbtcRaw is an auto generated low-level Go binding around an Ethereum contract.
-type CwbtcRaw struct {
-	Contract *Cwbtc // Generic contract binding to access the raw methods on
+// BindingsRaw is an auto generated low-level Go binding around an Ethereum contract.
+type BindingsRaw struct {
+	Contract *Bindings // Generic contract binding to access the raw methods on
 }
 
-// CwbtcCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type CwbtcCallerRaw struct {
-	Contract *CwbtcCaller // Generic read-only contract binding to access the raw methods on
+// BindingsCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type BindingsCallerRaw struct {
+	Contract *BindingsCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// CwbtcTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type CwbtcTransactorRaw struct {
-	Contract *CwbtcTransactor // Generic write-only contract binding to access the raw methods on
+// BindingsTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type BindingsTransactorRaw struct {
+	Contract *BindingsTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewCwbtc creates a new instance of Cwbtc, bound to a specific deployed contract.
-func NewCwbtc(address common.Address, backend bind.ContractBackend) (*Cwbtc, error) {
-	contract, err := bindCwbtc(address, backend, backend, backend)
+// NewBindings creates a new instance of Bindings, bound to a specific deployed contract.
+func NewBindings(address common.Address, backend bind.ContractBackend) (*Bindings, error) {
+	contract, err := bindBindings(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Cwbtc{CwbtcCaller: CwbtcCaller{contract: contract}, CwbtcTransactor: CwbtcTransactor{contract: contract}, CwbtcFilterer: CwbtcFilterer{contract: contract}}, nil
+	return &Bindings{BindingsCaller: BindingsCaller{contract: contract}, BindingsTransactor: BindingsTransactor{contract: contract}, BindingsFilterer: BindingsFilterer{contract: contract}}, nil
 }
 
-// NewCwbtcCaller creates a new read-only instance of Cwbtc, bound to a specific deployed contract.
-func NewCwbtcCaller(address common.Address, caller bind.ContractCaller) (*CwbtcCaller, error) {
-	contract, err := bindCwbtc(address, caller, nil, nil)
+// NewBindingsCaller creates a new read-only instance of Bindings, bound to a specific deployed contract.
+func NewBindingsCaller(address common.Address, caller bind.ContractCaller) (*BindingsCaller, error) {
+	contract, err := bindBindings(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcCaller{contract: contract}, nil
+	return &BindingsCaller{contract: contract}, nil
 }
 
-// NewCwbtcTransactor creates a new write-only instance of Cwbtc, bound to a specific deployed contract.
-func NewCwbtcTransactor(address common.Address, transactor bind.ContractTransactor) (*CwbtcTransactor, error) {
-	contract, err := bindCwbtc(address, nil, transactor, nil)
+// NewBindingsTransactor creates a new write-only instance of Bindings, bound to a specific deployed contract.
+func NewBindingsTransactor(address common.Address, transactor bind.ContractTransactor) (*BindingsTransactor, error) {
+	contract, err := bindBindings(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcTransactor{contract: contract}, nil
+	return &BindingsTransactor{contract: contract}, nil
 }
 
-// NewCwbtcFilterer creates a new log filterer instance of Cwbtc, bound to a specific deployed contract.
-func NewCwbtcFilterer(address common.Address, filterer bind.ContractFilterer) (*CwbtcFilterer, error) {
-	contract, err := bindCwbtc(address, nil, nil, filterer)
+// NewBindingsFilterer creates a new log filterer instance of Bindings, bound to a specific deployed contract.
+func NewBindingsFilterer(address common.Address, filterer bind.ContractFilterer) (*BindingsFilterer, error) {
+	contract, err := bindBindings(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcFilterer{contract: contract}, nil
+	return &BindingsFilterer{contract: contract}, nil
 }
 
-// bindCwbtc binds a generic wrapper to an already deployed contract.
-func bindCwbtc(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := abi.JSON(strings.NewReader(CwbtcABI))
+// bindBindings binds a generic wrapper to an already deployed contract.
+func bindBindings(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := abi.JSON(strings.NewReader(BindingsABI))
 	if err != nil {
 		return nil, err
 	}
@@ -138,304 +138,304 @@ func bindCwbtc(address common.Address, caller bind.ContractCaller, transactor bi
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Cwbtc *CwbtcRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
-	return _Cwbtc.Contract.CwbtcCaller.contract.Call(opts, result, method, params...)
+func (_Bindings *BindingsRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+	return _Bindings.Contract.BindingsCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Cwbtc *CwbtcRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Cwbtc.Contract.CwbtcTransactor.contract.Transfer(opts)
+func (_Bindings *BindingsRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Bindings.Contract.BindingsTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Cwbtc *CwbtcRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Cwbtc.Contract.CwbtcTransactor.contract.Transact(opts, method, params...)
+func (_Bindings *BindingsRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Bindings.Contract.BindingsTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Cwbtc *CwbtcCallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
-	return _Cwbtc.Contract.contract.Call(opts, result, method, params...)
+func (_Bindings *BindingsCallerRaw) Call(opts *bind.CallOpts, result interface{}, method string, params ...interface{}) error {
+	return _Bindings.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Cwbtc *CwbtcTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Cwbtc.Contract.contract.Transfer(opts)
+func (_Bindings *BindingsTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Bindings.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Cwbtc *CwbtcTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Cwbtc.Contract.contract.Transact(opts, method, params...)
+func (_Bindings *BindingsTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _Bindings.Contract.contract.Transact(opts, method, params...)
 }
 
 // AccrualBlockNumber is a free data retrieval call binding the contract method 0x6c540baf.
 //
 // Solidity: function accrualBlockNumber() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) AccrualBlockNumber(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) AccrualBlockNumber(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "accrualBlockNumber")
+	err := _Bindings.contract.Call(opts, out, "accrualBlockNumber")
 	return *ret0, err
 }
 
 // AccrualBlockNumber is a free data retrieval call binding the contract method 0x6c540baf.
 //
 // Solidity: function accrualBlockNumber() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) AccrualBlockNumber() (*big.Int, error) {
-	return _Cwbtc.Contract.AccrualBlockNumber(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) AccrualBlockNumber() (*big.Int, error) {
+	return _Bindings.Contract.AccrualBlockNumber(&_Bindings.CallOpts)
 }
 
 // AccrualBlockNumber is a free data retrieval call binding the contract method 0x6c540baf.
 //
 // Solidity: function accrualBlockNumber() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) AccrualBlockNumber() (*big.Int, error) {
-	return _Cwbtc.Contract.AccrualBlockNumber(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) AccrualBlockNumber() (*big.Int, error) {
+	return _Bindings.Contract.AccrualBlockNumber(&_Bindings.CallOpts)
 }
 
 // Admin is a free data retrieval call binding the contract method 0xf851a440.
 //
 // Solidity: function admin() constant returns(address)
-func (_Cwbtc *CwbtcCaller) Admin(opts *bind.CallOpts) (common.Address, error) {
+func (_Bindings *BindingsCaller) Admin(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "admin")
+	err := _Bindings.contract.Call(opts, out, "admin")
 	return *ret0, err
 }
 
 // Admin is a free data retrieval call binding the contract method 0xf851a440.
 //
 // Solidity: function admin() constant returns(address)
-func (_Cwbtc *CwbtcSession) Admin() (common.Address, error) {
-	return _Cwbtc.Contract.Admin(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) Admin() (common.Address, error) {
+	return _Bindings.Contract.Admin(&_Bindings.CallOpts)
 }
 
 // Admin is a free data retrieval call binding the contract method 0xf851a440.
 //
 // Solidity: function admin() constant returns(address)
-func (_Cwbtc *CwbtcCallerSession) Admin() (common.Address, error) {
-	return _Cwbtc.Contract.Admin(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) Admin() (common.Address, error) {
+	return _Bindings.Contract.Admin(&_Bindings.CallOpts)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
+func (_Bindings *BindingsCaller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "allowance", owner, spender)
+	err := _Bindings.contract.Call(opts, out, "allowance", owner, spender)
 	return *ret0, err
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) constant returns(uint256)
-func (_Cwbtc *CwbtcSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Cwbtc.Contract.Allowance(&_Cwbtc.CallOpts, owner, spender)
+func (_Bindings *BindingsSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _Bindings.Contract.Allowance(&_Bindings.CallOpts, owner, spender)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Cwbtc.Contract.Allowance(&_Cwbtc.CallOpts, owner, spender)
+func (_Bindings *BindingsCallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _Bindings.Contract.Allowance(&_Bindings.CallOpts, owner, spender)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*big.Int, error) {
+func (_Bindings *BindingsCaller) BalanceOf(opts *bind.CallOpts, owner common.Address) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "balanceOf", owner)
+	err := _Bindings.contract.Call(opts, out, "balanceOf", owner)
 	return *ret0, err
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) constant returns(uint256)
-func (_Cwbtc *CwbtcSession) BalanceOf(owner common.Address) (*big.Int, error) {
-	return _Cwbtc.Contract.BalanceOf(&_Cwbtc.CallOpts, owner)
+func (_Bindings *BindingsSession) BalanceOf(owner common.Address) (*big.Int, error) {
+	return _Bindings.Contract.BalanceOf(&_Bindings.CallOpts, owner)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address owner) constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) BalanceOf(owner common.Address) (*big.Int, error) {
-	return _Cwbtc.Contract.BalanceOf(&_Cwbtc.CallOpts, owner)
+func (_Bindings *BindingsCallerSession) BalanceOf(owner common.Address) (*big.Int, error) {
+	return _Bindings.Contract.BalanceOf(&_Bindings.CallOpts, owner)
 }
 
 // BorrowBalanceStored is a free data retrieval call binding the contract method 0x95dd9193.
 //
 // Solidity: function borrowBalanceStored(address account) constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) BorrowBalanceStored(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
+func (_Bindings *BindingsCaller) BorrowBalanceStored(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "borrowBalanceStored", account)
+	err := _Bindings.contract.Call(opts, out, "borrowBalanceStored", account)
 	return *ret0, err
 }
 
 // BorrowBalanceStored is a free data retrieval call binding the contract method 0x95dd9193.
 //
 // Solidity: function borrowBalanceStored(address account) constant returns(uint256)
-func (_Cwbtc *CwbtcSession) BorrowBalanceStored(account common.Address) (*big.Int, error) {
-	return _Cwbtc.Contract.BorrowBalanceStored(&_Cwbtc.CallOpts, account)
+func (_Bindings *BindingsSession) BorrowBalanceStored(account common.Address) (*big.Int, error) {
+	return _Bindings.Contract.BorrowBalanceStored(&_Bindings.CallOpts, account)
 }
 
 // BorrowBalanceStored is a free data retrieval call binding the contract method 0x95dd9193.
 //
 // Solidity: function borrowBalanceStored(address account) constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) BorrowBalanceStored(account common.Address) (*big.Int, error) {
-	return _Cwbtc.Contract.BorrowBalanceStored(&_Cwbtc.CallOpts, account)
+func (_Bindings *BindingsCallerSession) BorrowBalanceStored(account common.Address) (*big.Int, error) {
+	return _Bindings.Contract.BorrowBalanceStored(&_Bindings.CallOpts, account)
 }
 
 // BorrowIndex is a free data retrieval call binding the contract method 0xaa5af0fd.
 //
 // Solidity: function borrowIndex() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) BorrowIndex(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) BorrowIndex(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "borrowIndex")
+	err := _Bindings.contract.Call(opts, out, "borrowIndex")
 	return *ret0, err
 }
 
 // BorrowIndex is a free data retrieval call binding the contract method 0xaa5af0fd.
 //
 // Solidity: function borrowIndex() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) BorrowIndex() (*big.Int, error) {
-	return _Cwbtc.Contract.BorrowIndex(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) BorrowIndex() (*big.Int, error) {
+	return _Bindings.Contract.BorrowIndex(&_Bindings.CallOpts)
 }
 
 // BorrowIndex is a free data retrieval call binding the contract method 0xaa5af0fd.
 //
 // Solidity: function borrowIndex() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) BorrowIndex() (*big.Int, error) {
-	return _Cwbtc.Contract.BorrowIndex(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) BorrowIndex() (*big.Int, error) {
+	return _Bindings.Contract.BorrowIndex(&_Bindings.CallOpts)
 }
 
 // BorrowRatePerBlock is a free data retrieval call binding the contract method 0xf8f9da28.
 //
 // Solidity: function borrowRatePerBlock() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) BorrowRatePerBlock(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) BorrowRatePerBlock(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "borrowRatePerBlock")
+	err := _Bindings.contract.Call(opts, out, "borrowRatePerBlock")
 	return *ret0, err
 }
 
 // BorrowRatePerBlock is a free data retrieval call binding the contract method 0xf8f9da28.
 //
 // Solidity: function borrowRatePerBlock() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) BorrowRatePerBlock() (*big.Int, error) {
-	return _Cwbtc.Contract.BorrowRatePerBlock(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) BorrowRatePerBlock() (*big.Int, error) {
+	return _Bindings.Contract.BorrowRatePerBlock(&_Bindings.CallOpts)
 }
 
 // BorrowRatePerBlock is a free data retrieval call binding the contract method 0xf8f9da28.
 //
 // Solidity: function borrowRatePerBlock() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) BorrowRatePerBlock() (*big.Int, error) {
-	return _Cwbtc.Contract.BorrowRatePerBlock(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) BorrowRatePerBlock() (*big.Int, error) {
+	return _Bindings.Contract.BorrowRatePerBlock(&_Bindings.CallOpts)
 }
 
 // Comptroller is a free data retrieval call binding the contract method 0x5fe3b567.
 //
 // Solidity: function comptroller() constant returns(address)
-func (_Cwbtc *CwbtcCaller) Comptroller(opts *bind.CallOpts) (common.Address, error) {
+func (_Bindings *BindingsCaller) Comptroller(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "comptroller")
+	err := _Bindings.contract.Call(opts, out, "comptroller")
 	return *ret0, err
 }
 
 // Comptroller is a free data retrieval call binding the contract method 0x5fe3b567.
 //
 // Solidity: function comptroller() constant returns(address)
-func (_Cwbtc *CwbtcSession) Comptroller() (common.Address, error) {
-	return _Cwbtc.Contract.Comptroller(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) Comptroller() (common.Address, error) {
+	return _Bindings.Contract.Comptroller(&_Bindings.CallOpts)
 }
 
 // Comptroller is a free data retrieval call binding the contract method 0x5fe3b567.
 //
 // Solidity: function comptroller() constant returns(address)
-func (_Cwbtc *CwbtcCallerSession) Comptroller() (common.Address, error) {
-	return _Cwbtc.Contract.Comptroller(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) Comptroller() (common.Address, error) {
+	return _Bindings.Contract.Comptroller(&_Bindings.CallOpts)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) Decimals(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) Decimals(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "decimals")
+	err := _Bindings.contract.Call(opts, out, "decimals")
 	return *ret0, err
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) Decimals() (*big.Int, error) {
-	return _Cwbtc.Contract.Decimals(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) Decimals() (*big.Int, error) {
+	return _Bindings.Contract.Decimals(&_Bindings.CallOpts)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) Decimals() (*big.Int, error) {
-	return _Cwbtc.Contract.Decimals(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) Decimals() (*big.Int, error) {
+	return _Bindings.Contract.Decimals(&_Bindings.CallOpts)
 }
 
 // ExchangeRateStored is a free data retrieval call binding the contract method 0x182df0f5.
 //
 // Solidity: function exchangeRateStored() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) ExchangeRateStored(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) ExchangeRateStored(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "exchangeRateStored")
+	err := _Bindings.contract.Call(opts, out, "exchangeRateStored")
 	return *ret0, err
 }
 
 // ExchangeRateStored is a free data retrieval call binding the contract method 0x182df0f5.
 //
 // Solidity: function exchangeRateStored() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) ExchangeRateStored() (*big.Int, error) {
-	return _Cwbtc.Contract.ExchangeRateStored(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) ExchangeRateStored() (*big.Int, error) {
+	return _Bindings.Contract.ExchangeRateStored(&_Bindings.CallOpts)
 }
 
 // ExchangeRateStored is a free data retrieval call binding the contract method 0x182df0f5.
 //
 // Solidity: function exchangeRateStored() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) ExchangeRateStored() (*big.Int, error) {
-	return _Cwbtc.Contract.ExchangeRateStored(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) ExchangeRateStored() (*big.Int, error) {
+	return _Bindings.Contract.ExchangeRateStored(&_Bindings.CallOpts)
 }
 
 // GetAccountSnapshot is a free data retrieval call binding the contract method 0xc37f68e2.
 //
 // Solidity: function getAccountSnapshot(address account) constant returns(uint256, uint256, uint256, uint256)
-func (_Cwbtc *CwbtcCaller) GetAccountSnapshot(opts *bind.CallOpts, account common.Address) (*big.Int, *big.Int, *big.Int, *big.Int, error) {
+func (_Bindings *BindingsCaller) GetAccountSnapshot(opts *bind.CallOpts, account common.Address) (*big.Int, *big.Int, *big.Int, *big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 		ret1 = new(*big.Int)
@@ -448,827 +448,827 @@ func (_Cwbtc *CwbtcCaller) GetAccountSnapshot(opts *bind.CallOpts, account commo
 		ret2,
 		ret3,
 	}
-	err := _Cwbtc.contract.Call(opts, out, "getAccountSnapshot", account)
+	err := _Bindings.contract.Call(opts, out, "getAccountSnapshot", account)
 	return *ret0, *ret1, *ret2, *ret3, err
 }
 
 // GetAccountSnapshot is a free data retrieval call binding the contract method 0xc37f68e2.
 //
 // Solidity: function getAccountSnapshot(address account) constant returns(uint256, uint256, uint256, uint256)
-func (_Cwbtc *CwbtcSession) GetAccountSnapshot(account common.Address) (*big.Int, *big.Int, *big.Int, *big.Int, error) {
-	return _Cwbtc.Contract.GetAccountSnapshot(&_Cwbtc.CallOpts, account)
+func (_Bindings *BindingsSession) GetAccountSnapshot(account common.Address) (*big.Int, *big.Int, *big.Int, *big.Int, error) {
+	return _Bindings.Contract.GetAccountSnapshot(&_Bindings.CallOpts, account)
 }
 
 // GetAccountSnapshot is a free data retrieval call binding the contract method 0xc37f68e2.
 //
 // Solidity: function getAccountSnapshot(address account) constant returns(uint256, uint256, uint256, uint256)
-func (_Cwbtc *CwbtcCallerSession) GetAccountSnapshot(account common.Address) (*big.Int, *big.Int, *big.Int, *big.Int, error) {
-	return _Cwbtc.Contract.GetAccountSnapshot(&_Cwbtc.CallOpts, account)
+func (_Bindings *BindingsCallerSession) GetAccountSnapshot(account common.Address) (*big.Int, *big.Int, *big.Int, *big.Int, error) {
+	return _Bindings.Contract.GetAccountSnapshot(&_Bindings.CallOpts, account)
 }
 
 // GetCash is a free data retrieval call binding the contract method 0x3b1d21a2.
 //
 // Solidity: function getCash() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) GetCash(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) GetCash(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "getCash")
+	err := _Bindings.contract.Call(opts, out, "getCash")
 	return *ret0, err
 }
 
 // GetCash is a free data retrieval call binding the contract method 0x3b1d21a2.
 //
 // Solidity: function getCash() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) GetCash() (*big.Int, error) {
-	return _Cwbtc.Contract.GetCash(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) GetCash() (*big.Int, error) {
+	return _Bindings.Contract.GetCash(&_Bindings.CallOpts)
 }
 
 // GetCash is a free data retrieval call binding the contract method 0x3b1d21a2.
 //
 // Solidity: function getCash() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) GetCash() (*big.Int, error) {
-	return _Cwbtc.Contract.GetCash(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) GetCash() (*big.Int, error) {
+	return _Bindings.Contract.GetCash(&_Bindings.CallOpts)
 }
 
 // InitialExchangeRateMantissa is a free data retrieval call binding the contract method 0x675d972c.
 //
 // Solidity: function initialExchangeRateMantissa() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) InitialExchangeRateMantissa(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) InitialExchangeRateMantissa(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "initialExchangeRateMantissa")
+	err := _Bindings.contract.Call(opts, out, "initialExchangeRateMantissa")
 	return *ret0, err
 }
 
 // InitialExchangeRateMantissa is a free data retrieval call binding the contract method 0x675d972c.
 //
 // Solidity: function initialExchangeRateMantissa() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) InitialExchangeRateMantissa() (*big.Int, error) {
-	return _Cwbtc.Contract.InitialExchangeRateMantissa(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) InitialExchangeRateMantissa() (*big.Int, error) {
+	return _Bindings.Contract.InitialExchangeRateMantissa(&_Bindings.CallOpts)
 }
 
 // InitialExchangeRateMantissa is a free data retrieval call binding the contract method 0x675d972c.
 //
 // Solidity: function initialExchangeRateMantissa() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) InitialExchangeRateMantissa() (*big.Int, error) {
-	return _Cwbtc.Contract.InitialExchangeRateMantissa(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) InitialExchangeRateMantissa() (*big.Int, error) {
+	return _Bindings.Contract.InitialExchangeRateMantissa(&_Bindings.CallOpts)
 }
 
 // InterestRateModel is a free data retrieval call binding the contract method 0xf3fdb15a.
 //
 // Solidity: function interestRateModel() constant returns(address)
-func (_Cwbtc *CwbtcCaller) InterestRateModel(opts *bind.CallOpts) (common.Address, error) {
+func (_Bindings *BindingsCaller) InterestRateModel(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "interestRateModel")
+	err := _Bindings.contract.Call(opts, out, "interestRateModel")
 	return *ret0, err
 }
 
 // InterestRateModel is a free data retrieval call binding the contract method 0xf3fdb15a.
 //
 // Solidity: function interestRateModel() constant returns(address)
-func (_Cwbtc *CwbtcSession) InterestRateModel() (common.Address, error) {
-	return _Cwbtc.Contract.InterestRateModel(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) InterestRateModel() (common.Address, error) {
+	return _Bindings.Contract.InterestRateModel(&_Bindings.CallOpts)
 }
 
 // InterestRateModel is a free data retrieval call binding the contract method 0xf3fdb15a.
 //
 // Solidity: function interestRateModel() constant returns(address)
-func (_Cwbtc *CwbtcCallerSession) InterestRateModel() (common.Address, error) {
-	return _Cwbtc.Contract.InterestRateModel(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) InterestRateModel() (common.Address, error) {
+	return _Bindings.Contract.InterestRateModel(&_Bindings.CallOpts)
 }
 
 // IsCToken is a free data retrieval call binding the contract method 0xfe9c44ae.
 //
 // Solidity: function isCToken() constant returns(bool)
-func (_Cwbtc *CwbtcCaller) IsCToken(opts *bind.CallOpts) (bool, error) {
+func (_Bindings *BindingsCaller) IsCToken(opts *bind.CallOpts) (bool, error) {
 	var (
 		ret0 = new(bool)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "isCToken")
+	err := _Bindings.contract.Call(opts, out, "isCToken")
 	return *ret0, err
 }
 
 // IsCToken is a free data retrieval call binding the contract method 0xfe9c44ae.
 //
 // Solidity: function isCToken() constant returns(bool)
-func (_Cwbtc *CwbtcSession) IsCToken() (bool, error) {
-	return _Cwbtc.Contract.IsCToken(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) IsCToken() (bool, error) {
+	return _Bindings.Contract.IsCToken(&_Bindings.CallOpts)
 }
 
 // IsCToken is a free data retrieval call binding the contract method 0xfe9c44ae.
 //
 // Solidity: function isCToken() constant returns(bool)
-func (_Cwbtc *CwbtcCallerSession) IsCToken() (bool, error) {
-	return _Cwbtc.Contract.IsCToken(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) IsCToken() (bool, error) {
+	return _Bindings.Contract.IsCToken(&_Bindings.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() constant returns(string)
-func (_Cwbtc *CwbtcCaller) Name(opts *bind.CallOpts) (string, error) {
+func (_Bindings *BindingsCaller) Name(opts *bind.CallOpts) (string, error) {
 	var (
 		ret0 = new(string)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "name")
+	err := _Bindings.contract.Call(opts, out, "name")
 	return *ret0, err
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() constant returns(string)
-func (_Cwbtc *CwbtcSession) Name() (string, error) {
-	return _Cwbtc.Contract.Name(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) Name() (string, error) {
+	return _Bindings.Contract.Name(&_Bindings.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() constant returns(string)
-func (_Cwbtc *CwbtcCallerSession) Name() (string, error) {
-	return _Cwbtc.Contract.Name(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) Name() (string, error) {
+	return _Bindings.Contract.Name(&_Bindings.CallOpts)
 }
 
 // PendingAdmin is a free data retrieval call binding the contract method 0x26782247.
 //
 // Solidity: function pendingAdmin() constant returns(address)
-func (_Cwbtc *CwbtcCaller) PendingAdmin(opts *bind.CallOpts) (common.Address, error) {
+func (_Bindings *BindingsCaller) PendingAdmin(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "pendingAdmin")
+	err := _Bindings.contract.Call(opts, out, "pendingAdmin")
 	return *ret0, err
 }
 
 // PendingAdmin is a free data retrieval call binding the contract method 0x26782247.
 //
 // Solidity: function pendingAdmin() constant returns(address)
-func (_Cwbtc *CwbtcSession) PendingAdmin() (common.Address, error) {
-	return _Cwbtc.Contract.PendingAdmin(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) PendingAdmin() (common.Address, error) {
+	return _Bindings.Contract.PendingAdmin(&_Bindings.CallOpts)
 }
 
 // PendingAdmin is a free data retrieval call binding the contract method 0x26782247.
 //
 // Solidity: function pendingAdmin() constant returns(address)
-func (_Cwbtc *CwbtcCallerSession) PendingAdmin() (common.Address, error) {
-	return _Cwbtc.Contract.PendingAdmin(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) PendingAdmin() (common.Address, error) {
+	return _Bindings.Contract.PendingAdmin(&_Bindings.CallOpts)
 }
 
 // ReserveFactorMantissa is a free data retrieval call binding the contract method 0x173b9904.
 //
 // Solidity: function reserveFactorMantissa() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) ReserveFactorMantissa(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) ReserveFactorMantissa(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "reserveFactorMantissa")
+	err := _Bindings.contract.Call(opts, out, "reserveFactorMantissa")
 	return *ret0, err
 }
 
 // ReserveFactorMantissa is a free data retrieval call binding the contract method 0x173b9904.
 //
 // Solidity: function reserveFactorMantissa() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) ReserveFactorMantissa() (*big.Int, error) {
-	return _Cwbtc.Contract.ReserveFactorMantissa(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) ReserveFactorMantissa() (*big.Int, error) {
+	return _Bindings.Contract.ReserveFactorMantissa(&_Bindings.CallOpts)
 }
 
 // ReserveFactorMantissa is a free data retrieval call binding the contract method 0x173b9904.
 //
 // Solidity: function reserveFactorMantissa() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) ReserveFactorMantissa() (*big.Int, error) {
-	return _Cwbtc.Contract.ReserveFactorMantissa(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) ReserveFactorMantissa() (*big.Int, error) {
+	return _Bindings.Contract.ReserveFactorMantissa(&_Bindings.CallOpts)
 }
 
 // SupplyRatePerBlock is a free data retrieval call binding the contract method 0xae9d70b0.
 //
 // Solidity: function supplyRatePerBlock() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) SupplyRatePerBlock(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) SupplyRatePerBlock(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "supplyRatePerBlock")
+	err := _Bindings.contract.Call(opts, out, "supplyRatePerBlock")
 	return *ret0, err
 }
 
 // SupplyRatePerBlock is a free data retrieval call binding the contract method 0xae9d70b0.
 //
 // Solidity: function supplyRatePerBlock() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) SupplyRatePerBlock() (*big.Int, error) {
-	return _Cwbtc.Contract.SupplyRatePerBlock(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) SupplyRatePerBlock() (*big.Int, error) {
+	return _Bindings.Contract.SupplyRatePerBlock(&_Bindings.CallOpts)
 }
 
 // SupplyRatePerBlock is a free data retrieval call binding the contract method 0xae9d70b0.
 //
 // Solidity: function supplyRatePerBlock() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) SupplyRatePerBlock() (*big.Int, error) {
-	return _Cwbtc.Contract.SupplyRatePerBlock(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) SupplyRatePerBlock() (*big.Int, error) {
+	return _Bindings.Contract.SupplyRatePerBlock(&_Bindings.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() constant returns(string)
-func (_Cwbtc *CwbtcCaller) Symbol(opts *bind.CallOpts) (string, error) {
+func (_Bindings *BindingsCaller) Symbol(opts *bind.CallOpts) (string, error) {
 	var (
 		ret0 = new(string)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "symbol")
+	err := _Bindings.contract.Call(opts, out, "symbol")
 	return *ret0, err
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() constant returns(string)
-func (_Cwbtc *CwbtcSession) Symbol() (string, error) {
-	return _Cwbtc.Contract.Symbol(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) Symbol() (string, error) {
+	return _Bindings.Contract.Symbol(&_Bindings.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() constant returns(string)
-func (_Cwbtc *CwbtcCallerSession) Symbol() (string, error) {
-	return _Cwbtc.Contract.Symbol(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) Symbol() (string, error) {
+	return _Bindings.Contract.Symbol(&_Bindings.CallOpts)
 }
 
 // TotalBorrows is a free data retrieval call binding the contract method 0x47bd3718.
 //
 // Solidity: function totalBorrows() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) TotalBorrows(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) TotalBorrows(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "totalBorrows")
+	err := _Bindings.contract.Call(opts, out, "totalBorrows")
 	return *ret0, err
 }
 
 // TotalBorrows is a free data retrieval call binding the contract method 0x47bd3718.
 //
 // Solidity: function totalBorrows() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) TotalBorrows() (*big.Int, error) {
-	return _Cwbtc.Contract.TotalBorrows(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) TotalBorrows() (*big.Int, error) {
+	return _Bindings.Contract.TotalBorrows(&_Bindings.CallOpts)
 }
 
 // TotalBorrows is a free data retrieval call binding the contract method 0x47bd3718.
 //
 // Solidity: function totalBorrows() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) TotalBorrows() (*big.Int, error) {
-	return _Cwbtc.Contract.TotalBorrows(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) TotalBorrows() (*big.Int, error) {
+	return _Bindings.Contract.TotalBorrows(&_Bindings.CallOpts)
 }
 
 // TotalReserves is a free data retrieval call binding the contract method 0x8f840ddd.
 //
 // Solidity: function totalReserves() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) TotalReserves(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) TotalReserves(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "totalReserves")
+	err := _Bindings.contract.Call(opts, out, "totalReserves")
 	return *ret0, err
 }
 
 // TotalReserves is a free data retrieval call binding the contract method 0x8f840ddd.
 //
 // Solidity: function totalReserves() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) TotalReserves() (*big.Int, error) {
-	return _Cwbtc.Contract.TotalReserves(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) TotalReserves() (*big.Int, error) {
+	return _Bindings.Contract.TotalReserves(&_Bindings.CallOpts)
 }
 
 // TotalReserves is a free data retrieval call binding the contract method 0x8f840ddd.
 //
 // Solidity: function totalReserves() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) TotalReserves() (*big.Int, error) {
-	return _Cwbtc.Contract.TotalReserves(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) TotalReserves() (*big.Int, error) {
+	return _Bindings.Contract.TotalReserves(&_Bindings.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() constant returns(uint256)
-func (_Cwbtc *CwbtcCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+func (_Bindings *BindingsCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var (
 		ret0 = new(*big.Int)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "totalSupply")
+	err := _Bindings.contract.Call(opts, out, "totalSupply")
 	return *ret0, err
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() constant returns(uint256)
-func (_Cwbtc *CwbtcSession) TotalSupply() (*big.Int, error) {
-	return _Cwbtc.Contract.TotalSupply(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) TotalSupply() (*big.Int, error) {
+	return _Bindings.Contract.TotalSupply(&_Bindings.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() constant returns(uint256)
-func (_Cwbtc *CwbtcCallerSession) TotalSupply() (*big.Int, error) {
-	return _Cwbtc.Contract.TotalSupply(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) TotalSupply() (*big.Int, error) {
+	return _Bindings.Contract.TotalSupply(&_Bindings.CallOpts)
 }
 
 // Underlying is a free data retrieval call binding the contract method 0x6f307dc3.
 //
 // Solidity: function underlying() constant returns(address)
-func (_Cwbtc *CwbtcCaller) Underlying(opts *bind.CallOpts) (common.Address, error) {
+func (_Bindings *BindingsCaller) Underlying(opts *bind.CallOpts) (common.Address, error) {
 	var (
 		ret0 = new(common.Address)
 	)
 	out := ret0
-	err := _Cwbtc.contract.Call(opts, out, "underlying")
+	err := _Bindings.contract.Call(opts, out, "underlying")
 	return *ret0, err
 }
 
 // Underlying is a free data retrieval call binding the contract method 0x6f307dc3.
 //
 // Solidity: function underlying() constant returns(address)
-func (_Cwbtc *CwbtcSession) Underlying() (common.Address, error) {
-	return _Cwbtc.Contract.Underlying(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsSession) Underlying() (common.Address, error) {
+	return _Bindings.Contract.Underlying(&_Bindings.CallOpts)
 }
 
 // Underlying is a free data retrieval call binding the contract method 0x6f307dc3.
 //
 // Solidity: function underlying() constant returns(address)
-func (_Cwbtc *CwbtcCallerSession) Underlying() (common.Address, error) {
-	return _Cwbtc.Contract.Underlying(&_Cwbtc.CallOpts)
+func (_Bindings *BindingsCallerSession) Underlying() (common.Address, error) {
+	return _Bindings.Contract.Underlying(&_Bindings.CallOpts)
 }
 
 // AcceptAdmin is a paid mutator transaction binding the contract method 0xe9c714f2.
 //
 // Solidity: function _acceptAdmin() returns(uint256)
-func (_Cwbtc *CwbtcTransactor) AcceptAdmin(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "_acceptAdmin")
+func (_Bindings *BindingsTransactor) AcceptAdmin(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "_acceptAdmin")
 }
 
 // AcceptAdmin is a paid mutator transaction binding the contract method 0xe9c714f2.
 //
 // Solidity: function _acceptAdmin() returns(uint256)
-func (_Cwbtc *CwbtcSession) AcceptAdmin() (*types.Transaction, error) {
-	return _Cwbtc.Contract.AcceptAdmin(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsSession) AcceptAdmin() (*types.Transaction, error) {
+	return _Bindings.Contract.AcceptAdmin(&_Bindings.TransactOpts)
 }
 
 // AcceptAdmin is a paid mutator transaction binding the contract method 0xe9c714f2.
 //
 // Solidity: function _acceptAdmin() returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) AcceptAdmin() (*types.Transaction, error) {
-	return _Cwbtc.Contract.AcceptAdmin(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsTransactorSession) AcceptAdmin() (*types.Transaction, error) {
+	return _Bindings.Contract.AcceptAdmin(&_Bindings.TransactOpts)
 }
 
 // ReduceReserves is a paid mutator transaction binding the contract method 0x601a0bf1.
 //
 // Solidity: function _reduceReserves(uint256 reduceAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) ReduceReserves(opts *bind.TransactOpts, reduceAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "_reduceReserves", reduceAmount)
+func (_Bindings *BindingsTransactor) ReduceReserves(opts *bind.TransactOpts, reduceAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "_reduceReserves", reduceAmount)
 }
 
 // ReduceReserves is a paid mutator transaction binding the contract method 0x601a0bf1.
 //
 // Solidity: function _reduceReserves(uint256 reduceAmount) returns(uint256)
-func (_Cwbtc *CwbtcSession) ReduceReserves(reduceAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.ReduceReserves(&_Cwbtc.TransactOpts, reduceAmount)
+func (_Bindings *BindingsSession) ReduceReserves(reduceAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.ReduceReserves(&_Bindings.TransactOpts, reduceAmount)
 }
 
 // ReduceReserves is a paid mutator transaction binding the contract method 0x601a0bf1.
 //
 // Solidity: function _reduceReserves(uint256 reduceAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) ReduceReserves(reduceAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.ReduceReserves(&_Cwbtc.TransactOpts, reduceAmount)
+func (_Bindings *BindingsTransactorSession) ReduceReserves(reduceAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.ReduceReserves(&_Bindings.TransactOpts, reduceAmount)
 }
 
 // SetComptroller is a paid mutator transaction binding the contract method 0x4576b5db.
 //
 // Solidity: function _setComptroller(address newComptroller) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) SetComptroller(opts *bind.TransactOpts, newComptroller common.Address) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "_setComptroller", newComptroller)
+func (_Bindings *BindingsTransactor) SetComptroller(opts *bind.TransactOpts, newComptroller common.Address) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "_setComptroller", newComptroller)
 }
 
 // SetComptroller is a paid mutator transaction binding the contract method 0x4576b5db.
 //
 // Solidity: function _setComptroller(address newComptroller) returns(uint256)
-func (_Cwbtc *CwbtcSession) SetComptroller(newComptroller common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetComptroller(&_Cwbtc.TransactOpts, newComptroller)
+func (_Bindings *BindingsSession) SetComptroller(newComptroller common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.SetComptroller(&_Bindings.TransactOpts, newComptroller)
 }
 
 // SetComptroller is a paid mutator transaction binding the contract method 0x4576b5db.
 //
 // Solidity: function _setComptroller(address newComptroller) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) SetComptroller(newComptroller common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetComptroller(&_Cwbtc.TransactOpts, newComptroller)
+func (_Bindings *BindingsTransactorSession) SetComptroller(newComptroller common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.SetComptroller(&_Bindings.TransactOpts, newComptroller)
 }
 
 // SetInterestRateModel is a paid mutator transaction binding the contract method 0xf2b3abbd.
 //
 // Solidity: function _setInterestRateModel(address newInterestRateModel) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) SetInterestRateModel(opts *bind.TransactOpts, newInterestRateModel common.Address) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "_setInterestRateModel", newInterestRateModel)
+func (_Bindings *BindingsTransactor) SetInterestRateModel(opts *bind.TransactOpts, newInterestRateModel common.Address) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "_setInterestRateModel", newInterestRateModel)
 }
 
 // SetInterestRateModel is a paid mutator transaction binding the contract method 0xf2b3abbd.
 //
 // Solidity: function _setInterestRateModel(address newInterestRateModel) returns(uint256)
-func (_Cwbtc *CwbtcSession) SetInterestRateModel(newInterestRateModel common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetInterestRateModel(&_Cwbtc.TransactOpts, newInterestRateModel)
+func (_Bindings *BindingsSession) SetInterestRateModel(newInterestRateModel common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.SetInterestRateModel(&_Bindings.TransactOpts, newInterestRateModel)
 }
 
 // SetInterestRateModel is a paid mutator transaction binding the contract method 0xf2b3abbd.
 //
 // Solidity: function _setInterestRateModel(address newInterestRateModel) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) SetInterestRateModel(newInterestRateModel common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetInterestRateModel(&_Cwbtc.TransactOpts, newInterestRateModel)
+func (_Bindings *BindingsTransactorSession) SetInterestRateModel(newInterestRateModel common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.SetInterestRateModel(&_Bindings.TransactOpts, newInterestRateModel)
 }
 
 // SetPendingAdmin is a paid mutator transaction binding the contract method 0xb71d1a0c.
 //
 // Solidity: function _setPendingAdmin(address newPendingAdmin) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) SetPendingAdmin(opts *bind.TransactOpts, newPendingAdmin common.Address) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "_setPendingAdmin", newPendingAdmin)
+func (_Bindings *BindingsTransactor) SetPendingAdmin(opts *bind.TransactOpts, newPendingAdmin common.Address) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "_setPendingAdmin", newPendingAdmin)
 }
 
 // SetPendingAdmin is a paid mutator transaction binding the contract method 0xb71d1a0c.
 //
 // Solidity: function _setPendingAdmin(address newPendingAdmin) returns(uint256)
-func (_Cwbtc *CwbtcSession) SetPendingAdmin(newPendingAdmin common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetPendingAdmin(&_Cwbtc.TransactOpts, newPendingAdmin)
+func (_Bindings *BindingsSession) SetPendingAdmin(newPendingAdmin common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.SetPendingAdmin(&_Bindings.TransactOpts, newPendingAdmin)
 }
 
 // SetPendingAdmin is a paid mutator transaction binding the contract method 0xb71d1a0c.
 //
 // Solidity: function _setPendingAdmin(address newPendingAdmin) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) SetPendingAdmin(newPendingAdmin common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetPendingAdmin(&_Cwbtc.TransactOpts, newPendingAdmin)
+func (_Bindings *BindingsTransactorSession) SetPendingAdmin(newPendingAdmin common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.SetPendingAdmin(&_Bindings.TransactOpts, newPendingAdmin)
 }
 
 // SetReserveFactor is a paid mutator transaction binding the contract method 0xfca7820b.
 //
 // Solidity: function _setReserveFactor(uint256 newReserveFactorMantissa) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) SetReserveFactor(opts *bind.TransactOpts, newReserveFactorMantissa *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "_setReserveFactor", newReserveFactorMantissa)
+func (_Bindings *BindingsTransactor) SetReserveFactor(opts *bind.TransactOpts, newReserveFactorMantissa *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "_setReserveFactor", newReserveFactorMantissa)
 }
 
 // SetReserveFactor is a paid mutator transaction binding the contract method 0xfca7820b.
 //
 // Solidity: function _setReserveFactor(uint256 newReserveFactorMantissa) returns(uint256)
-func (_Cwbtc *CwbtcSession) SetReserveFactor(newReserveFactorMantissa *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetReserveFactor(&_Cwbtc.TransactOpts, newReserveFactorMantissa)
+func (_Bindings *BindingsSession) SetReserveFactor(newReserveFactorMantissa *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.SetReserveFactor(&_Bindings.TransactOpts, newReserveFactorMantissa)
 }
 
 // SetReserveFactor is a paid mutator transaction binding the contract method 0xfca7820b.
 //
 // Solidity: function _setReserveFactor(uint256 newReserveFactorMantissa) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) SetReserveFactor(newReserveFactorMantissa *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.SetReserveFactor(&_Cwbtc.TransactOpts, newReserveFactorMantissa)
+func (_Bindings *BindingsTransactorSession) SetReserveFactor(newReserveFactorMantissa *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.SetReserveFactor(&_Bindings.TransactOpts, newReserveFactorMantissa)
 }
 
 // AccrueInterest is a paid mutator transaction binding the contract method 0xa6afed95.
 //
 // Solidity: function accrueInterest() returns(uint256)
-func (_Cwbtc *CwbtcTransactor) AccrueInterest(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "accrueInterest")
+func (_Bindings *BindingsTransactor) AccrueInterest(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "accrueInterest")
 }
 
 // AccrueInterest is a paid mutator transaction binding the contract method 0xa6afed95.
 //
 // Solidity: function accrueInterest() returns(uint256)
-func (_Cwbtc *CwbtcSession) AccrueInterest() (*types.Transaction, error) {
-	return _Cwbtc.Contract.AccrueInterest(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsSession) AccrueInterest() (*types.Transaction, error) {
+	return _Bindings.Contract.AccrueInterest(&_Bindings.TransactOpts)
 }
 
 // AccrueInterest is a paid mutator transaction binding the contract method 0xa6afed95.
 //
 // Solidity: function accrueInterest() returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) AccrueInterest() (*types.Transaction, error) {
-	return _Cwbtc.Contract.AccrueInterest(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsTransactorSession) AccrueInterest() (*types.Transaction, error) {
+	return _Bindings.Contract.AccrueInterest(&_Bindings.TransactOpts)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcTransactor) Approve(opts *bind.TransactOpts, spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "approve", spender, amount)
+func (_Bindings *BindingsTransactor) Approve(opts *bind.TransactOpts, spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "approve", spender, amount)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Approve(&_Cwbtc.TransactOpts, spender, amount)
+func (_Bindings *BindingsSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Approve(&_Bindings.TransactOpts, spender, amount)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcTransactorSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Approve(&_Cwbtc.TransactOpts, spender, amount)
+func (_Bindings *BindingsTransactorSession) Approve(spender common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Approve(&_Bindings.TransactOpts, spender, amount)
 }
 
 // BalanceOfUnderlying is a paid mutator transaction binding the contract method 0x3af9e669.
 //
 // Solidity: function balanceOfUnderlying(address owner) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) BalanceOfUnderlying(opts *bind.TransactOpts, owner common.Address) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "balanceOfUnderlying", owner)
+func (_Bindings *BindingsTransactor) BalanceOfUnderlying(opts *bind.TransactOpts, owner common.Address) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "balanceOfUnderlying", owner)
 }
 
 // BalanceOfUnderlying is a paid mutator transaction binding the contract method 0x3af9e669.
 //
 // Solidity: function balanceOfUnderlying(address owner) returns(uint256)
-func (_Cwbtc *CwbtcSession) BalanceOfUnderlying(owner common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.BalanceOfUnderlying(&_Cwbtc.TransactOpts, owner)
+func (_Bindings *BindingsSession) BalanceOfUnderlying(owner common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.BalanceOfUnderlying(&_Bindings.TransactOpts, owner)
 }
 
 // BalanceOfUnderlying is a paid mutator transaction binding the contract method 0x3af9e669.
 //
 // Solidity: function balanceOfUnderlying(address owner) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) BalanceOfUnderlying(owner common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.BalanceOfUnderlying(&_Cwbtc.TransactOpts, owner)
+func (_Bindings *BindingsTransactorSession) BalanceOfUnderlying(owner common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.BalanceOfUnderlying(&_Bindings.TransactOpts, owner)
 }
 
 // Borrow is a paid mutator transaction binding the contract method 0xc5ebeaec.
 //
 // Solidity: function borrow(uint256 borrowAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) Borrow(opts *bind.TransactOpts, borrowAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "borrow", borrowAmount)
+func (_Bindings *BindingsTransactor) Borrow(opts *bind.TransactOpts, borrowAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "borrow", borrowAmount)
 }
 
 // Borrow is a paid mutator transaction binding the contract method 0xc5ebeaec.
 //
 // Solidity: function borrow(uint256 borrowAmount) returns(uint256)
-func (_Cwbtc *CwbtcSession) Borrow(borrowAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Borrow(&_Cwbtc.TransactOpts, borrowAmount)
+func (_Bindings *BindingsSession) Borrow(borrowAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Borrow(&_Bindings.TransactOpts, borrowAmount)
 }
 
 // Borrow is a paid mutator transaction binding the contract method 0xc5ebeaec.
 //
 // Solidity: function borrow(uint256 borrowAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) Borrow(borrowAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Borrow(&_Cwbtc.TransactOpts, borrowAmount)
+func (_Bindings *BindingsTransactorSession) Borrow(borrowAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Borrow(&_Bindings.TransactOpts, borrowAmount)
 }
 
 // BorrowBalanceCurrent is a paid mutator transaction binding the contract method 0x17bfdfbc.
 //
 // Solidity: function borrowBalanceCurrent(address account) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) BorrowBalanceCurrent(opts *bind.TransactOpts, account common.Address) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "borrowBalanceCurrent", account)
+func (_Bindings *BindingsTransactor) BorrowBalanceCurrent(opts *bind.TransactOpts, account common.Address) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "borrowBalanceCurrent", account)
 }
 
 // BorrowBalanceCurrent is a paid mutator transaction binding the contract method 0x17bfdfbc.
 //
 // Solidity: function borrowBalanceCurrent(address account) returns(uint256)
-func (_Cwbtc *CwbtcSession) BorrowBalanceCurrent(account common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.BorrowBalanceCurrent(&_Cwbtc.TransactOpts, account)
+func (_Bindings *BindingsSession) BorrowBalanceCurrent(account common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.BorrowBalanceCurrent(&_Bindings.TransactOpts, account)
 }
 
 // BorrowBalanceCurrent is a paid mutator transaction binding the contract method 0x17bfdfbc.
 //
 // Solidity: function borrowBalanceCurrent(address account) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) BorrowBalanceCurrent(account common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.BorrowBalanceCurrent(&_Cwbtc.TransactOpts, account)
+func (_Bindings *BindingsTransactorSession) BorrowBalanceCurrent(account common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.BorrowBalanceCurrent(&_Bindings.TransactOpts, account)
 }
 
 // ExchangeRateCurrent is a paid mutator transaction binding the contract method 0xbd6d894d.
 //
 // Solidity: function exchangeRateCurrent() returns(uint256)
-func (_Cwbtc *CwbtcTransactor) ExchangeRateCurrent(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "exchangeRateCurrent")
+func (_Bindings *BindingsTransactor) ExchangeRateCurrent(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "exchangeRateCurrent")
 }
 
 // ExchangeRateCurrent is a paid mutator transaction binding the contract method 0xbd6d894d.
 //
 // Solidity: function exchangeRateCurrent() returns(uint256)
-func (_Cwbtc *CwbtcSession) ExchangeRateCurrent() (*types.Transaction, error) {
-	return _Cwbtc.Contract.ExchangeRateCurrent(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsSession) ExchangeRateCurrent() (*types.Transaction, error) {
+	return _Bindings.Contract.ExchangeRateCurrent(&_Bindings.TransactOpts)
 }
 
 // ExchangeRateCurrent is a paid mutator transaction binding the contract method 0xbd6d894d.
 //
 // Solidity: function exchangeRateCurrent() returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) ExchangeRateCurrent() (*types.Transaction, error) {
-	return _Cwbtc.Contract.ExchangeRateCurrent(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsTransactorSession) ExchangeRateCurrent() (*types.Transaction, error) {
+	return _Bindings.Contract.ExchangeRateCurrent(&_Bindings.TransactOpts)
 }
 
 // LiquidateBorrow is a paid mutator transaction binding the contract method 0xf5e3c462.
 //
 // Solidity: function liquidateBorrow(address borrower, uint256 repayAmount, address cTokenCollateral) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) LiquidateBorrow(opts *bind.TransactOpts, borrower common.Address, repayAmount *big.Int, cTokenCollateral common.Address) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "liquidateBorrow", borrower, repayAmount, cTokenCollateral)
+func (_Bindings *BindingsTransactor) LiquidateBorrow(opts *bind.TransactOpts, borrower common.Address, repayAmount *big.Int, cTokenCollateral common.Address) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "liquidateBorrow", borrower, repayAmount, cTokenCollateral)
 }
 
 // LiquidateBorrow is a paid mutator transaction binding the contract method 0xf5e3c462.
 //
 // Solidity: function liquidateBorrow(address borrower, uint256 repayAmount, address cTokenCollateral) returns(uint256)
-func (_Cwbtc *CwbtcSession) LiquidateBorrow(borrower common.Address, repayAmount *big.Int, cTokenCollateral common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.LiquidateBorrow(&_Cwbtc.TransactOpts, borrower, repayAmount, cTokenCollateral)
+func (_Bindings *BindingsSession) LiquidateBorrow(borrower common.Address, repayAmount *big.Int, cTokenCollateral common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.LiquidateBorrow(&_Bindings.TransactOpts, borrower, repayAmount, cTokenCollateral)
 }
 
 // LiquidateBorrow is a paid mutator transaction binding the contract method 0xf5e3c462.
 //
 // Solidity: function liquidateBorrow(address borrower, uint256 repayAmount, address cTokenCollateral) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) LiquidateBorrow(borrower common.Address, repayAmount *big.Int, cTokenCollateral common.Address) (*types.Transaction, error) {
-	return _Cwbtc.Contract.LiquidateBorrow(&_Cwbtc.TransactOpts, borrower, repayAmount, cTokenCollateral)
+func (_Bindings *BindingsTransactorSession) LiquidateBorrow(borrower common.Address, repayAmount *big.Int, cTokenCollateral common.Address) (*types.Transaction, error) {
+	return _Bindings.Contract.LiquidateBorrow(&_Bindings.TransactOpts, borrower, repayAmount, cTokenCollateral)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 mintAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) Mint(opts *bind.TransactOpts, mintAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "mint", mintAmount)
+func (_Bindings *BindingsTransactor) Mint(opts *bind.TransactOpts, mintAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "mint", mintAmount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 mintAmount) returns(uint256)
-func (_Cwbtc *CwbtcSession) Mint(mintAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Mint(&_Cwbtc.TransactOpts, mintAmount)
+func (_Bindings *BindingsSession) Mint(mintAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Mint(&_Bindings.TransactOpts, mintAmount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0xa0712d68.
 //
 // Solidity: function mint(uint256 mintAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) Mint(mintAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Mint(&_Cwbtc.TransactOpts, mintAmount)
+func (_Bindings *BindingsTransactorSession) Mint(mintAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Mint(&_Bindings.TransactOpts, mintAmount)
 }
 
 // Redeem is a paid mutator transaction binding the contract method 0xdb006a75.
 //
 // Solidity: function redeem(uint256 redeemTokens) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) Redeem(opts *bind.TransactOpts, redeemTokens *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "redeem", redeemTokens)
+func (_Bindings *BindingsTransactor) Redeem(opts *bind.TransactOpts, redeemTokens *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "redeem", redeemTokens)
 }
 
 // Redeem is a paid mutator transaction binding the contract method 0xdb006a75.
 //
 // Solidity: function redeem(uint256 redeemTokens) returns(uint256)
-func (_Cwbtc *CwbtcSession) Redeem(redeemTokens *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Redeem(&_Cwbtc.TransactOpts, redeemTokens)
+func (_Bindings *BindingsSession) Redeem(redeemTokens *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Redeem(&_Bindings.TransactOpts, redeemTokens)
 }
 
 // Redeem is a paid mutator transaction binding the contract method 0xdb006a75.
 //
 // Solidity: function redeem(uint256 redeemTokens) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) Redeem(redeemTokens *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Redeem(&_Cwbtc.TransactOpts, redeemTokens)
+func (_Bindings *BindingsTransactorSession) Redeem(redeemTokens *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Redeem(&_Bindings.TransactOpts, redeemTokens)
 }
 
 // RedeemUnderlying is a paid mutator transaction binding the contract method 0x852a12e3.
 //
 // Solidity: function redeemUnderlying(uint256 redeemAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) RedeemUnderlying(opts *bind.TransactOpts, redeemAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "redeemUnderlying", redeemAmount)
+func (_Bindings *BindingsTransactor) RedeemUnderlying(opts *bind.TransactOpts, redeemAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "redeemUnderlying", redeemAmount)
 }
 
 // RedeemUnderlying is a paid mutator transaction binding the contract method 0x852a12e3.
 //
 // Solidity: function redeemUnderlying(uint256 redeemAmount) returns(uint256)
-func (_Cwbtc *CwbtcSession) RedeemUnderlying(redeemAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.RedeemUnderlying(&_Cwbtc.TransactOpts, redeemAmount)
+func (_Bindings *BindingsSession) RedeemUnderlying(redeemAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.RedeemUnderlying(&_Bindings.TransactOpts, redeemAmount)
 }
 
 // RedeemUnderlying is a paid mutator transaction binding the contract method 0x852a12e3.
 //
 // Solidity: function redeemUnderlying(uint256 redeemAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) RedeemUnderlying(redeemAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.RedeemUnderlying(&_Cwbtc.TransactOpts, redeemAmount)
+func (_Bindings *BindingsTransactorSession) RedeemUnderlying(redeemAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.RedeemUnderlying(&_Bindings.TransactOpts, redeemAmount)
 }
 
 // RepayBorrow is a paid mutator transaction binding the contract method 0x0e752702.
 //
 // Solidity: function repayBorrow(uint256 repayAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) RepayBorrow(opts *bind.TransactOpts, repayAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "repayBorrow", repayAmount)
+func (_Bindings *BindingsTransactor) RepayBorrow(opts *bind.TransactOpts, repayAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "repayBorrow", repayAmount)
 }
 
 // RepayBorrow is a paid mutator transaction binding the contract method 0x0e752702.
 //
 // Solidity: function repayBorrow(uint256 repayAmount) returns(uint256)
-func (_Cwbtc *CwbtcSession) RepayBorrow(repayAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.RepayBorrow(&_Cwbtc.TransactOpts, repayAmount)
+func (_Bindings *BindingsSession) RepayBorrow(repayAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.RepayBorrow(&_Bindings.TransactOpts, repayAmount)
 }
 
 // RepayBorrow is a paid mutator transaction binding the contract method 0x0e752702.
 //
 // Solidity: function repayBorrow(uint256 repayAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) RepayBorrow(repayAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.RepayBorrow(&_Cwbtc.TransactOpts, repayAmount)
+func (_Bindings *BindingsTransactorSession) RepayBorrow(repayAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.RepayBorrow(&_Bindings.TransactOpts, repayAmount)
 }
 
 // RepayBorrowBehalf is a paid mutator transaction binding the contract method 0x2608f818.
 //
 // Solidity: function repayBorrowBehalf(address borrower, uint256 repayAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) RepayBorrowBehalf(opts *bind.TransactOpts, borrower common.Address, repayAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "repayBorrowBehalf", borrower, repayAmount)
+func (_Bindings *BindingsTransactor) RepayBorrowBehalf(opts *bind.TransactOpts, borrower common.Address, repayAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "repayBorrowBehalf", borrower, repayAmount)
 }
 
 // RepayBorrowBehalf is a paid mutator transaction binding the contract method 0x2608f818.
 //
 // Solidity: function repayBorrowBehalf(address borrower, uint256 repayAmount) returns(uint256)
-func (_Cwbtc *CwbtcSession) RepayBorrowBehalf(borrower common.Address, repayAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.RepayBorrowBehalf(&_Cwbtc.TransactOpts, borrower, repayAmount)
+func (_Bindings *BindingsSession) RepayBorrowBehalf(borrower common.Address, repayAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.RepayBorrowBehalf(&_Bindings.TransactOpts, borrower, repayAmount)
 }
 
 // RepayBorrowBehalf is a paid mutator transaction binding the contract method 0x2608f818.
 //
 // Solidity: function repayBorrowBehalf(address borrower, uint256 repayAmount) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) RepayBorrowBehalf(borrower common.Address, repayAmount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.RepayBorrowBehalf(&_Cwbtc.TransactOpts, borrower, repayAmount)
+func (_Bindings *BindingsTransactorSession) RepayBorrowBehalf(borrower common.Address, repayAmount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.RepayBorrowBehalf(&_Bindings.TransactOpts, borrower, repayAmount)
 }
 
 // Seize is a paid mutator transaction binding the contract method 0xb2a02ff1.
 //
 // Solidity: function seize(address liquidator, address borrower, uint256 seizeTokens) returns(uint256)
-func (_Cwbtc *CwbtcTransactor) Seize(opts *bind.TransactOpts, liquidator common.Address, borrower common.Address, seizeTokens *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "seize", liquidator, borrower, seizeTokens)
+func (_Bindings *BindingsTransactor) Seize(opts *bind.TransactOpts, liquidator common.Address, borrower common.Address, seizeTokens *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "seize", liquidator, borrower, seizeTokens)
 }
 
 // Seize is a paid mutator transaction binding the contract method 0xb2a02ff1.
 //
 // Solidity: function seize(address liquidator, address borrower, uint256 seizeTokens) returns(uint256)
-func (_Cwbtc *CwbtcSession) Seize(liquidator common.Address, borrower common.Address, seizeTokens *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Seize(&_Cwbtc.TransactOpts, liquidator, borrower, seizeTokens)
+func (_Bindings *BindingsSession) Seize(liquidator common.Address, borrower common.Address, seizeTokens *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Seize(&_Bindings.TransactOpts, liquidator, borrower, seizeTokens)
 }
 
 // Seize is a paid mutator transaction binding the contract method 0xb2a02ff1.
 //
 // Solidity: function seize(address liquidator, address borrower, uint256 seizeTokens) returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) Seize(liquidator common.Address, borrower common.Address, seizeTokens *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Seize(&_Cwbtc.TransactOpts, liquidator, borrower, seizeTokens)
+func (_Bindings *BindingsTransactorSession) Seize(liquidator common.Address, borrower common.Address, seizeTokens *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Seize(&_Bindings.TransactOpts, liquidator, borrower, seizeTokens)
 }
 
 // TotalBorrowsCurrent is a paid mutator transaction binding the contract method 0x73acee98.
 //
 // Solidity: function totalBorrowsCurrent() returns(uint256)
-func (_Cwbtc *CwbtcTransactor) TotalBorrowsCurrent(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "totalBorrowsCurrent")
+func (_Bindings *BindingsTransactor) TotalBorrowsCurrent(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "totalBorrowsCurrent")
 }
 
 // TotalBorrowsCurrent is a paid mutator transaction binding the contract method 0x73acee98.
 //
 // Solidity: function totalBorrowsCurrent() returns(uint256)
-func (_Cwbtc *CwbtcSession) TotalBorrowsCurrent() (*types.Transaction, error) {
-	return _Cwbtc.Contract.TotalBorrowsCurrent(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsSession) TotalBorrowsCurrent() (*types.Transaction, error) {
+	return _Bindings.Contract.TotalBorrowsCurrent(&_Bindings.TransactOpts)
 }
 
 // TotalBorrowsCurrent is a paid mutator transaction binding the contract method 0x73acee98.
 //
 // Solidity: function totalBorrowsCurrent() returns(uint256)
-func (_Cwbtc *CwbtcTransactorSession) TotalBorrowsCurrent() (*types.Transaction, error) {
-	return _Cwbtc.Contract.TotalBorrowsCurrent(&_Cwbtc.TransactOpts)
+func (_Bindings *BindingsTransactorSession) TotalBorrowsCurrent() (*types.Transaction, error) {
+	return _Bindings.Contract.TotalBorrowsCurrent(&_Bindings.TransactOpts)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address dst, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcTransactor) Transfer(opts *bind.TransactOpts, dst common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "transfer", dst, amount)
+func (_Bindings *BindingsTransactor) Transfer(opts *bind.TransactOpts, dst common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "transfer", dst, amount)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address dst, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcSession) Transfer(dst common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Transfer(&_Cwbtc.TransactOpts, dst, amount)
+func (_Bindings *BindingsSession) Transfer(dst common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Transfer(&_Bindings.TransactOpts, dst, amount)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address dst, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcTransactorSession) Transfer(dst common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.Transfer(&_Cwbtc.TransactOpts, dst, amount)
+func (_Bindings *BindingsTransactorSession) Transfer(dst common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.Transfer(&_Bindings.TransactOpts, dst, amount)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address src, address dst, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcTransactor) TransferFrom(opts *bind.TransactOpts, src common.Address, dst common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.contract.Transact(opts, "transferFrom", src, dst, amount)
+func (_Bindings *BindingsTransactor) TransferFrom(opts *bind.TransactOpts, src common.Address, dst common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.contract.Transact(opts, "transferFrom", src, dst, amount)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address src, address dst, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcSession) TransferFrom(src common.Address, dst common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.TransferFrom(&_Cwbtc.TransactOpts, src, dst, amount)
+func (_Bindings *BindingsSession) TransferFrom(src common.Address, dst common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.TransferFrom(&_Bindings.TransactOpts, src, dst, amount)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address src, address dst, uint256 amount) returns(bool)
-func (_Cwbtc *CwbtcTransactorSession) TransferFrom(src common.Address, dst common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Cwbtc.Contract.TransferFrom(&_Cwbtc.TransactOpts, src, dst, amount)
+func (_Bindings *BindingsTransactorSession) TransferFrom(src common.Address, dst common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _Bindings.Contract.TransferFrom(&_Bindings.TransactOpts, src, dst, amount)
 }
 
-// CwbtcAccrueInterestIterator is returned from FilterAccrueInterest and is used to iterate over the raw logs and unpacked data for AccrueInterest events raised by the Cwbtc contract.
-type CwbtcAccrueInterestIterator struct {
-	Event *CwbtcAccrueInterest // Event containing the contract specifics and raw log
+// BindingsAccrueInterestIterator is returned from FilterAccrueInterest and is used to iterate over the raw logs and unpacked data for AccrueInterest events raised by the Bindings contract.
+type BindingsAccrueInterestIterator struct {
+	Event *BindingsAccrueInterest // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1282,7 +1282,7 @@ type CwbtcAccrueInterestIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcAccrueInterestIterator) Next() bool {
+func (it *BindingsAccrueInterestIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1291,7 +1291,7 @@ func (it *CwbtcAccrueInterestIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcAccrueInterest)
+			it.Event = new(BindingsAccrueInterest)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1306,7 +1306,7 @@ func (it *CwbtcAccrueInterestIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcAccrueInterest)
+		it.Event = new(BindingsAccrueInterest)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1322,19 +1322,19 @@ func (it *CwbtcAccrueInterestIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcAccrueInterestIterator) Error() error {
+func (it *BindingsAccrueInterestIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcAccrueInterestIterator) Close() error {
+func (it *BindingsAccrueInterestIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcAccrueInterest represents a AccrueInterest event raised by the Cwbtc contract.
-type CwbtcAccrueInterest struct {
+// BindingsAccrueInterest represents a AccrueInterest event raised by the Bindings contract.
+type BindingsAccrueInterest struct {
 	InterestAccumulated *big.Int
 	BorrowIndex         *big.Int
 	TotalBorrows        *big.Int
@@ -1344,21 +1344,21 @@ type CwbtcAccrueInterest struct {
 // FilterAccrueInterest is a free log retrieval operation binding the contract event 0x875352fb3fadeb8c0be7cbbe8ff761b308fa7033470cd0287f02f3436fd76cb9.
 //
 // Solidity: event AccrueInterest(uint256 interestAccumulated, uint256 borrowIndex, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) FilterAccrueInterest(opts *bind.FilterOpts) (*CwbtcAccrueInterestIterator, error) {
+func (_Bindings *BindingsFilterer) FilterAccrueInterest(opts *bind.FilterOpts) (*BindingsAccrueInterestIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "AccrueInterest")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "AccrueInterest")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcAccrueInterestIterator{contract: _Cwbtc.contract, event: "AccrueInterest", logs: logs, sub: sub}, nil
+	return &BindingsAccrueInterestIterator{contract: _Bindings.contract, event: "AccrueInterest", logs: logs, sub: sub}, nil
 }
 
 // WatchAccrueInterest is a free log subscription operation binding the contract event 0x875352fb3fadeb8c0be7cbbe8ff761b308fa7033470cd0287f02f3436fd76cb9.
 //
 // Solidity: event AccrueInterest(uint256 interestAccumulated, uint256 borrowIndex, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) WatchAccrueInterest(opts *bind.WatchOpts, sink chan<- *CwbtcAccrueInterest) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchAccrueInterest(opts *bind.WatchOpts, sink chan<- *BindingsAccrueInterest) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "AccrueInterest")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "AccrueInterest")
 	if err != nil {
 		return nil, err
 	}
@@ -1368,8 +1368,8 @@ func (_Cwbtc *CwbtcFilterer) WatchAccrueInterest(opts *bind.WatchOpts, sink chan
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcAccrueInterest)
-				if err := _Cwbtc.contract.UnpackLog(event, "AccrueInterest", log); err != nil {
+				event := new(BindingsAccrueInterest)
+				if err := _Bindings.contract.UnpackLog(event, "AccrueInterest", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1393,17 +1393,17 @@ func (_Cwbtc *CwbtcFilterer) WatchAccrueInterest(opts *bind.WatchOpts, sink chan
 // ParseAccrueInterest is a log parse operation binding the contract event 0x875352fb3fadeb8c0be7cbbe8ff761b308fa7033470cd0287f02f3436fd76cb9.
 //
 // Solidity: event AccrueInterest(uint256 interestAccumulated, uint256 borrowIndex, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) ParseAccrueInterest(log types.Log) (*CwbtcAccrueInterest, error) {
-	event := new(CwbtcAccrueInterest)
-	if err := _Cwbtc.contract.UnpackLog(event, "AccrueInterest", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseAccrueInterest(log types.Log) (*BindingsAccrueInterest, error) {
+	event := new(BindingsAccrueInterest)
+	if err := _Bindings.contract.UnpackLog(event, "AccrueInterest", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Cwbtc contract.
-type CwbtcApprovalIterator struct {
-	Event *CwbtcApproval // Event containing the contract specifics and raw log
+// BindingsApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Bindings contract.
+type BindingsApprovalIterator struct {
+	Event *BindingsApproval // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1417,7 +1417,7 @@ type CwbtcApprovalIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcApprovalIterator) Next() bool {
+func (it *BindingsApprovalIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1426,7 +1426,7 @@ func (it *CwbtcApprovalIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcApproval)
+			it.Event = new(BindingsApproval)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1441,7 +1441,7 @@ func (it *CwbtcApprovalIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcApproval)
+		it.Event = new(BindingsApproval)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1457,19 +1457,19 @@ func (it *CwbtcApprovalIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcApprovalIterator) Error() error {
+func (it *BindingsApprovalIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcApprovalIterator) Close() error {
+func (it *BindingsApprovalIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcApproval represents a Approval event raised by the Cwbtc contract.
-type CwbtcApproval struct {
+// BindingsApproval represents a Approval event raised by the Bindings contract.
+type BindingsApproval struct {
 	Owner   common.Address
 	Spender common.Address
 	Amount  *big.Int
@@ -1479,7 +1479,7 @@ type CwbtcApproval struct {
 // FilterApproval is a free log retrieval operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 amount)
-func (_Cwbtc *CwbtcFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*CwbtcApprovalIterator, error) {
+func (_Bindings *BindingsFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*BindingsApprovalIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1490,17 +1490,17 @@ func (_Cwbtc *CwbtcFilterer) FilterApproval(opts *bind.FilterOpts, owner []commo
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcApprovalIterator{contract: _Cwbtc.contract, event: "Approval", logs: logs, sub: sub}, nil
+	return &BindingsApprovalIterator{contract: _Bindings.contract, event: "Approval", logs: logs, sub: sub}, nil
 }
 
 // WatchApproval is a free log subscription operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 amount)
-func (_Cwbtc *CwbtcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *CwbtcApproval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *BindingsApproval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -1511,7 +1511,7 @@ func (_Cwbtc *CwbtcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *Cw
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1521,8 +1521,8 @@ func (_Cwbtc *CwbtcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *Cw
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcApproval)
-				if err := _Cwbtc.contract.UnpackLog(event, "Approval", log); err != nil {
+				event := new(BindingsApproval)
+				if err := _Bindings.contract.UnpackLog(event, "Approval", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1546,17 +1546,17 @@ func (_Cwbtc *CwbtcFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *Cw
 // ParseApproval is a log parse operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 amount)
-func (_Cwbtc *CwbtcFilterer) ParseApproval(log types.Log) (*CwbtcApproval, error) {
-	event := new(CwbtcApproval)
-	if err := _Cwbtc.contract.UnpackLog(event, "Approval", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseApproval(log types.Log) (*BindingsApproval, error) {
+	event := new(BindingsApproval)
+	if err := _Bindings.contract.UnpackLog(event, "Approval", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcBorrowIterator is returned from FilterBorrow and is used to iterate over the raw logs and unpacked data for Borrow events raised by the Cwbtc contract.
-type CwbtcBorrowIterator struct {
-	Event *CwbtcBorrow // Event containing the contract specifics and raw log
+// BindingsBorrowIterator is returned from FilterBorrow and is used to iterate over the raw logs and unpacked data for Borrow events raised by the Bindings contract.
+type BindingsBorrowIterator struct {
+	Event *BindingsBorrow // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1570,7 +1570,7 @@ type CwbtcBorrowIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcBorrowIterator) Next() bool {
+func (it *BindingsBorrowIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1579,7 +1579,7 @@ func (it *CwbtcBorrowIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcBorrow)
+			it.Event = new(BindingsBorrow)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1594,7 +1594,7 @@ func (it *CwbtcBorrowIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcBorrow)
+		it.Event = new(BindingsBorrow)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1610,19 +1610,19 @@ func (it *CwbtcBorrowIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcBorrowIterator) Error() error {
+func (it *BindingsBorrowIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcBorrowIterator) Close() error {
+func (it *BindingsBorrowIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcBorrow represents a Borrow event raised by the Cwbtc contract.
-type CwbtcBorrow struct {
+// BindingsBorrow represents a Borrow event raised by the Bindings contract.
+type BindingsBorrow struct {
 	Borrower       common.Address
 	BorrowAmount   *big.Int
 	AccountBorrows *big.Int
@@ -1633,21 +1633,21 @@ type CwbtcBorrow struct {
 // FilterBorrow is a free log retrieval operation binding the contract event 0x13ed6866d4e1ee6da46f845c46d7e54120883d75c5ea9a2dacc1c4ca8984ab80.
 //
 // Solidity: event Borrow(address borrower, uint256 borrowAmount, uint256 accountBorrows, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) FilterBorrow(opts *bind.FilterOpts) (*CwbtcBorrowIterator, error) {
+func (_Bindings *BindingsFilterer) FilterBorrow(opts *bind.FilterOpts) (*BindingsBorrowIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "Borrow")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "Borrow")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcBorrowIterator{contract: _Cwbtc.contract, event: "Borrow", logs: logs, sub: sub}, nil
+	return &BindingsBorrowIterator{contract: _Bindings.contract, event: "Borrow", logs: logs, sub: sub}, nil
 }
 
 // WatchBorrow is a free log subscription operation binding the contract event 0x13ed6866d4e1ee6da46f845c46d7e54120883d75c5ea9a2dacc1c4ca8984ab80.
 //
 // Solidity: event Borrow(address borrower, uint256 borrowAmount, uint256 accountBorrows, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) WatchBorrow(opts *bind.WatchOpts, sink chan<- *CwbtcBorrow) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchBorrow(opts *bind.WatchOpts, sink chan<- *BindingsBorrow) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "Borrow")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "Borrow")
 	if err != nil {
 		return nil, err
 	}
@@ -1657,8 +1657,8 @@ func (_Cwbtc *CwbtcFilterer) WatchBorrow(opts *bind.WatchOpts, sink chan<- *Cwbt
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcBorrow)
-				if err := _Cwbtc.contract.UnpackLog(event, "Borrow", log); err != nil {
+				event := new(BindingsBorrow)
+				if err := _Bindings.contract.UnpackLog(event, "Borrow", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1682,17 +1682,17 @@ func (_Cwbtc *CwbtcFilterer) WatchBorrow(opts *bind.WatchOpts, sink chan<- *Cwbt
 // ParseBorrow is a log parse operation binding the contract event 0x13ed6866d4e1ee6da46f845c46d7e54120883d75c5ea9a2dacc1c4ca8984ab80.
 //
 // Solidity: event Borrow(address borrower, uint256 borrowAmount, uint256 accountBorrows, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) ParseBorrow(log types.Log) (*CwbtcBorrow, error) {
-	event := new(CwbtcBorrow)
-	if err := _Cwbtc.contract.UnpackLog(event, "Borrow", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseBorrow(log types.Log) (*BindingsBorrow, error) {
+	event := new(BindingsBorrow)
+	if err := _Bindings.contract.UnpackLog(event, "Borrow", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcFailureIterator is returned from FilterFailure and is used to iterate over the raw logs and unpacked data for Failure events raised by the Cwbtc contract.
-type CwbtcFailureIterator struct {
-	Event *CwbtcFailure // Event containing the contract specifics and raw log
+// BindingsFailureIterator is returned from FilterFailure and is used to iterate over the raw logs and unpacked data for Failure events raised by the Bindings contract.
+type BindingsFailureIterator struct {
+	Event *BindingsFailure // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1706,7 +1706,7 @@ type CwbtcFailureIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcFailureIterator) Next() bool {
+func (it *BindingsFailureIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1715,7 +1715,7 @@ func (it *CwbtcFailureIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcFailure)
+			it.Event = new(BindingsFailure)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1730,7 +1730,7 @@ func (it *CwbtcFailureIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcFailure)
+		it.Event = new(BindingsFailure)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1746,19 +1746,19 @@ func (it *CwbtcFailureIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcFailureIterator) Error() error {
+func (it *BindingsFailureIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcFailureIterator) Close() error {
+func (it *BindingsFailureIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcFailure represents a Failure event raised by the Cwbtc contract.
-type CwbtcFailure struct {
+// BindingsFailure represents a Failure event raised by the Bindings contract.
+type BindingsFailure struct {
 	Error  *big.Int
 	Info   *big.Int
 	Detail *big.Int
@@ -1768,21 +1768,21 @@ type CwbtcFailure struct {
 // FilterFailure is a free log retrieval operation binding the contract event 0x45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa0.
 //
 // Solidity: event Failure(uint256 error, uint256 info, uint256 detail)
-func (_Cwbtc *CwbtcFilterer) FilterFailure(opts *bind.FilterOpts) (*CwbtcFailureIterator, error) {
+func (_Bindings *BindingsFilterer) FilterFailure(opts *bind.FilterOpts) (*BindingsFailureIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "Failure")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "Failure")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcFailureIterator{contract: _Cwbtc.contract, event: "Failure", logs: logs, sub: sub}, nil
+	return &BindingsFailureIterator{contract: _Bindings.contract, event: "Failure", logs: logs, sub: sub}, nil
 }
 
 // WatchFailure is a free log subscription operation binding the contract event 0x45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa0.
 //
 // Solidity: event Failure(uint256 error, uint256 info, uint256 detail)
-func (_Cwbtc *CwbtcFilterer) WatchFailure(opts *bind.WatchOpts, sink chan<- *CwbtcFailure) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchFailure(opts *bind.WatchOpts, sink chan<- *BindingsFailure) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "Failure")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "Failure")
 	if err != nil {
 		return nil, err
 	}
@@ -1792,8 +1792,8 @@ func (_Cwbtc *CwbtcFilterer) WatchFailure(opts *bind.WatchOpts, sink chan<- *Cwb
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcFailure)
-				if err := _Cwbtc.contract.UnpackLog(event, "Failure", log); err != nil {
+				event := new(BindingsFailure)
+				if err := _Bindings.contract.UnpackLog(event, "Failure", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1817,17 +1817,17 @@ func (_Cwbtc *CwbtcFilterer) WatchFailure(opts *bind.WatchOpts, sink chan<- *Cwb
 // ParseFailure is a log parse operation binding the contract event 0x45b96fe442630264581b197e84bbada861235052c5a1aadfff9ea4e40a969aa0.
 //
 // Solidity: event Failure(uint256 error, uint256 info, uint256 detail)
-func (_Cwbtc *CwbtcFilterer) ParseFailure(log types.Log) (*CwbtcFailure, error) {
-	event := new(CwbtcFailure)
-	if err := _Cwbtc.contract.UnpackLog(event, "Failure", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseFailure(log types.Log) (*BindingsFailure, error) {
+	event := new(BindingsFailure)
+	if err := _Bindings.contract.UnpackLog(event, "Failure", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcLiquidateBorrowIterator is returned from FilterLiquidateBorrow and is used to iterate over the raw logs and unpacked data for LiquidateBorrow events raised by the Cwbtc contract.
-type CwbtcLiquidateBorrowIterator struct {
-	Event *CwbtcLiquidateBorrow // Event containing the contract specifics and raw log
+// BindingsLiquidateBorrowIterator is returned from FilterLiquidateBorrow and is used to iterate over the raw logs and unpacked data for LiquidateBorrow events raised by the Bindings contract.
+type BindingsLiquidateBorrowIterator struct {
+	Event *BindingsLiquidateBorrow // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1841,7 +1841,7 @@ type CwbtcLiquidateBorrowIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcLiquidateBorrowIterator) Next() bool {
+func (it *BindingsLiquidateBorrowIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1850,7 +1850,7 @@ func (it *CwbtcLiquidateBorrowIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcLiquidateBorrow)
+			it.Event = new(BindingsLiquidateBorrow)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -1865,7 +1865,7 @@ func (it *CwbtcLiquidateBorrowIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcLiquidateBorrow)
+		it.Event = new(BindingsLiquidateBorrow)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -1881,19 +1881,19 @@ func (it *CwbtcLiquidateBorrowIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcLiquidateBorrowIterator) Error() error {
+func (it *BindingsLiquidateBorrowIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcLiquidateBorrowIterator) Close() error {
+func (it *BindingsLiquidateBorrowIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcLiquidateBorrow represents a LiquidateBorrow event raised by the Cwbtc contract.
-type CwbtcLiquidateBorrow struct {
+// BindingsLiquidateBorrow represents a LiquidateBorrow event raised by the Bindings contract.
+type BindingsLiquidateBorrow struct {
 	Liquidator       common.Address
 	Borrower         common.Address
 	RepayAmount      *big.Int
@@ -1905,21 +1905,21 @@ type CwbtcLiquidateBorrow struct {
 // FilterLiquidateBorrow is a free log retrieval operation binding the contract event 0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52.
 //
 // Solidity: event LiquidateBorrow(address liquidator, address borrower, uint256 repayAmount, address cTokenCollateral, uint256 seizeTokens)
-func (_Cwbtc *CwbtcFilterer) FilterLiquidateBorrow(opts *bind.FilterOpts) (*CwbtcLiquidateBorrowIterator, error) {
+func (_Bindings *BindingsFilterer) FilterLiquidateBorrow(opts *bind.FilterOpts) (*BindingsLiquidateBorrowIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "LiquidateBorrow")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "LiquidateBorrow")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcLiquidateBorrowIterator{contract: _Cwbtc.contract, event: "LiquidateBorrow", logs: logs, sub: sub}, nil
+	return &BindingsLiquidateBorrowIterator{contract: _Bindings.contract, event: "LiquidateBorrow", logs: logs, sub: sub}, nil
 }
 
 // WatchLiquidateBorrow is a free log subscription operation binding the contract event 0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52.
 //
 // Solidity: event LiquidateBorrow(address liquidator, address borrower, uint256 repayAmount, address cTokenCollateral, uint256 seizeTokens)
-func (_Cwbtc *CwbtcFilterer) WatchLiquidateBorrow(opts *bind.WatchOpts, sink chan<- *CwbtcLiquidateBorrow) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchLiquidateBorrow(opts *bind.WatchOpts, sink chan<- *BindingsLiquidateBorrow) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "LiquidateBorrow")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "LiquidateBorrow")
 	if err != nil {
 		return nil, err
 	}
@@ -1929,8 +1929,8 @@ func (_Cwbtc *CwbtcFilterer) WatchLiquidateBorrow(opts *bind.WatchOpts, sink cha
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcLiquidateBorrow)
-				if err := _Cwbtc.contract.UnpackLog(event, "LiquidateBorrow", log); err != nil {
+				event := new(BindingsLiquidateBorrow)
+				if err := _Bindings.contract.UnpackLog(event, "LiquidateBorrow", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -1954,17 +1954,17 @@ func (_Cwbtc *CwbtcFilterer) WatchLiquidateBorrow(opts *bind.WatchOpts, sink cha
 // ParseLiquidateBorrow is a log parse operation binding the contract event 0x298637f684da70674f26509b10f07ec2fbc77a335ab1e7d6215a4b2484d8bb52.
 //
 // Solidity: event LiquidateBorrow(address liquidator, address borrower, uint256 repayAmount, address cTokenCollateral, uint256 seizeTokens)
-func (_Cwbtc *CwbtcFilterer) ParseLiquidateBorrow(log types.Log) (*CwbtcLiquidateBorrow, error) {
-	event := new(CwbtcLiquidateBorrow)
-	if err := _Cwbtc.contract.UnpackLog(event, "LiquidateBorrow", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseLiquidateBorrow(log types.Log) (*BindingsLiquidateBorrow, error) {
+	event := new(BindingsLiquidateBorrow)
+	if err := _Bindings.contract.UnpackLog(event, "LiquidateBorrow", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcMintIterator is returned from FilterMint and is used to iterate over the raw logs and unpacked data for Mint events raised by the Cwbtc contract.
-type CwbtcMintIterator struct {
-	Event *CwbtcMint // Event containing the contract specifics and raw log
+// BindingsMintIterator is returned from FilterMint and is used to iterate over the raw logs and unpacked data for Mint events raised by the Bindings contract.
+type BindingsMintIterator struct {
+	Event *BindingsMint // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -1978,7 +1978,7 @@ type CwbtcMintIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcMintIterator) Next() bool {
+func (it *BindingsMintIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -1987,7 +1987,7 @@ func (it *CwbtcMintIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcMint)
+			it.Event = new(BindingsMint)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2002,7 +2002,7 @@ func (it *CwbtcMintIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcMint)
+		it.Event = new(BindingsMint)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2018,19 +2018,19 @@ func (it *CwbtcMintIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcMintIterator) Error() error {
+func (it *BindingsMintIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcMintIterator) Close() error {
+func (it *BindingsMintIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcMint represents a Mint event raised by the Cwbtc contract.
-type CwbtcMint struct {
+// BindingsMint represents a Mint event raised by the Bindings contract.
+type BindingsMint struct {
 	Minter     common.Address
 	MintAmount *big.Int
 	MintTokens *big.Int
@@ -2040,21 +2040,21 @@ type CwbtcMint struct {
 // FilterMint is a free log retrieval operation binding the contract event 0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f.
 //
 // Solidity: event Mint(address minter, uint256 mintAmount, uint256 mintTokens)
-func (_Cwbtc *CwbtcFilterer) FilterMint(opts *bind.FilterOpts) (*CwbtcMintIterator, error) {
+func (_Bindings *BindingsFilterer) FilterMint(opts *bind.FilterOpts) (*BindingsMintIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "Mint")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "Mint")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcMintIterator{contract: _Cwbtc.contract, event: "Mint", logs: logs, sub: sub}, nil
+	return &BindingsMintIterator{contract: _Bindings.contract, event: "Mint", logs: logs, sub: sub}, nil
 }
 
 // WatchMint is a free log subscription operation binding the contract event 0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f.
 //
 // Solidity: event Mint(address minter, uint256 mintAmount, uint256 mintTokens)
-func (_Cwbtc *CwbtcFilterer) WatchMint(opts *bind.WatchOpts, sink chan<- *CwbtcMint) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchMint(opts *bind.WatchOpts, sink chan<- *BindingsMint) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "Mint")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "Mint")
 	if err != nil {
 		return nil, err
 	}
@@ -2064,8 +2064,8 @@ func (_Cwbtc *CwbtcFilterer) WatchMint(opts *bind.WatchOpts, sink chan<- *CwbtcM
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcMint)
-				if err := _Cwbtc.contract.UnpackLog(event, "Mint", log); err != nil {
+				event := new(BindingsMint)
+				if err := _Bindings.contract.UnpackLog(event, "Mint", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2089,17 +2089,17 @@ func (_Cwbtc *CwbtcFilterer) WatchMint(opts *bind.WatchOpts, sink chan<- *CwbtcM
 // ParseMint is a log parse operation binding the contract event 0x4c209b5fc8ad50758f13e2e1088ba56a560dff690a1c6fef26394f4c03821c4f.
 //
 // Solidity: event Mint(address minter, uint256 mintAmount, uint256 mintTokens)
-func (_Cwbtc *CwbtcFilterer) ParseMint(log types.Log) (*CwbtcMint, error) {
-	event := new(CwbtcMint)
-	if err := _Cwbtc.contract.UnpackLog(event, "Mint", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseMint(log types.Log) (*BindingsMint, error) {
+	event := new(BindingsMint)
+	if err := _Bindings.contract.UnpackLog(event, "Mint", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcNewAdminIterator is returned from FilterNewAdmin and is used to iterate over the raw logs and unpacked data for NewAdmin events raised by the Cwbtc contract.
-type CwbtcNewAdminIterator struct {
-	Event *CwbtcNewAdmin // Event containing the contract specifics and raw log
+// BindingsNewAdminIterator is returned from FilterNewAdmin and is used to iterate over the raw logs and unpacked data for NewAdmin events raised by the Bindings contract.
+type BindingsNewAdminIterator struct {
+	Event *BindingsNewAdmin // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2113,7 +2113,7 @@ type CwbtcNewAdminIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcNewAdminIterator) Next() bool {
+func (it *BindingsNewAdminIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2122,7 +2122,7 @@ func (it *CwbtcNewAdminIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcNewAdmin)
+			it.Event = new(BindingsNewAdmin)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2137,7 +2137,7 @@ func (it *CwbtcNewAdminIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcNewAdmin)
+		it.Event = new(BindingsNewAdmin)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2153,19 +2153,19 @@ func (it *CwbtcNewAdminIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcNewAdminIterator) Error() error {
+func (it *BindingsNewAdminIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcNewAdminIterator) Close() error {
+func (it *BindingsNewAdminIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcNewAdmin represents a NewAdmin event raised by the Cwbtc contract.
-type CwbtcNewAdmin struct {
+// BindingsNewAdmin represents a NewAdmin event raised by the Bindings contract.
+type BindingsNewAdmin struct {
 	OldAdmin common.Address
 	NewAdmin common.Address
 	Raw      types.Log // Blockchain specific contextual infos
@@ -2174,21 +2174,21 @@ type CwbtcNewAdmin struct {
 // FilterNewAdmin is a free log retrieval operation binding the contract event 0xf9ffabca9c8276e99321725bcb43fb076a6c66a54b7f21c4e8146d8519b417dc.
 //
 // Solidity: event NewAdmin(address oldAdmin, address newAdmin)
-func (_Cwbtc *CwbtcFilterer) FilterNewAdmin(opts *bind.FilterOpts) (*CwbtcNewAdminIterator, error) {
+func (_Bindings *BindingsFilterer) FilterNewAdmin(opts *bind.FilterOpts) (*BindingsNewAdminIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "NewAdmin")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "NewAdmin")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcNewAdminIterator{contract: _Cwbtc.contract, event: "NewAdmin", logs: logs, sub: sub}, nil
+	return &BindingsNewAdminIterator{contract: _Bindings.contract, event: "NewAdmin", logs: logs, sub: sub}, nil
 }
 
 // WatchNewAdmin is a free log subscription operation binding the contract event 0xf9ffabca9c8276e99321725bcb43fb076a6c66a54b7f21c4e8146d8519b417dc.
 //
 // Solidity: event NewAdmin(address oldAdmin, address newAdmin)
-func (_Cwbtc *CwbtcFilterer) WatchNewAdmin(opts *bind.WatchOpts, sink chan<- *CwbtcNewAdmin) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchNewAdmin(opts *bind.WatchOpts, sink chan<- *BindingsNewAdmin) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "NewAdmin")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "NewAdmin")
 	if err != nil {
 		return nil, err
 	}
@@ -2198,8 +2198,8 @@ func (_Cwbtc *CwbtcFilterer) WatchNewAdmin(opts *bind.WatchOpts, sink chan<- *Cw
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcNewAdmin)
-				if err := _Cwbtc.contract.UnpackLog(event, "NewAdmin", log); err != nil {
+				event := new(BindingsNewAdmin)
+				if err := _Bindings.contract.UnpackLog(event, "NewAdmin", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2223,17 +2223,17 @@ func (_Cwbtc *CwbtcFilterer) WatchNewAdmin(opts *bind.WatchOpts, sink chan<- *Cw
 // ParseNewAdmin is a log parse operation binding the contract event 0xf9ffabca9c8276e99321725bcb43fb076a6c66a54b7f21c4e8146d8519b417dc.
 //
 // Solidity: event NewAdmin(address oldAdmin, address newAdmin)
-func (_Cwbtc *CwbtcFilterer) ParseNewAdmin(log types.Log) (*CwbtcNewAdmin, error) {
-	event := new(CwbtcNewAdmin)
-	if err := _Cwbtc.contract.UnpackLog(event, "NewAdmin", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseNewAdmin(log types.Log) (*BindingsNewAdmin, error) {
+	event := new(BindingsNewAdmin)
+	if err := _Bindings.contract.UnpackLog(event, "NewAdmin", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcNewComptrollerIterator is returned from FilterNewComptroller and is used to iterate over the raw logs and unpacked data for NewComptroller events raised by the Cwbtc contract.
-type CwbtcNewComptrollerIterator struct {
-	Event *CwbtcNewComptroller // Event containing the contract specifics and raw log
+// BindingsNewComptrollerIterator is returned from FilterNewComptroller and is used to iterate over the raw logs and unpacked data for NewComptroller events raised by the Bindings contract.
+type BindingsNewComptrollerIterator struct {
+	Event *BindingsNewComptroller // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2247,7 +2247,7 @@ type CwbtcNewComptrollerIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcNewComptrollerIterator) Next() bool {
+func (it *BindingsNewComptrollerIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2256,7 +2256,7 @@ func (it *CwbtcNewComptrollerIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcNewComptroller)
+			it.Event = new(BindingsNewComptroller)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2271,7 +2271,7 @@ func (it *CwbtcNewComptrollerIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcNewComptroller)
+		it.Event = new(BindingsNewComptroller)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2287,19 +2287,19 @@ func (it *CwbtcNewComptrollerIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcNewComptrollerIterator) Error() error {
+func (it *BindingsNewComptrollerIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcNewComptrollerIterator) Close() error {
+func (it *BindingsNewComptrollerIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcNewComptroller represents a NewComptroller event raised by the Cwbtc contract.
-type CwbtcNewComptroller struct {
+// BindingsNewComptroller represents a NewComptroller event raised by the Bindings contract.
+type BindingsNewComptroller struct {
 	OldComptroller common.Address
 	NewComptroller common.Address
 	Raw            types.Log // Blockchain specific contextual infos
@@ -2308,21 +2308,21 @@ type CwbtcNewComptroller struct {
 // FilterNewComptroller is a free log retrieval operation binding the contract event 0x7ac369dbd14fa5ea3f473ed67cc9d598964a77501540ba6751eb0b3decf5870d.
 //
 // Solidity: event NewComptroller(address oldComptroller, address newComptroller)
-func (_Cwbtc *CwbtcFilterer) FilterNewComptroller(opts *bind.FilterOpts) (*CwbtcNewComptrollerIterator, error) {
+func (_Bindings *BindingsFilterer) FilterNewComptroller(opts *bind.FilterOpts) (*BindingsNewComptrollerIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "NewComptroller")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "NewComptroller")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcNewComptrollerIterator{contract: _Cwbtc.contract, event: "NewComptroller", logs: logs, sub: sub}, nil
+	return &BindingsNewComptrollerIterator{contract: _Bindings.contract, event: "NewComptroller", logs: logs, sub: sub}, nil
 }
 
 // WatchNewComptroller is a free log subscription operation binding the contract event 0x7ac369dbd14fa5ea3f473ed67cc9d598964a77501540ba6751eb0b3decf5870d.
 //
 // Solidity: event NewComptroller(address oldComptroller, address newComptroller)
-func (_Cwbtc *CwbtcFilterer) WatchNewComptroller(opts *bind.WatchOpts, sink chan<- *CwbtcNewComptroller) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchNewComptroller(opts *bind.WatchOpts, sink chan<- *BindingsNewComptroller) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "NewComptroller")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "NewComptroller")
 	if err != nil {
 		return nil, err
 	}
@@ -2332,8 +2332,8 @@ func (_Cwbtc *CwbtcFilterer) WatchNewComptroller(opts *bind.WatchOpts, sink chan
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcNewComptroller)
-				if err := _Cwbtc.contract.UnpackLog(event, "NewComptroller", log); err != nil {
+				event := new(BindingsNewComptroller)
+				if err := _Bindings.contract.UnpackLog(event, "NewComptroller", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2357,17 +2357,17 @@ func (_Cwbtc *CwbtcFilterer) WatchNewComptroller(opts *bind.WatchOpts, sink chan
 // ParseNewComptroller is a log parse operation binding the contract event 0x7ac369dbd14fa5ea3f473ed67cc9d598964a77501540ba6751eb0b3decf5870d.
 //
 // Solidity: event NewComptroller(address oldComptroller, address newComptroller)
-func (_Cwbtc *CwbtcFilterer) ParseNewComptroller(log types.Log) (*CwbtcNewComptroller, error) {
-	event := new(CwbtcNewComptroller)
-	if err := _Cwbtc.contract.UnpackLog(event, "NewComptroller", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseNewComptroller(log types.Log) (*BindingsNewComptroller, error) {
+	event := new(BindingsNewComptroller)
+	if err := _Bindings.contract.UnpackLog(event, "NewComptroller", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcNewMarketInterestRateModelIterator is returned from FilterNewMarketInterestRateModel and is used to iterate over the raw logs and unpacked data for NewMarketInterestRateModel events raised by the Cwbtc contract.
-type CwbtcNewMarketInterestRateModelIterator struct {
-	Event *CwbtcNewMarketInterestRateModel // Event containing the contract specifics and raw log
+// BindingsNewMarketInterestRateModelIterator is returned from FilterNewMarketInterestRateModel and is used to iterate over the raw logs and unpacked data for NewMarketInterestRateModel events raised by the Bindings contract.
+type BindingsNewMarketInterestRateModelIterator struct {
+	Event *BindingsNewMarketInterestRateModel // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2381,7 +2381,7 @@ type CwbtcNewMarketInterestRateModelIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcNewMarketInterestRateModelIterator) Next() bool {
+func (it *BindingsNewMarketInterestRateModelIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2390,7 +2390,7 @@ func (it *CwbtcNewMarketInterestRateModelIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcNewMarketInterestRateModel)
+			it.Event = new(BindingsNewMarketInterestRateModel)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2405,7 +2405,7 @@ func (it *CwbtcNewMarketInterestRateModelIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcNewMarketInterestRateModel)
+		it.Event = new(BindingsNewMarketInterestRateModel)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2421,19 +2421,19 @@ func (it *CwbtcNewMarketInterestRateModelIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcNewMarketInterestRateModelIterator) Error() error {
+func (it *BindingsNewMarketInterestRateModelIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcNewMarketInterestRateModelIterator) Close() error {
+func (it *BindingsNewMarketInterestRateModelIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcNewMarketInterestRateModel represents a NewMarketInterestRateModel event raised by the Cwbtc contract.
-type CwbtcNewMarketInterestRateModel struct {
+// BindingsNewMarketInterestRateModel represents a NewMarketInterestRateModel event raised by the Bindings contract.
+type BindingsNewMarketInterestRateModel struct {
 	OldInterestRateModel common.Address
 	NewInterestRateModel common.Address
 	Raw                  types.Log // Blockchain specific contextual infos
@@ -2442,21 +2442,21 @@ type CwbtcNewMarketInterestRateModel struct {
 // FilterNewMarketInterestRateModel is a free log retrieval operation binding the contract event 0xedffc32e068c7c95dfd4bdfd5c4d939a084d6b11c4199eac8436ed234d72f926.
 //
 // Solidity: event NewMarketInterestRateModel(address oldInterestRateModel, address newInterestRateModel)
-func (_Cwbtc *CwbtcFilterer) FilterNewMarketInterestRateModel(opts *bind.FilterOpts) (*CwbtcNewMarketInterestRateModelIterator, error) {
+func (_Bindings *BindingsFilterer) FilterNewMarketInterestRateModel(opts *bind.FilterOpts) (*BindingsNewMarketInterestRateModelIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "NewMarketInterestRateModel")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "NewMarketInterestRateModel")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcNewMarketInterestRateModelIterator{contract: _Cwbtc.contract, event: "NewMarketInterestRateModel", logs: logs, sub: sub}, nil
+	return &BindingsNewMarketInterestRateModelIterator{contract: _Bindings.contract, event: "NewMarketInterestRateModel", logs: logs, sub: sub}, nil
 }
 
 // WatchNewMarketInterestRateModel is a free log subscription operation binding the contract event 0xedffc32e068c7c95dfd4bdfd5c4d939a084d6b11c4199eac8436ed234d72f926.
 //
 // Solidity: event NewMarketInterestRateModel(address oldInterestRateModel, address newInterestRateModel)
-func (_Cwbtc *CwbtcFilterer) WatchNewMarketInterestRateModel(opts *bind.WatchOpts, sink chan<- *CwbtcNewMarketInterestRateModel) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchNewMarketInterestRateModel(opts *bind.WatchOpts, sink chan<- *BindingsNewMarketInterestRateModel) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "NewMarketInterestRateModel")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "NewMarketInterestRateModel")
 	if err != nil {
 		return nil, err
 	}
@@ -2466,8 +2466,8 @@ func (_Cwbtc *CwbtcFilterer) WatchNewMarketInterestRateModel(opts *bind.WatchOpt
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcNewMarketInterestRateModel)
-				if err := _Cwbtc.contract.UnpackLog(event, "NewMarketInterestRateModel", log); err != nil {
+				event := new(BindingsNewMarketInterestRateModel)
+				if err := _Bindings.contract.UnpackLog(event, "NewMarketInterestRateModel", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2491,17 +2491,17 @@ func (_Cwbtc *CwbtcFilterer) WatchNewMarketInterestRateModel(opts *bind.WatchOpt
 // ParseNewMarketInterestRateModel is a log parse operation binding the contract event 0xedffc32e068c7c95dfd4bdfd5c4d939a084d6b11c4199eac8436ed234d72f926.
 //
 // Solidity: event NewMarketInterestRateModel(address oldInterestRateModel, address newInterestRateModel)
-func (_Cwbtc *CwbtcFilterer) ParseNewMarketInterestRateModel(log types.Log) (*CwbtcNewMarketInterestRateModel, error) {
-	event := new(CwbtcNewMarketInterestRateModel)
-	if err := _Cwbtc.contract.UnpackLog(event, "NewMarketInterestRateModel", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseNewMarketInterestRateModel(log types.Log) (*BindingsNewMarketInterestRateModel, error) {
+	event := new(BindingsNewMarketInterestRateModel)
+	if err := _Bindings.contract.UnpackLog(event, "NewMarketInterestRateModel", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcNewPendingAdminIterator is returned from FilterNewPendingAdmin and is used to iterate over the raw logs and unpacked data for NewPendingAdmin events raised by the Cwbtc contract.
-type CwbtcNewPendingAdminIterator struct {
-	Event *CwbtcNewPendingAdmin // Event containing the contract specifics and raw log
+// BindingsNewPendingAdminIterator is returned from FilterNewPendingAdmin and is used to iterate over the raw logs and unpacked data for NewPendingAdmin events raised by the Bindings contract.
+type BindingsNewPendingAdminIterator struct {
+	Event *BindingsNewPendingAdmin // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2515,7 +2515,7 @@ type CwbtcNewPendingAdminIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcNewPendingAdminIterator) Next() bool {
+func (it *BindingsNewPendingAdminIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2524,7 +2524,7 @@ func (it *CwbtcNewPendingAdminIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcNewPendingAdmin)
+			it.Event = new(BindingsNewPendingAdmin)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2539,7 +2539,7 @@ func (it *CwbtcNewPendingAdminIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcNewPendingAdmin)
+		it.Event = new(BindingsNewPendingAdmin)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2555,19 +2555,19 @@ func (it *CwbtcNewPendingAdminIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcNewPendingAdminIterator) Error() error {
+func (it *BindingsNewPendingAdminIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcNewPendingAdminIterator) Close() error {
+func (it *BindingsNewPendingAdminIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcNewPendingAdmin represents a NewPendingAdmin event raised by the Cwbtc contract.
-type CwbtcNewPendingAdmin struct {
+// BindingsNewPendingAdmin represents a NewPendingAdmin event raised by the Bindings contract.
+type BindingsNewPendingAdmin struct {
 	OldPendingAdmin common.Address
 	NewPendingAdmin common.Address
 	Raw             types.Log // Blockchain specific contextual infos
@@ -2576,21 +2576,21 @@ type CwbtcNewPendingAdmin struct {
 // FilterNewPendingAdmin is a free log retrieval operation binding the contract event 0xca4f2f25d0898edd99413412fb94012f9e54ec8142f9b093e7720646a95b16a9.
 //
 // Solidity: event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin)
-func (_Cwbtc *CwbtcFilterer) FilterNewPendingAdmin(opts *bind.FilterOpts) (*CwbtcNewPendingAdminIterator, error) {
+func (_Bindings *BindingsFilterer) FilterNewPendingAdmin(opts *bind.FilterOpts) (*BindingsNewPendingAdminIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "NewPendingAdmin")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "NewPendingAdmin")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcNewPendingAdminIterator{contract: _Cwbtc.contract, event: "NewPendingAdmin", logs: logs, sub: sub}, nil
+	return &BindingsNewPendingAdminIterator{contract: _Bindings.contract, event: "NewPendingAdmin", logs: logs, sub: sub}, nil
 }
 
 // WatchNewPendingAdmin is a free log subscription operation binding the contract event 0xca4f2f25d0898edd99413412fb94012f9e54ec8142f9b093e7720646a95b16a9.
 //
 // Solidity: event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin)
-func (_Cwbtc *CwbtcFilterer) WatchNewPendingAdmin(opts *bind.WatchOpts, sink chan<- *CwbtcNewPendingAdmin) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchNewPendingAdmin(opts *bind.WatchOpts, sink chan<- *BindingsNewPendingAdmin) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "NewPendingAdmin")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "NewPendingAdmin")
 	if err != nil {
 		return nil, err
 	}
@@ -2600,8 +2600,8 @@ func (_Cwbtc *CwbtcFilterer) WatchNewPendingAdmin(opts *bind.WatchOpts, sink cha
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcNewPendingAdmin)
-				if err := _Cwbtc.contract.UnpackLog(event, "NewPendingAdmin", log); err != nil {
+				event := new(BindingsNewPendingAdmin)
+				if err := _Bindings.contract.UnpackLog(event, "NewPendingAdmin", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2625,17 +2625,17 @@ func (_Cwbtc *CwbtcFilterer) WatchNewPendingAdmin(opts *bind.WatchOpts, sink cha
 // ParseNewPendingAdmin is a log parse operation binding the contract event 0xca4f2f25d0898edd99413412fb94012f9e54ec8142f9b093e7720646a95b16a9.
 //
 // Solidity: event NewPendingAdmin(address oldPendingAdmin, address newPendingAdmin)
-func (_Cwbtc *CwbtcFilterer) ParseNewPendingAdmin(log types.Log) (*CwbtcNewPendingAdmin, error) {
-	event := new(CwbtcNewPendingAdmin)
-	if err := _Cwbtc.contract.UnpackLog(event, "NewPendingAdmin", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseNewPendingAdmin(log types.Log) (*BindingsNewPendingAdmin, error) {
+	event := new(BindingsNewPendingAdmin)
+	if err := _Bindings.contract.UnpackLog(event, "NewPendingAdmin", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcNewReserveFactorIterator is returned from FilterNewReserveFactor and is used to iterate over the raw logs and unpacked data for NewReserveFactor events raised by the Cwbtc contract.
-type CwbtcNewReserveFactorIterator struct {
-	Event *CwbtcNewReserveFactor // Event containing the contract specifics and raw log
+// BindingsNewReserveFactorIterator is returned from FilterNewReserveFactor and is used to iterate over the raw logs and unpacked data for NewReserveFactor events raised by the Bindings contract.
+type BindingsNewReserveFactorIterator struct {
+	Event *BindingsNewReserveFactor // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2649,7 +2649,7 @@ type CwbtcNewReserveFactorIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcNewReserveFactorIterator) Next() bool {
+func (it *BindingsNewReserveFactorIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2658,7 +2658,7 @@ func (it *CwbtcNewReserveFactorIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcNewReserveFactor)
+			it.Event = new(BindingsNewReserveFactor)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2673,7 +2673,7 @@ func (it *CwbtcNewReserveFactorIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcNewReserveFactor)
+		it.Event = new(BindingsNewReserveFactor)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2689,19 +2689,19 @@ func (it *CwbtcNewReserveFactorIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcNewReserveFactorIterator) Error() error {
+func (it *BindingsNewReserveFactorIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcNewReserveFactorIterator) Close() error {
+func (it *BindingsNewReserveFactorIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcNewReserveFactor represents a NewReserveFactor event raised by the Cwbtc contract.
-type CwbtcNewReserveFactor struct {
+// BindingsNewReserveFactor represents a NewReserveFactor event raised by the Bindings contract.
+type BindingsNewReserveFactor struct {
 	OldReserveFactorMantissa *big.Int
 	NewReserveFactorMantissa *big.Int
 	Raw                      types.Log // Blockchain specific contextual infos
@@ -2710,21 +2710,21 @@ type CwbtcNewReserveFactor struct {
 // FilterNewReserveFactor is a free log retrieval operation binding the contract event 0xaaa68312e2ea9d50e16af5068410ab56e1a1fd06037b1a35664812c30f821460.
 //
 // Solidity: event NewReserveFactor(uint256 oldReserveFactorMantissa, uint256 newReserveFactorMantissa)
-func (_Cwbtc *CwbtcFilterer) FilterNewReserveFactor(opts *bind.FilterOpts) (*CwbtcNewReserveFactorIterator, error) {
+func (_Bindings *BindingsFilterer) FilterNewReserveFactor(opts *bind.FilterOpts) (*BindingsNewReserveFactorIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "NewReserveFactor")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "NewReserveFactor")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcNewReserveFactorIterator{contract: _Cwbtc.contract, event: "NewReserveFactor", logs: logs, sub: sub}, nil
+	return &BindingsNewReserveFactorIterator{contract: _Bindings.contract, event: "NewReserveFactor", logs: logs, sub: sub}, nil
 }
 
 // WatchNewReserveFactor is a free log subscription operation binding the contract event 0xaaa68312e2ea9d50e16af5068410ab56e1a1fd06037b1a35664812c30f821460.
 //
 // Solidity: event NewReserveFactor(uint256 oldReserveFactorMantissa, uint256 newReserveFactorMantissa)
-func (_Cwbtc *CwbtcFilterer) WatchNewReserveFactor(opts *bind.WatchOpts, sink chan<- *CwbtcNewReserveFactor) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchNewReserveFactor(opts *bind.WatchOpts, sink chan<- *BindingsNewReserveFactor) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "NewReserveFactor")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "NewReserveFactor")
 	if err != nil {
 		return nil, err
 	}
@@ -2734,8 +2734,8 @@ func (_Cwbtc *CwbtcFilterer) WatchNewReserveFactor(opts *bind.WatchOpts, sink ch
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcNewReserveFactor)
-				if err := _Cwbtc.contract.UnpackLog(event, "NewReserveFactor", log); err != nil {
+				event := new(BindingsNewReserveFactor)
+				if err := _Bindings.contract.UnpackLog(event, "NewReserveFactor", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2759,17 +2759,17 @@ func (_Cwbtc *CwbtcFilterer) WatchNewReserveFactor(opts *bind.WatchOpts, sink ch
 // ParseNewReserveFactor is a log parse operation binding the contract event 0xaaa68312e2ea9d50e16af5068410ab56e1a1fd06037b1a35664812c30f821460.
 //
 // Solidity: event NewReserveFactor(uint256 oldReserveFactorMantissa, uint256 newReserveFactorMantissa)
-func (_Cwbtc *CwbtcFilterer) ParseNewReserveFactor(log types.Log) (*CwbtcNewReserveFactor, error) {
-	event := new(CwbtcNewReserveFactor)
-	if err := _Cwbtc.contract.UnpackLog(event, "NewReserveFactor", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseNewReserveFactor(log types.Log) (*BindingsNewReserveFactor, error) {
+	event := new(BindingsNewReserveFactor)
+	if err := _Bindings.contract.UnpackLog(event, "NewReserveFactor", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcRedeemIterator is returned from FilterRedeem and is used to iterate over the raw logs and unpacked data for Redeem events raised by the Cwbtc contract.
-type CwbtcRedeemIterator struct {
-	Event *CwbtcRedeem // Event containing the contract specifics and raw log
+// BindingsRedeemIterator is returned from FilterRedeem and is used to iterate over the raw logs and unpacked data for Redeem events raised by the Bindings contract.
+type BindingsRedeemIterator struct {
+	Event *BindingsRedeem // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2783,7 +2783,7 @@ type CwbtcRedeemIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcRedeemIterator) Next() bool {
+func (it *BindingsRedeemIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2792,7 +2792,7 @@ func (it *CwbtcRedeemIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcRedeem)
+			it.Event = new(BindingsRedeem)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2807,7 +2807,7 @@ func (it *CwbtcRedeemIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcRedeem)
+		it.Event = new(BindingsRedeem)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2823,19 +2823,19 @@ func (it *CwbtcRedeemIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcRedeemIterator) Error() error {
+func (it *BindingsRedeemIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcRedeemIterator) Close() error {
+func (it *BindingsRedeemIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcRedeem represents a Redeem event raised by the Cwbtc contract.
-type CwbtcRedeem struct {
+// BindingsRedeem represents a Redeem event raised by the Bindings contract.
+type BindingsRedeem struct {
 	Redeemer     common.Address
 	RedeemAmount *big.Int
 	RedeemTokens *big.Int
@@ -2845,21 +2845,21 @@ type CwbtcRedeem struct {
 // FilterRedeem is a free log retrieval operation binding the contract event 0xe5b754fb1abb7f01b499791d0b820ae3b6af3424ac1c59768edb53f4ec31a929.
 //
 // Solidity: event Redeem(address redeemer, uint256 redeemAmount, uint256 redeemTokens)
-func (_Cwbtc *CwbtcFilterer) FilterRedeem(opts *bind.FilterOpts) (*CwbtcRedeemIterator, error) {
+func (_Bindings *BindingsFilterer) FilterRedeem(opts *bind.FilterOpts) (*BindingsRedeemIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "Redeem")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "Redeem")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcRedeemIterator{contract: _Cwbtc.contract, event: "Redeem", logs: logs, sub: sub}, nil
+	return &BindingsRedeemIterator{contract: _Bindings.contract, event: "Redeem", logs: logs, sub: sub}, nil
 }
 
 // WatchRedeem is a free log subscription operation binding the contract event 0xe5b754fb1abb7f01b499791d0b820ae3b6af3424ac1c59768edb53f4ec31a929.
 //
 // Solidity: event Redeem(address redeemer, uint256 redeemAmount, uint256 redeemTokens)
-func (_Cwbtc *CwbtcFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *CwbtcRedeem) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *BindingsRedeem) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "Redeem")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "Redeem")
 	if err != nil {
 		return nil, err
 	}
@@ -2869,8 +2869,8 @@ func (_Cwbtc *CwbtcFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *Cwbt
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcRedeem)
-				if err := _Cwbtc.contract.UnpackLog(event, "Redeem", log); err != nil {
+				event := new(BindingsRedeem)
+				if err := _Bindings.contract.UnpackLog(event, "Redeem", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -2894,17 +2894,17 @@ func (_Cwbtc *CwbtcFilterer) WatchRedeem(opts *bind.WatchOpts, sink chan<- *Cwbt
 // ParseRedeem is a log parse operation binding the contract event 0xe5b754fb1abb7f01b499791d0b820ae3b6af3424ac1c59768edb53f4ec31a929.
 //
 // Solidity: event Redeem(address redeemer, uint256 redeemAmount, uint256 redeemTokens)
-func (_Cwbtc *CwbtcFilterer) ParseRedeem(log types.Log) (*CwbtcRedeem, error) {
-	event := new(CwbtcRedeem)
-	if err := _Cwbtc.contract.UnpackLog(event, "Redeem", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseRedeem(log types.Log) (*BindingsRedeem, error) {
+	event := new(BindingsRedeem)
+	if err := _Bindings.contract.UnpackLog(event, "Redeem", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcRepayBorrowIterator is returned from FilterRepayBorrow and is used to iterate over the raw logs and unpacked data for RepayBorrow events raised by the Cwbtc contract.
-type CwbtcRepayBorrowIterator struct {
-	Event *CwbtcRepayBorrow // Event containing the contract specifics and raw log
+// BindingsRepayBorrowIterator is returned from FilterRepayBorrow and is used to iterate over the raw logs and unpacked data for RepayBorrow events raised by the Bindings contract.
+type BindingsRepayBorrowIterator struct {
+	Event *BindingsRepayBorrow // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -2918,7 +2918,7 @@ type CwbtcRepayBorrowIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcRepayBorrowIterator) Next() bool {
+func (it *BindingsRepayBorrowIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -2927,7 +2927,7 @@ func (it *CwbtcRepayBorrowIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcRepayBorrow)
+			it.Event = new(BindingsRepayBorrow)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -2942,7 +2942,7 @@ func (it *CwbtcRepayBorrowIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcRepayBorrow)
+		it.Event = new(BindingsRepayBorrow)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -2958,19 +2958,19 @@ func (it *CwbtcRepayBorrowIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcRepayBorrowIterator) Error() error {
+func (it *BindingsRepayBorrowIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcRepayBorrowIterator) Close() error {
+func (it *BindingsRepayBorrowIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcRepayBorrow represents a RepayBorrow event raised by the Cwbtc contract.
-type CwbtcRepayBorrow struct {
+// BindingsRepayBorrow represents a RepayBorrow event raised by the Bindings contract.
+type BindingsRepayBorrow struct {
 	Payer          common.Address
 	Borrower       common.Address
 	RepayAmount    *big.Int
@@ -2982,21 +2982,21 @@ type CwbtcRepayBorrow struct {
 // FilterRepayBorrow is a free log retrieval operation binding the contract event 0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1.
 //
 // Solidity: event RepayBorrow(address payer, address borrower, uint256 repayAmount, uint256 accountBorrows, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) FilterRepayBorrow(opts *bind.FilterOpts) (*CwbtcRepayBorrowIterator, error) {
+func (_Bindings *BindingsFilterer) FilterRepayBorrow(opts *bind.FilterOpts) (*BindingsRepayBorrowIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "RepayBorrow")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "RepayBorrow")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcRepayBorrowIterator{contract: _Cwbtc.contract, event: "RepayBorrow", logs: logs, sub: sub}, nil
+	return &BindingsRepayBorrowIterator{contract: _Bindings.contract, event: "RepayBorrow", logs: logs, sub: sub}, nil
 }
 
 // WatchRepayBorrow is a free log subscription operation binding the contract event 0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1.
 //
 // Solidity: event RepayBorrow(address payer, address borrower, uint256 repayAmount, uint256 accountBorrows, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) WatchRepayBorrow(opts *bind.WatchOpts, sink chan<- *CwbtcRepayBorrow) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchRepayBorrow(opts *bind.WatchOpts, sink chan<- *BindingsRepayBorrow) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "RepayBorrow")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "RepayBorrow")
 	if err != nil {
 		return nil, err
 	}
@@ -3006,8 +3006,8 @@ func (_Cwbtc *CwbtcFilterer) WatchRepayBorrow(opts *bind.WatchOpts, sink chan<- 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcRepayBorrow)
-				if err := _Cwbtc.contract.UnpackLog(event, "RepayBorrow", log); err != nil {
+				event := new(BindingsRepayBorrow)
+				if err := _Bindings.contract.UnpackLog(event, "RepayBorrow", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3031,17 +3031,17 @@ func (_Cwbtc *CwbtcFilterer) WatchRepayBorrow(opts *bind.WatchOpts, sink chan<- 
 // ParseRepayBorrow is a log parse operation binding the contract event 0x1a2a22cb034d26d1854bdc6666a5b91fe25efbbb5dcad3b0355478d6f5c362a1.
 //
 // Solidity: event RepayBorrow(address payer, address borrower, uint256 repayAmount, uint256 accountBorrows, uint256 totalBorrows)
-func (_Cwbtc *CwbtcFilterer) ParseRepayBorrow(log types.Log) (*CwbtcRepayBorrow, error) {
-	event := new(CwbtcRepayBorrow)
-	if err := _Cwbtc.contract.UnpackLog(event, "RepayBorrow", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseRepayBorrow(log types.Log) (*BindingsRepayBorrow, error) {
+	event := new(BindingsRepayBorrow)
+	if err := _Bindings.contract.UnpackLog(event, "RepayBorrow", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcReservesReducedIterator is returned from FilterReservesReduced and is used to iterate over the raw logs and unpacked data for ReservesReduced events raised by the Cwbtc contract.
-type CwbtcReservesReducedIterator struct {
-	Event *CwbtcReservesReduced // Event containing the contract specifics and raw log
+// BindingsReservesReducedIterator is returned from FilterReservesReduced and is used to iterate over the raw logs and unpacked data for ReservesReduced events raised by the Bindings contract.
+type BindingsReservesReducedIterator struct {
+	Event *BindingsReservesReduced // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3055,7 +3055,7 @@ type CwbtcReservesReducedIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcReservesReducedIterator) Next() bool {
+func (it *BindingsReservesReducedIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3064,7 +3064,7 @@ func (it *CwbtcReservesReducedIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcReservesReduced)
+			it.Event = new(BindingsReservesReduced)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3079,7 +3079,7 @@ func (it *CwbtcReservesReducedIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcReservesReduced)
+		it.Event = new(BindingsReservesReduced)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3095,19 +3095,19 @@ func (it *CwbtcReservesReducedIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcReservesReducedIterator) Error() error {
+func (it *BindingsReservesReducedIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcReservesReducedIterator) Close() error {
+func (it *BindingsReservesReducedIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcReservesReduced represents a ReservesReduced event raised by the Cwbtc contract.
-type CwbtcReservesReduced struct {
+// BindingsReservesReduced represents a ReservesReduced event raised by the Bindings contract.
+type BindingsReservesReduced struct {
 	Admin            common.Address
 	ReduceAmount     *big.Int
 	NewTotalReserves *big.Int
@@ -3117,21 +3117,21 @@ type CwbtcReservesReduced struct {
 // FilterReservesReduced is a free log retrieval operation binding the contract event 0x3bad0c59cf2f06e7314077049f48a93578cd16f5ef92329f1dab1420a99c177e.
 //
 // Solidity: event ReservesReduced(address admin, uint256 reduceAmount, uint256 newTotalReserves)
-func (_Cwbtc *CwbtcFilterer) FilterReservesReduced(opts *bind.FilterOpts) (*CwbtcReservesReducedIterator, error) {
+func (_Bindings *BindingsFilterer) FilterReservesReduced(opts *bind.FilterOpts) (*BindingsReservesReducedIterator, error) {
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "ReservesReduced")
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "ReservesReduced")
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcReservesReducedIterator{contract: _Cwbtc.contract, event: "ReservesReduced", logs: logs, sub: sub}, nil
+	return &BindingsReservesReducedIterator{contract: _Bindings.contract, event: "ReservesReduced", logs: logs, sub: sub}, nil
 }
 
 // WatchReservesReduced is a free log subscription operation binding the contract event 0x3bad0c59cf2f06e7314077049f48a93578cd16f5ef92329f1dab1420a99c177e.
 //
 // Solidity: event ReservesReduced(address admin, uint256 reduceAmount, uint256 newTotalReserves)
-func (_Cwbtc *CwbtcFilterer) WatchReservesReduced(opts *bind.WatchOpts, sink chan<- *CwbtcReservesReduced) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchReservesReduced(opts *bind.WatchOpts, sink chan<- *BindingsReservesReduced) (event.Subscription, error) {
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "ReservesReduced")
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "ReservesReduced")
 	if err != nil {
 		return nil, err
 	}
@@ -3141,8 +3141,8 @@ func (_Cwbtc *CwbtcFilterer) WatchReservesReduced(opts *bind.WatchOpts, sink cha
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcReservesReduced)
-				if err := _Cwbtc.contract.UnpackLog(event, "ReservesReduced", log); err != nil {
+				event := new(BindingsReservesReduced)
+				if err := _Bindings.contract.UnpackLog(event, "ReservesReduced", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3166,17 +3166,17 @@ func (_Cwbtc *CwbtcFilterer) WatchReservesReduced(opts *bind.WatchOpts, sink cha
 // ParseReservesReduced is a log parse operation binding the contract event 0x3bad0c59cf2f06e7314077049f48a93578cd16f5ef92329f1dab1420a99c177e.
 //
 // Solidity: event ReservesReduced(address admin, uint256 reduceAmount, uint256 newTotalReserves)
-func (_Cwbtc *CwbtcFilterer) ParseReservesReduced(log types.Log) (*CwbtcReservesReduced, error) {
-	event := new(CwbtcReservesReduced)
-	if err := _Cwbtc.contract.UnpackLog(event, "ReservesReduced", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseReservesReduced(log types.Log) (*BindingsReservesReduced, error) {
+	event := new(BindingsReservesReduced)
+	if err := _Bindings.contract.UnpackLog(event, "ReservesReduced", log); err != nil {
 		return nil, err
 	}
 	return event, nil
 }
 
-// CwbtcTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Cwbtc contract.
-type CwbtcTransferIterator struct {
-	Event *CwbtcTransfer // Event containing the contract specifics and raw log
+// BindingsTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Bindings contract.
+type BindingsTransferIterator struct {
+	Event *BindingsTransfer // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -3190,7 +3190,7 @@ type CwbtcTransferIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *CwbtcTransferIterator) Next() bool {
+func (it *BindingsTransferIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -3199,7 +3199,7 @@ func (it *CwbtcTransferIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(CwbtcTransfer)
+			it.Event = new(BindingsTransfer)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -3214,7 +3214,7 @@ func (it *CwbtcTransferIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(CwbtcTransfer)
+		it.Event = new(BindingsTransfer)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -3230,19 +3230,19 @@ func (it *CwbtcTransferIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *CwbtcTransferIterator) Error() error {
+func (it *BindingsTransferIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *CwbtcTransferIterator) Close() error {
+func (it *BindingsTransferIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// CwbtcTransfer represents a Transfer event raised by the Cwbtc contract.
-type CwbtcTransfer struct {
+// BindingsTransfer represents a Transfer event raised by the Bindings contract.
+type BindingsTransfer struct {
 	From   common.Address
 	To     common.Address
 	Amount *big.Int
@@ -3252,7 +3252,7 @@ type CwbtcTransfer struct {
 // FilterTransfer is a free log retrieval operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 amount)
-func (_Cwbtc *CwbtcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*CwbtcTransferIterator, error) {
+func (_Bindings *BindingsFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*BindingsTransferIterator, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -3263,17 +3263,17 @@ func (_Cwbtc *CwbtcFilterer) FilterTransfer(opts *bind.FilterOpts, from []common
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Cwbtc.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _Bindings.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
-	return &CwbtcTransferIterator{contract: _Cwbtc.contract, event: "Transfer", logs: logs, sub: sub}, nil
+	return &BindingsTransferIterator{contract: _Bindings.contract, event: "Transfer", logs: logs, sub: sub}, nil
 }
 
 // WatchTransfer is a free log subscription operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 amount)
-func (_Cwbtc *CwbtcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *CwbtcTransfer, from []common.Address, to []common.Address) (event.Subscription, error) {
+func (_Bindings *BindingsFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *BindingsTransfer, from []common.Address, to []common.Address) (event.Subscription, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -3284,7 +3284,7 @@ func (_Cwbtc *CwbtcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *Cw
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Cwbtc.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _Bindings.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
@@ -3294,8 +3294,8 @@ func (_Cwbtc *CwbtcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *Cw
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(CwbtcTransfer)
-				if err := _Cwbtc.contract.UnpackLog(event, "Transfer", log); err != nil {
+				event := new(BindingsTransfer)
+				if err := _Bindings.contract.UnpackLog(event, "Transfer", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -3319,9 +3319,9 @@ func (_Cwbtc *CwbtcFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *Cw
 // ParseTransfer is a log parse operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 amount)
-func (_Cwbtc *CwbtcFilterer) ParseTransfer(log types.Log) (*CwbtcTransfer, error) {
-	event := new(CwbtcTransfer)
-	if err := _Cwbtc.contract.UnpackLog(event, "Transfer", log); err != nil {
+func (_Bindings *BindingsFilterer) ParseTransfer(log types.Log) (*BindingsTransfer, error) {
+	event := new(BindingsTransfer)
+	if err := _Bindings.contract.UnpackLog(event, "Transfer", log); err != nil {
 		return nil, err
 	}
 	return event, nil
