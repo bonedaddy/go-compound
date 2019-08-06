@@ -24,7 +24,9 @@
 
 * Access to APIs via Golang programs
 * Watch account health, printing if account is at liquidation risk, or nearing liquidation risk.
-* Helper functions to rerieve supply interested, and borrow interest
+* Retrieve supply interest earned for a particular token
+* Retrieve total supply interest earned
+* Retrieve borrow interest owed for a particular token
 * Borrow from any compound contract
 * Get borrow rate for any compound contract
 * Retrieve list of liquidatable addresses
@@ -34,6 +36,7 @@
 * Pretty print full  `AccountService::AccountResponse` information, suitable for piping to `jq`
 * Retrieve account health
 * Retrieve supply interest earned for a particular token
+* Retrieve total supply interest earned
 * Retrieve borrow interest owed for a particular token
 * Retrieve a list of addresses that can be liquidated
 
