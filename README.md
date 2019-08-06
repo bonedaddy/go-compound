@@ -8,8 +8,7 @@
 
 * `abi` contains json abi definitions for various compound smart contracts
 * `bindigns` contains `abigen` generated golang bindings for the various abi's
-* `client` contains a client library to build applications that use the compound.finance API
-* `client/bchain` is a client for the ethereum blockchain capable of making transactions to compound contracts
+* `client` contains a client library to build applications that use the compound.finance API and interact with the smart contracts
 * `cmd` contains a small command-line client
 * `models` contains Golang types for the various responses that the API gives. Currently it has types for `CTokenService` and `AccountService` responses.
 * `pb` contains protobuf definitions for the compound APIs. Do not use

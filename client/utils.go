@@ -4,6 +4,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/postables/go-compound/models"
 )
 
@@ -12,6 +13,11 @@ type Address string
 
 func (a Address) String() string {
 	return string(a)
+}
+
+// EthAddress returns a typed ethereum address
+func (a Address) EthAddress() common.Address {
+	return common.HexToAddress(a.String())
 }
 
 const (
