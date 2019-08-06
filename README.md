@@ -25,7 +25,9 @@
 * Access to APIs via Golang programs
 * Watch account health, printing if account is at liquidation risk, or nearing liquidation risk.
 * Helper functions to rerieve supply interested, and borrow interest
-* Borrow ETH from the cETH contract
+* Borrow from any compound contract
+* Get borrow rate for any compound contract
+* Retrieve list of liquidatable addresses
 
 ## CLI
 
@@ -33,6 +35,7 @@
 * Retrieve account health
 * Retrieve supply interest earned for a particular token
 * Retrieve borrow interest owed for a particular token
+* Retrieve a list of addresses that can be liquidated
 
 # Long Term Goals
 

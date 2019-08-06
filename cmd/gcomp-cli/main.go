@@ -200,6 +200,22 @@ func loadAccountCommands() cli.Commands {
 						},
 					},
 				},
+				cli.Command{
+					Name:    "liquidatable",
+					Aliases: []string{"liqqable"},
+					Usage:   "get all liquidatable accounts",
+					Action: func(c *cli.Context) error {
+						cl := client.NewClient(url)
+						accts, err := cl.GetLiquidatableAccounts()
+						if err != nil {
+							return err
+						}
+						for k, v := range accts {
+							fmt.Printf("account %s health %v\n", k, v)
+						}
+						return nil
+					},
+				},
 			},
 			Flags: []cli.Flag{
 				cli.StringFlag{
