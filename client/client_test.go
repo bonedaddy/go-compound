@@ -25,6 +25,11 @@ func Test_Client(t *testing.T) {
 	if _, err := client.GetCTokens(); err != nil {
 		t.Fatal(err)
 	}
+	if accts, err := client.GetLiquidatableAccounts(); err != nil {
+		t.Fatal(err)
+	} else if len(accts) == 0 {
+		t.Fatal("no accounts at risk of liquidation")
+	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
 	defer cancel()
 	if err := client.WatchHealth(ctx, account); err != nil {

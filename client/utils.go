@@ -1,8 +1,11 @@
 package client
 
 import (
+	"errors"
 	"io/ioutil"
 	"net/http"
+
+	"strconv"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/postables/go-compound/models"
@@ -35,6 +38,8 @@ const (
 	CompoundWBTC = Address("0xc11b1268c1a384e55c48c2391d8d480264a3a7f4")
 	// CompoundZRX is th eaddress of the cZRX contract
 	CompoundZRX = Address("0xb3319f5d18bc0d84dd1b4825dcde5d5f7266d407")
+	// Comptroller is the address of the comptroller contract
+	Comptroller = Address("0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b")
 )
 
 var (
@@ -66,6 +71,33 @@ func (c *Client) GetBorrowInterestedAccrued(token Address, resp *models.AccountR
 		return "", err
 	}
 	return tkn.LifetimeBorrowInterestAccrued.Value, nil
+}
+
+// GetLiquidatableAccounts is used to return all accounts with health below 1.0
+// indicating they can be liquidated. The keys of the map are the addresses
+// and the values are their health
+func (c *Client) GetLiquidatableAccounts() (map[string]float64, error) {
+	resp, err := c.GetAccounts()
+	if err != nil {
+		return nil, err
+	}
+	if len(resp.Accounts) == 0 {
+		return nil, errors.New("an unexpected error occurred")
+	}
+	out := make(map[string]float64)
+	for _, acct := range resp.Accounts {
+		health, err := strconv.ParseFloat(acct.Health.Value, 64)
+		if err != nil {
+			return nil, err
+		}
+		if health < 1.0 {
+			out[acct.Address] = health
+		}
+	}
+	if len(out) == 0 {
+		return nil, errors.New("no liquidatable accounts found")
+	}
+	return out, nil
 }
 
 // sendRequest is used to send a request, and return the given body bytes
