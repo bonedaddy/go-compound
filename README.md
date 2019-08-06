@@ -44,9 +44,15 @@ The `unitroller` delegates all calls to `comptroller` however because we're usin
 * Retrieve borrow interest owed for a particular token
 * Retrieve a list of addresses that can be liquidated
 
+## Monitoring
+
+![](https://gateway.temporal.cloud/ipfs/QmbPucbeisRAdcHYFadYWNxHQWv6pUjYLaSL4LKwsg9hLp)
+
+* Enables monitoring your account with [sampler](https://github.com/sqshq/sampler).
+* Default sampler config located in `sampler/sampler.yml` however you'll need to replace the addresses as needed.
+
 # Long Term Goals
 
-* Include a [sampler](https://github.com/sqshq/sampler) config for dank console based metrics.
 * Enable persisting retrieve data locally in a DB for fast lookups
 * Enable report generation of your holdings
 * Enable the `MarketHistoryService` API

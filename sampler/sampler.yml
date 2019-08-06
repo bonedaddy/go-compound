@@ -1,0 +1,13 @@
+barcharts:
+  - title: Compound Account
+    rate-ms: 500
+    scale: 5
+    items:
+      - label: health
+        sample: gcomp-cli acct health -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" | awk '{print $NF}'
+      - label: dai-supply-interest
+        sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" --token.name cDAI | awk '{print $NF}'
+      - label: usdc-supply-interest
+        sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" --token.name cUSDC | awk '{print $NF}'
+      - label: eth-borrow-interest
+        sample: gcomp-cli acct borrow-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" --token.name cETH | awk '{print $NF}'
