@@ -38,8 +38,10 @@ const (
 	CompoundWBTC = Address("0xc11b1268c1a384e55c48c2391d8d480264a3a7f4")
 	// CompoundZRX is th eaddress of the cZRX contract
 	CompoundZRX = Address("0xb3319f5d18bc0d84dd1b4825dcde5d5f7266d407")
-	// Comptroller is the address of the comptroller contract
-	Comptroller = Address("0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b")
+	// Comptroller is th address of the comptroller contract
+	Comptroller = Address("0x178053c06006e67e09879C09Ff012fF9d263dF29")
+	// Unitroller is the address of the unitroller contract
+	Unitroller = Address("0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b")
 )
 
 var (

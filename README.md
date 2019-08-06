@@ -4,6 +4,10 @@
 
 `go-compound` is a Golang client, and library for interacting with the compound.finace API, and eventually providing means to execute on-chain transactions. It comes with a small CLI providing access to convience functions like retrieving account health, etc...
 
+# Notes
+
+The `unitroller` delegates all calls to `comptroller` however because we're using golang, we need to bind to the comptroller directly. That is why there is separate bindings for `unitroller` and `comptroller`
+
 # Contents
 
 * `abi` contains json abi definitions for various compound smart contracts

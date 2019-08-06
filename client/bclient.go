@@ -12,6 +12,7 @@ import (
 	cbat "github.com/postables/go-compound/bindings/cbat"
 	cdai "github.com/postables/go-compound/bindings/cdai"
 	ceth "github.com/postables/go-compound/bindings/ceth"
+	comptroller "github.com/postables/go-compound/bindings/comptroller"
 	crep "github.com/postables/go-compound/bindings/crep"
 	cusdc "github.com/postables/go-compound/bindings/cusdc"
 	cwbtc "github.com/postables/go-compound/bindings/cusdc"
@@ -27,6 +28,38 @@ type BClient struct {
 // NewBClient registers a new blockchain client
 func NewBClient(auth *bind.TransactOpts, client *ethclient.Client) *BClient {
 	return &BClient{auth: auth, client: client}
+}
+
+// CanLiquidate is used to check whether or not the given address can be liquidated
+func (bc *BClient) CanLiquidate(ctx context.Context, account common.Address) (bool, error) {
+	contract, err := comptroller.NewBindings(Comptroller.EthAddress(), bc.client)
+	if err != nil {
+		return false, err
+	}
+
+	errCode, liquidity, shortfall, err := contract.GetAccountLiquidity(nil, account)
+	if err != nil {
+		return false, err
+	}
+	if errCode.Int64() != 0 {
+		return false, errors.New("smart contract return a non 0 error code")
+	}
+	// liquidity at 0 means the account has no liquidity
+	// shortfall should be 1, indicating they are at risk of being liquidated
+	if liquidity.Int64() == 0 {
+		// shortfall needs to be 1 or higher to be liquidatable
+		if shortfall.Int64() == 0 {
+			return false, errors.New("both shortfall and liquidity are 0")
+		} else if shortfall.Int64() >= 1 {
+			return true, nil
+		}
+	}
+	if liquidity.Int64() > 0 {
+		if shortfall.Int64() > 0 {
+			return false, errors.New("both liquidity and shortfall are greater than 0")
+		}
+	}
+	return false, nil
 }
 
 // Borrow is used to borrow a particular address

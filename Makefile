@@ -8,6 +8,7 @@ bindings:
 	abigen --abi abi/cwbtc.json --pkg bindings --out bindings/cwbtc/cwbtc.go
 	abigen --abi abi/czrx.json --pkg bindings --out bindings/czrx/czrx.go
 	abigen --abi abi/comptroller.json --pkg bindings --out bindings/comptroller/comptroller.go
+	abigen --abi abi/unitroller.json  --pkg bindings --out bindings/unitroller/unitroller.go
 
 .PHONY: gen
 gen:
