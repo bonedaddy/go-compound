@@ -2,11 +2,7 @@
 
 > **WARNING: this code deals with money both by making blockchain calls and returning information that can be used to lose/gain money. Please use cautiously and dont come complaining if you end up losing money.**
 
-`go-compound` is a Golang client, and library for interacting with the compound.finace API, and eventually providing means to execute on-chain transactions. It comes with a small CLI providing access to convience functions like retrieving account health, etc...
-
-# Notes
-
-The `unitroller` delegates all calls to `comptroller` however because we're using golang, we need to bind to the comptroller directly. That is why there is separate bindings for `unitroller` and `comptroller`
+`go-compound` is a Golang client, and library for interacting with the compound.finace API, and interacting with the compound contracts, allowing for the creation of bots trading with the Compound protocol.
 
 # Contents
 
@@ -16,6 +12,7 @@ The `unitroller` delegates all calls to `comptroller` however because we're usin
 * `cmd` contains a small command-line client
 * `models` contains Golang types for the various responses that the API gives. Currently it has types for `CTokenService` and `AccountService` responses.
 * `pb` contains protobuf definitions for the compound APIs. Do not use
+* `sampler` contains [sampler](https://github.com/sqshq/sampler) configurations to enable console based monitoring of your compound accounts
 
 # Current Capabilities
 
@@ -57,6 +54,10 @@ The `unitroller` delegates all calls to `comptroller` however because we're usin
 * Enable report generation of your holdings
 * Enable the `MarketHistoryService` API
 * Enable graphing of `MarketHistoryService` metrics
+* Enable arbitrage between uniswap and compound
+  * Enable things like spotting interest rate arbitrages
+  * Repayment arbitrages
+  * ???
 
 # Links
 
