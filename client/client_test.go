@@ -32,7 +32,9 @@ func Test_Client(t *testing.T) {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
 	defer cancel()
-	if err := client.WatchHealth(ctx, account); err != nil {
+	riskChan := make(chan float64, 1)
+	warnChan := make(chan float64, 1)
+	if err := client.WatchHealth(ctx, account, riskChan, warnChan); err != nil {
 		t.Fatal(err)
 	}
 }

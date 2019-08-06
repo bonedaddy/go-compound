@@ -23,7 +23,7 @@
 ## Client Library
 
 * Access to APIs via Golang programs, and not having to deal with raw http calls
-* Watch account health, printing if account is at liquidation risk, or nearing liquidation risk.
+* Watch account health, signalling and printing on different account health states
 * Retrieve supply interest earned for a particular token
 * Retrieve total supply interest earned
 * Retrieve borrow interest owed for a particular token
