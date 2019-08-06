@@ -46,7 +46,7 @@ The `unitroller` delegates all calls to `comptroller` however because we're usin
 
 ## Monitoring
 
-![](https://gateway.temporal.cloud/ipfs/QmbPucbeisRAdcHYFadYWNxHQWv6pUjYLaSL4LKwsg9hLp)
+![](https://gateway.temporal.cloud/ipfs/QmeYZMCX5fhkFB43f7SosGyBs9vAFdSqj6BCFjBJGFouFS)
 
 * Enables monitoring your account with [sampler](https://github.com/sqshq/sampler).
 * Default sampler config located in `sampler/sampler.yml` however you'll need to replace the addresses as needed.

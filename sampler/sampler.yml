@@ -1,13 +1,50 @@
 barcharts:
   - title: Compound Account
-    rate-ms: 500
+    position: [[0, 13], [80, 24]]
+    rate-ms: 15000
     scale: 5
     items:
       - label: health
-        sample: gcomp-cli acct health -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" | awk '{print $NF}'
+        sample: gcomp-cli acct health -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704"
+            | awk '{print $NF}'
       - label: dai-supply-interest
-        sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" --token.name cDAI | awk '{print $NF}'
+        sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704"
+            --token.name cDAI | awk '{print $NF}'
       - label: usdc-supply-interest
-        sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" --token.name cUSDC | awk '{print $NF}'
+        sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704"
+            --token.name cUSDC | awk '{print $NF}'
       - label: eth-borrow-interest
-        sample: gcomp-cli acct borrow-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704" --token.name cETH | awk '{print $NF}'
+        sample: gcomp-cli acct borrow-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704"
+            --token.name cETH | awk '{print $NF}'
+asciiboxes:
+  - title: ETH Price USD
+    position: [[0, 0], [18, 12]]
+    rate-ms: 500
+    color: 43
+    sample: curl https://api.coinmarketcap.com/v1/ticker/ethereum/ | jq '.[] | .price_usd'
+        | tr -d '"'
+    border: false
+    font: 2d
+  - title: DAI Price USD
+    position: [[17, 1], [14, 13]]
+    rate-ms: 500
+    color: 43
+    sample: curl https://api.coinmarketcap.com/v1/ticker/dai/ | jq '.[] | .price_usd'
+        | tr -d '"'
+    border: false
+    font: 2d
+  - title: USDC Price USD
+    position: [[31, 0], [14, 13]]
+    rate-ms: 500
+    color: 43
+    sample: curl https://api.coinmarketcap.com/v1/ticker/usd-coin/ | jq '.[] | .price_usd'
+        | tr -d '"'
+    border: false
+    font: 2d
+  - title: UTC time
+    position: [[47, 1], [33, 13]]
+    rate-ms: 500
+    color: 43
+    sample: env TZ=UTC date +%r
+    border: false
+    font: 2d
