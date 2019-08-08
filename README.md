@@ -66,6 +66,7 @@
 * [Compound App](https://app.compound.finance/)
 * [Compound Website](https://compound.finance/)
 * [comproi](https://www.comproi.com/#)
+* [Defi Saver Compound Manager](https://defisaver.com/compound/manage)
 
 # Support
 
