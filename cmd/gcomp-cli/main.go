@@ -89,6 +89,50 @@ func loadAccountCommands() cli.Commands {
 			Aliases: []string{"acct"},
 			Subcommands: cli.Commands{
 				cli.Command{
+					Name:  "collateral-value",
+					Usage: "get account collateral value in eth",
+					Action: func(c *cli.Context) error {
+						if c.String("eth.address") == "" {
+							return errors.New("eth.address flag is empty")
+						}
+						cl := client.NewClient(url)
+						value, err := cl.GetTotalCollateralValueInEth(c.String("eth.address"))
+						if err != nil {
+							return err
+						}
+						fmt.Println("collateral value: ", value)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "eth.address",
+							Usage: "the address to lookup",
+						},
+					},
+				},
+				cli.Command{
+					Name:  "borrow-value",
+					Usage: "get account borrow value in eth",
+					Action: func(c *cli.Context) error {
+						if c.String("eth.address") == "" {
+							return errors.New("eth.address flag is empty")
+						}
+						cl := client.NewClient(url)
+						value, err := cl.GetTotalBorrowValueInEth(c.String("eth.address"))
+						if err != nil {
+							return err
+						}
+						fmt.Println("borrow value: ", value)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "eth.address",
+							Usage: "the address to lookup",
+						},
+					},
+				},
+				cli.Command{
 					Name:  "health",
 					Usage: "get account health",
 					Action: func(c *cli.Context) error {
