@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"strconv"
+
 	"github.com/postables/go-compound/models"
 )
 
@@ -17,6 +19,28 @@ type Client struct {
 // NewClient is used to instantiate a new go-compound client
 func NewClient(url string) *Client {
 	return &Client{url: url, client: &http.Client{}}
+}
+
+// GetTotalCollateralValueInEth is used to retrieve the total collateral value
+// in eth that is owned by this account
+func (c *Client) GetTotalCollateralValueInEth(address string) (float64, error) {
+	resp, err := c.GetAccount(address)
+	if err != nil {
+		return 0, err
+	}
+
+	return strconv.ParseFloat(resp.Accounts[0].TotalCollateralValueInEth.Value, 64)
+}
+
+// GetTotalBorrowValueInEth is used to retrieve the total collateral value
+// in eth that is owned by this account
+func (c *Client) GetTotalBorrowValueInEth(address string) (float64, error) {
+	resp, err := c.GetAccount(address)
+	if err != nil {
+		return 0, err
+	}
+
+	return strconv.ParseFloat(resp.Accounts[0].TotalBorrowValueInEth.Value, 64)
 }
 
 // GetAccount is used to retrieve information on a single account
