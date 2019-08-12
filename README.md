@@ -67,6 +67,8 @@
 * [Compound Website](https://compound.finance/)
 * [comproi](https://www.comproi.com/#)
 * [Defi Saver Compound Manager](https://defisaver.com/compound/manage)
+* [chiragkhatri.me/compound-liquidator](https://chiragkhatri.me/compound-liquidator/)
+* [azizjalel.com/liquidator](https://azizjalel.com/comp/index2.php)
 
 # Support
 
