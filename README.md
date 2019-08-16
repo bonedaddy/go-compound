@@ -73,8 +73,6 @@
 * [aleth.io (analytics)](https://aleth.io/)
 * [zeroin (compound management)](https://beta.zerion.io)
 
-
-
 # Support
 
 If you like this application feel free to send me some ETH, or whatever (shit)coins you want to get rid of `0xc7459562777DDf3A1A7afefBE515E8479Bd3FDBD`.
