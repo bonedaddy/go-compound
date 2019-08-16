@@ -67,6 +67,11 @@
 * [Compound Website](https://compound.finance/)
 * [comproi](https://www.comproi.com/#)
 * [Defi Saver Compound Manager](https://defisaver.com/compound/manage)
+* [Compound Liquidation Calculator](https://azizjalel.github.io/compoundcalc/)
+* [aleth.io (analytics)](https://aleth.io/)
+* [zeroin (compound management)](https://beta.zerion.io)
+
+
 
 # Support
 
