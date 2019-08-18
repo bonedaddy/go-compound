@@ -8,9 +8,11 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"time"
 
 	"flag"
 
+	"github.com/Necroforger/dgwidgets"
 	"github.com/bwmarrin/discordgo"
 	"github.com/postables/go-compound/client"
 	"github.com/tbruyelle/imgur"
@@ -20,10 +22,19 @@ var (
 	configFile  = flag.String("config.file", "config.json", "config file to use")
 	imgurClient *imgur.Client
 	url         = "https://api.compound.finance/api/v2"
+	help        string
 )
 
 func init() {
 	flag.Parse()
+	var hlp string
+	hlp = fmt.Sprintf("%scommands:\neth-price: get ethereum price from cmc", hlp)
+	hlp = fmt.Sprintf("%s\ndai-price: get dai price from cmc", hlp)
+	hlp = fmt.Sprintf("%s\nliqqable: get liquidatable accounts", hlp)
+	hlp = fmt.Sprintf("%s\nhealth-check <acct>: get account health", hlp)
+	hlp = fmt.Sprintf("%s\ncollateral-value <acct>: get account collateral value", hlp)
+	hlp = fmt.Sprintf("%s\nborrow-value <acct>: get account borrow value", hlp)
+	help = hlp
 }
 
 func main() {
@@ -52,17 +63,67 @@ func main() {
 }
 
 func sendHelp(s *discordgo.Session, m *discordgo.MessageCreate) {
-	var help string
-	help = fmt.Sprintf("%scommands:\neth-price: get ethereum price from cmc", help)
-	help = fmt.Sprintf("%s\ndai-price: get dai price from cmc", help)
-	help = fmt.Sprintf("%s\nliqqable: get liquidatable accounts", help)
-	help = fmt.Sprintf("%s\nhealth-check <acct>: get account health", help)
-	help = fmt.Sprintf("%s\ncollateral-value <acct>: get account collateral value", help)
-	help = fmt.Sprintf("%s\nborrow-value <acct>: get account borrow value", help)
 	if _, err := s.ChannelMessageSend(m.ChannelID, help); err != nil {
 		fmt.Println("error sending message: ", err.Error())
 		return
 	}
+}
+
+func liqqable(s *discordgo.Session, m *discordgo.MessageCreate) {
+	cl := client.NewClient(url)
+	accts, err := cl.GetLiquidatableAccounts()
+	if err != nil {
+		fmt.Println("failed to get liquidatable accounts ", err.Error())
+		return
+	}
+	p := dgwidgets.NewPaginator(s, m.ChannelID)
+	for k, v := range accts {
+		// get the account collateral value
+		collatValue, err := cl.GetTotalCollateralValueInEth(k)
+		if err != nil {
+			fmt.Println("failed to get data for account ", k)
+			continue
+		}
+		borrowValue, err := cl.GetTotalBorrowValueInEth(k)
+		if err != nil {
+			fmt.Println("failed to get data for account ", k)
+			continue
+		}
+		var fields []*discordgo.MessageEmbedField
+		fields = append(fields, &discordgo.MessageEmbedField{
+			Name:   "Account Address",
+			Value:  k,
+			Inline: true,
+		}, &discordgo.MessageEmbedField{
+			Name:   "Account Value (ETH)",
+			Value:  fmt.Sprintf("%v", borrowValue+collatValue),
+			Inline: true,
+		}, &discordgo.MessageEmbedField{
+			Name:   "Account Health",
+			Value:  fmt.Sprintf("%v", v),
+			Inline: true,
+		})
+		embed := &discordgo.MessageEmbed{
+			Author:      &discordgo.MessageEmbedAuthor{},
+			Color:       0x00ff00,
+			Description: "Liquidatable Account",
+		}
+		embed.Fields = fields
+		p.Add(embed)
+	}
+	p.SetPageFooters()
+
+	// enable looping
+	p.Loop = true
+
+	// When the paginator is done listening set the colour to yellow
+	p.ColourWhenDone = 0xffff
+
+	// Stop listening for reaction events after five minutes
+	p.Widget.Timeout = time.Minute * 1
+
+	// start
+	p.Spawn()
 }
 
 // This function will be called (due to AddHandler above) every time a new
@@ -88,36 +149,26 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		sendHelp(s, m)
 		return
 	}
-	if args[1] == "eth-price" {
-		val, err := RetrieveUsdPrice("ethereum")
-		if err != nil {
-			s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
+	// commands which only requrie two arguments
+	if len(args) == 2 {
+		if args[1] == "eth-price" {
+			val, err := RetrieveUsdPrice("ethereum")
+			if err != nil {
+				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
+			}
+			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
 		}
-		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
-	}
-	if args[1] == "dai-price" {
-		val, err := RetrieveUsdPrice("dai")
-		if err != nil {
-			s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
+		if args[1] == "dai-price" {
+			val, err := RetrieveUsdPrice("dai")
+			if err != nil {
+				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
+			}
+			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
 		}
-		s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
-	}
-	if args[1] == "liqqable" {
-		cl := client.NewClient(url)
-		accts, err := cl.GetLiquidatableAccounts()
-		if err != nil {
-			fmt.Println("failed to get liquidatable accounts ", err.Error())
+		if args[1] == "liqqable" {
+			liqqable(s, m)
 			return
 		}
-		var msg string
-		for k, v := range accts {
-			msg = fmt.Sprintf("%s\naccount %s health %v\n", msg, k, v)
-		}
-		if _, err := s.ChannelMessageSend(m.ChannelID, msg); err != nil {
-			fmt.Println("failed to get liquidatable accounts")
-			return
-		}
-		return
 	}
 	if len(args) > 2 {
 		// If the message is "ping" reply with "Pong!"
