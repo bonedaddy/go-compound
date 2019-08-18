@@ -85,7 +85,10 @@ func (ep *DaiPrice) Get() (float64, error) {
 		ep.mux.Unlock()
 		return val, nil
 	}
-	return ep.Price, nil
+	ep.mux.RLock()
+	price := ep.Price
+	ep.mux.RUnlock()
+	return price, nil
 }
 
 func (ep *DaiPrice) cacheExpired() bool {
