@@ -12,6 +12,8 @@ import (
 
 	"flag"
 
+	"sync"
+
 	"github.com/Necroforger/dgwidgets"
 	"github.com/bwmarrin/discordgo"
 	"github.com/postables/go-compound/client"
@@ -19,15 +21,99 @@ import (
 )
 
 var (
-	configFile  = flag.String("config.file", "config.json", "config file to use")
-	imgurClient *imgur.Client
-	url         = "https://api.compound.finance/api/v2"
-	help        string
-	helpEmbed   *discordgo.MessageEmbed
+	configFile      = flag.String("config.file", "config.json", "config file to use")
+	imgurClient     *imgur.Client
+	url             = "https://api.compound.finance/api/v2"
+	help            string
+	helpEmbed       *discordgo.MessageEmbed
+	ethPriceWatcher *EthPrice
+	daiPriceWatcher *DaiPrice
 )
+
+// EthPrice is used to cache eth price in memory
+type EthPrice struct {
+	Price   float64
+	Expires time.Time
+	mux     *sync.RWMutex
+}
+
+// Get returns the ethereum price
+func (ep *EthPrice) Get() (float64, error) {
+	if ep.cacheExpired() {
+		ep.mux.Lock()
+		val, err := RetrieveUsdPrice("ethereum")
+		if err != nil {
+			return 0, err
+		}
+		ep.Price = val
+		ep.Expires = time.Now().Add(time.Minute * 5)
+		ep.mux.Unlock()
+		return val, nil
+	}
+	return ep.Price, nil
+}
+
+func (ep *EthPrice) cacheExpired() bool {
+	ep.mux.RLock()
+	var cacheExpired bool
+	if time.Now().After(ep.Expires) {
+		cacheExpired = true
+	} else {
+		cacheExpired = false
+	}
+	ep.mux.RUnlock()
+	return cacheExpired
+}
+
+// DaiPrice is used to cache dai price in memory
+type DaiPrice struct {
+	Price   float64
+	Expires time.Time
+	mux     *sync.RWMutex
+}
+
+// Get returns the ethereum price
+func (ep *DaiPrice) Get() (float64, error) {
+	if ep.cacheExpired() {
+		ep.mux.Lock()
+		val, err := RetrieveUsdPrice("dai")
+		if err != nil {
+			return 0, err
+		}
+		ep.Price = val
+		ep.Expires = time.Now().Add(time.Minute * 5)
+		ep.mux.Unlock()
+		return val, nil
+	}
+	return ep.Price, nil
+}
+
+func (ep *DaiPrice) cacheExpired() bool {
+	ep.mux.RLock()
+	var cacheExpired bool
+	if time.Now().After(ep.Expires) {
+		cacheExpired = true
+	} else {
+		cacheExpired = false
+	}
+	ep.mux.RUnlock()
+	return cacheExpired
+}
 
 func init() {
 	flag.Parse()
+
+	ethPriceWatcher = &EthPrice{
+		Price:   0,
+		Expires: time.Now(),
+		mux:     &sync.RWMutex{},
+	}
+
+	daiPriceWatcher = &DaiPrice{
+		Price:   0,
+		Expires: time.Now(),
+		mux:     &sync.RWMutex{},
+	}
 	helpEmbed = &discordgo.MessageEmbed{
 		Title:       "MoneyBags Help Menu",
 		Description: "all commands must be invoked with !moneybags <cmd>\nAnything with <..> after command name expects an argument\nAnything with [..] after command name is an optional argument",
@@ -254,7 +340,7 @@ func handleNotif(s *discordgo.Session, m *discordgo.MessageCreate, args []string
 			if args[3] == "ge" {
 				switch args[2] {
 				case "eth-price":
-					val, err := RetrieveUsdPrice("ethereum")
+					val, err := ethPriceWatcher.Get()
 					if err != nil {
 						fmt.Println(err)
 						return
@@ -264,7 +350,7 @@ func handleNotif(s *discordgo.Session, m *discordgo.MessageCreate, args []string
 						return
 					}
 				case "dai-price":
-					val, err := RetrieveUsdPrice("dai")
+					val, err := daiPriceWatcher.Get()
 					if err != nil {
 						fmt.Println(err)
 						return
@@ -277,7 +363,7 @@ func handleNotif(s *discordgo.Session, m *discordgo.MessageCreate, args []string
 			} else {
 				switch args[2] {
 				case "eth-price":
-					val, err := RetrieveUsdPrice("ethereum")
+					val, err := ethPriceWatcher.Get()
 					if err != nil {
 						fmt.Println(err)
 						return
@@ -287,7 +373,7 @@ func handleNotif(s *discordgo.Session, m *discordgo.MessageCreate, args []string
 						return
 					}
 				case "dai-price":
-					val, err := RetrieveUsdPrice("dai")
+					val, err := daiPriceWatcher.Get()
 					if err != nil {
 						fmt.Println(err)
 						return
@@ -305,7 +391,7 @@ func handleNotif(s *discordgo.Session, m *discordgo.MessageCreate, args []string
 }
 
 func ethPrice(s *discordgo.Session, m *discordgo.MessageCreate) {
-	val, err := RetrieveUsdPrice("ethereum")
+	val, err := ethPriceWatcher.Get()
 	if err != nil {
 		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
 	}
@@ -313,7 +399,7 @@ func ethPrice(s *discordgo.Session, m *discordgo.MessageCreate) {
 }
 
 func daiPrice(s *discordgo.Session, m *discordgo.MessageCreate) {
-	val, err := RetrieveUsdPrice("dai")
+	val, err := daiPriceWatcher.Get()
 	if err != nil {
 		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
 	}
@@ -390,8 +476,6 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 	// ensure the first field is a valid invocation of moneybags
 	if args[0] != "!moneybags" {
-		s.ChannelMessageSend(m.ChannelID, "invalid invocation, see help message:")
-		sendHelp(s, m)
 		fmt.Println("invalid invocation")
 		return
 	}
