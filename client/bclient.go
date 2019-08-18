@@ -71,6 +71,62 @@ func (bc *BClient) CanLiquidate(ctx context.Context, account common.Address) (bo
 	return false, nil
 }
 
+// GetExchangeRate calls ExchangeRateStored to retrieve the current borrow interest rate
+func (bc *BClient) GetExchangeRate(ctx context.Context, address Address) (*big.Int, error) {
+	var (
+		rate *big.Int
+		err  error
+	)
+	switch address {
+	case CompoundBAT:
+		contract, err := cbat.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	case CompoundETH:
+		contract, err := ceth.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	case CompoundREP:
+		contract, err := crep.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	case CompoundUSDC:
+		contract, err := cusdc.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	case CompoundWBTC:
+		contract, err := cwbtc.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	case CompoundZRX:
+		contract, err := czrx.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.ExchangeRateStored(nil)
+	}
+	if err != nil {
+		return nil, err
+	}
+	return rate, nil
+}
+
 // Borrow is used to borrow a particular address
 func (bc *BClient) Borrow(ctx context.Context, address Address, borrowAmount *big.Int) error {
 	var (
