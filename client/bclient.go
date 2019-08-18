@@ -21,18 +21,27 @@ import (
 
 // BClient is an ethereum blockchain client
 type BClient struct {
-	auth   *bind.TransactOpts
-	client *ethclient.Client
+	auth     *bind.TransactOpts
+	client   *ethclient.Client
+	readOnly bool
 }
 
 // NewBClient registers a new blockchain client
-func NewBClient(auth *bind.TransactOpts, client *ethclient.Client) *BClient {
-	return &BClient{auth: auth, client: client}
+func NewBClient(auth *bind.TransactOpts, address string, readOnly bool) (*BClient, error) {
+	client, err := ethclient.Dial(address)
+	if err != nil {
+		return nil, err
+	}
+	bc := &BClient{client: client, readOnly: readOnly}
+	if !readOnly {
+		bc.auth = auth
+	}
+	return bc, nil
 }
 
 // CanLiquidate is used to check whether or not the given address can be liquidated
 func (bc *BClient) CanLiquidate(ctx context.Context, account common.Address) (bool, error) {
-	contract, err := comptroller.NewBindings(Comptroller.EthAddress(), bc.client)
+	contract, err := comptroller.NewBindings(Unitroller.EthAddress(), bc.client)
 	if err != nil {
 		return false, err
 	}
