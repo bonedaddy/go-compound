@@ -154,6 +154,95 @@ func liqqable(s *discordgo.Session, m *discordgo.MessageCreate) {
 	p.Spawn()
 }
 
+func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate, args []string) {
+	if len(args) == 1 && args[0] == "!moneybags" {
+		sendHelp(s, m)
+		return
+	}
+	if len(args) == 2 {
+		switch args[1] {
+		case "eth-price":
+			val, err := RetrieveUsdPrice("ethereum")
+			if err != nil {
+				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
+			}
+			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
+		case "dai-price":
+			val, err := RetrieveUsdPrice("dai")
+			if err != nil {
+				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
+			}
+			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
+		case "liqqable":
+			liqqable(s, m)
+		}
+	}
+	if len(args) > 2 {
+		switch args[1] {
+		case "health-check":
+			healthCheck(s, m, args[2])
+		case "collateral-value":
+			collateralValue(s, m, args[2])
+		case "borrow-value":
+			borrowValue(s, m, args[2])
+		}
+	}
+}
+
+func borrowValue(s *discordgo.Session, m *discordgo.MessageCreate, account string) {
+	cl := client.NewClient(url)
+	value, err := cl.GetTotalBorrowValueInEth(account)
+	if err != nil {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get collateral value: "+err.Error())
+		return
+	}
+	if _, err := s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("borrow value: %vETH", value)); err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+}
+
+func collateralValue(s *discordgo.Session, m *discordgo.MessageCreate, account string) {
+	cl := client.NewClient(url)
+	value, err := cl.GetTotalCollateralValueInEth(account)
+	if err != nil {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get collateral value: "+err.Error())
+		return
+	}
+	if _, err := s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("collateral value: %vETH", value)); err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+}
+
+func healthCheck(s *discordgo.Session, m *discordgo.MessageCreate, account string) {
+	cl := client.NewClient(url)
+	resp, err := cl.GetAccount(account)
+	if err != nil {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get account health: "+err.Error())
+		return
+	}
+	if len(resp.Accounts) == 0 {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: an unexpected error occurred")
+	}
+	health, err := strconv.ParseFloat(resp.Accounts[0].Health.Value, 64)
+	if err != nil {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get account health: "+err.Error())
+		return
+	}
+	var status string
+	if health < 1.0 {
+		status = "danger"
+	} else if health < 1.15 {
+		status = "risky"
+	} else if health < 1.25 {
+		status = "okay"
+	} else {
+		status = "good"
+	}
+	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("health: %v\nstatus: %s\n", health, status))
+}
+
 // This function will be called (due to AddHandler above) every time a new
 // message is created on any channel that the autenticated bot has access to.
 func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
@@ -173,96 +262,5 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		fmt.Println("invalid invocation")
 		return
 	}
-	if len(args) == 1 && args[0] == "!moneybags" {
-		sendHelp(s, m)
-		return
-	}
-	// commands which only requrie two arguments
-	if len(args) == 2 {
-		if args[1] == "eth-price" {
-			val, err := RetrieveUsdPrice("ethereum")
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
-			}
-			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
-		}
-		if args[1] == "dai-price" {
-			val, err := RetrieveUsdPrice("dai")
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
-			}
-			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
-		}
-		if args[1] == "liqqable" {
-			liqqable(s, m)
-			return
-		}
-	}
-	if len(args) > 2 {
-		// If the message is "ping" reply with "Pong!"
-		if args[1] == "ping" {
-			if _, err := s.ChannelMessageSend(m.ChannelID, "Pong!"); err != nil {
-				fmt.Println(err)
-			}
-			return
-		}
-		// If the message is "pong" reply with "Ping!"
-		if args[1] == "pong" {
-			if _, err := s.ChannelMessageSend(m.ChannelID, "Ping!"); err != nil {
-				fmt.Println(err)
-			}
-			return
-		}
-		if args[1] == "health-check" {
-			cl := client.NewClient(url)
-			resp, err := cl.GetAccount(args[2])
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get account health: "+err.Error())
-				return
-			}
-			if len(resp.Accounts) == 0 {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: an unexpected error occurred")
-			}
-			health, err := strconv.ParseFloat(resp.Accounts[0].Health.Value, 64)
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get account health: "+err.Error())
-				return
-			}
-			var status string
-			if health < 1.0 {
-				status = "danger"
-			} else if health < 1.15 {
-				status = "risky"
-			} else if health < 1.25 {
-				status = "okay"
-			} else {
-				status = "good"
-			}
-			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("health: %v\nstatus: %s\n", health, status))
-		}
-		if args[1] == "collateral-value" {
-			cl := client.NewClient(url)
-			value, err := cl.GetTotalCollateralValueInEth(args[2])
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get collateral value: "+err.Error())
-				return
-			}
-			if _, err := s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("collateral value: %vETH", value)); err != nil {
-				fmt.Println(err.Error())
-				return
-			}
-		}
-		if args[1] == "borrow-value" {
-			cl := client.NewClient(url)
-			value, err := cl.GetTotalBorrowValueInEth(args[2])
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get collateral value: "+err.Error())
-				return
-			}
-			if _, err := s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("borrow value: %vETH", value)); err != nil {
-				fmt.Println(err.Error())
-				return
-			}
-		}
-	}
+	handleCommand(s, m, args)
 }
