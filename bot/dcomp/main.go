@@ -97,6 +97,52 @@ func sendHelp(s *discordgo.Session, m *discordgo.MessageCreate) {
 }
 
 func liqqable(s *discordgo.Session, m *discordgo.MessageCreate) {
+	s.ChannelMessageSend(m.ChannelID, "fetching liqqable accounts...")
+	cl := client.NewClient(url)
+	accts, err := cl.GetLiquidatableAccounts()
+	if err != nil {
+		fmt.Println("failed to get liquidatable accounts ", err.Error())
+		return
+	}
+	embed := &discordgo.MessageEmbed{
+		Type:        "Liquidatable Accounts",
+		Description: "Lists account addresses, their health, and value",
+		Thumbnail: &discordgo.MessageEmbedThumbnail{
+			URL: "https://gateway.temporal.cloud/ipfs/QmS8nQ1FKq9HiXyGscu6HrT3BFpcziNFTEkjKJYLj3bFy9",
+		},
+		Color: 0x00ff00,
+	}
+	var fields []*discordgo.MessageEmbedField
+	for k, v := range accts {
+		// get the account collateral value
+		collatValue, err := cl.GetTotalCollateralValueInEth(k)
+		if err != nil {
+			fmt.Println("failed to get data for account ", k)
+			continue
+		}
+		borrowValue, err := cl.GetTotalBorrowValueInEth(k)
+		if err != nil {
+			fmt.Println("failed to get data for account ", k)
+			continue
+		}
+		fields = append(fields, &discordgo.MessageEmbedField{
+			Name:  "Address",
+			Value: k,
+		}, &discordgo.MessageEmbedField{
+			Name:   "Value (ETH)",
+			Value:  fmt.Sprintf("%v", borrowValue+collatValue),
+			Inline: true,
+		}, &discordgo.MessageEmbedField{
+			Name:   "Health",
+			Value:  fmt.Sprintf("%v", v),
+			Inline: true,
+		})
+	}
+	embed.Fields = fields
+	s.ChannelMessageSendEmbed(m.ChannelID, embed)
+}
+
+func liqqablePaginated(s *discordgo.Session, m *discordgo.MessageCreate) {
 	cl := client.NewClient(url)
 	accts, err := cl.GetLiquidatableAccounts()
 	if err != nil {
@@ -177,6 +223,10 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate, args []stri
 			collateralValue(s, m, args[2])
 		case "borrow-value":
 			borrowValue(s, m, args[2])
+		case "liqqable":
+			if args[2] == "paginated" {
+				liqqablePaginated(s, m)
+			}
 		}
 	}
 }
