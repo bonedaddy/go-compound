@@ -10,12 +10,16 @@ import (
 
 	"strconv"
 
+	"context"
+
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/postables/go-compound/client"
 	"github.com/urfave/cli"
 )
 
 var (
-	url string
+	url    string
+	ethURL string
 )
 
 func main() {
@@ -48,10 +52,58 @@ func loadFlags() []cli.Flag {
 			Value:       "https://api.compound.finance/api/v2",
 			Destination: &url,
 		},
+		cli.StringFlag{
+			Name:        "eth.url, eu",
+			Usage:       "ethereum rpc endpoint",
+			Value:       "http://127.0.0.1:8545",
+			Destination: &ethURL,
+		},
 	}
 }
 func loadCommands() cli.Commands {
-	return loadAccountCommands()
+	commands := loadAccountCommands()
+	commands = append(commands, loadBlockchainCommands()...)
+	return commands
+}
+
+func loadBlockchainCommands() cli.Commands {
+	return cli.Commands{
+		cli.Command{
+			Name:        "blockchain",
+			Usage:       "interact with compound contracts",
+			Description: "used to interact with the actual compound contracts",
+			Subcommands: cli.Commands{
+				cli.Command{
+					Name:  "can-liquidate",
+					Usage: "check if an account is liquidatable",
+					Action: func(c *cli.Context) error {
+						if c.String("eth.address") == "" {
+							return errors.New("eth.address flag is empty")
+						}
+						bc, err := client.NewBClient(nil, ethURL, true)
+						if err != nil {
+							return err
+						}
+						canLiq, err := bc.CanLiquidate(
+							context.Background(),
+							common.HexToAddress(c.String("eth.address")),
+						)
+						if err != nil {
+							return err
+						}
+						fmt.Println(canLiq)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "eth.address, ea",
+							Usage: "eth address to lookup",
+						},
+					},
+				},
+			},
+		},
+	}
 }
 
 func loadAccountCommands() cli.Commands {
