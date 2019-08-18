@@ -60,6 +60,10 @@ func init() {
 				Name:  "borrow-value <acct>",
 				Value: "get the account borrow value",
 			},
+			&discordgo.MessageEmbedField{
+				Name:  "notify ...",
+				Value: "notification commands",
+			},
 		},
 	}
 }
@@ -205,6 +209,10 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate, args []stri
 		sendHelp(s, m)
 		return
 	}
+	if len(args) >= 2 && args[1] == "notify" {
+		handleNotif(s, m, args)
+		return
+	}
 	if len(args) == 2 {
 		switch args[1] {
 		case "eth-price":
@@ -227,6 +235,71 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate, args []stri
 			if args[2] == "paginated" {
 				liqqablePaginated(s, m)
 			}
+		}
+	}
+}
+
+func handleNotif(s *discordgo.Session, m *discordgo.MessageCreate, args []string) {
+	s.ChannelMessageSend(m.ChannelID, "waiting for price target")
+	user := m.Author.Mention()
+	// 0           1           2              3      4
+	// !moneybags notify eth-price/dai-price ge/le <target>
+	for {
+		if len(args) == 5 {
+			targetValue, err := strconv.ParseFloat(args[4], 64)
+			if err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+			if args[3] == "ge" {
+				switch args[2] {
+				case "eth-price":
+					val, err := RetrieveUsdPrice("ethereum")
+					if err != nil {
+						fmt.Println(err)
+						return
+					}
+					if val >= targetValue {
+						s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s, eth price reached %v", user, val))
+						return
+					}
+				case "dai-price":
+					val, err := RetrieveUsdPrice("dai")
+					if err != nil {
+						fmt.Println(err)
+						return
+					}
+					if val >= targetValue {
+						s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s, dai price reached %v", user, val))
+						return
+					}
+				}
+			} else {
+				switch args[2] {
+				case "eth-price":
+					val, err := RetrieveUsdPrice("ethereum")
+					if err != nil {
+						fmt.Println(err)
+						return
+					}
+					if val <= targetValue {
+						s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s, eth price reached %v", user, val))
+						return
+					}
+				case "dai-price":
+					val, err := RetrieveUsdPrice("dai")
+					if err != nil {
+						fmt.Println(err)
+						return
+					}
+					if val <= targetValue {
+						s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s, eth price reached %v", user, val))
+						return
+					}
+				}
+			}
+		} else {
+			return
 		}
 	}
 }
