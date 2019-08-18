@@ -45,8 +45,8 @@ func init() {
 				Value: "get dai price from cmc",
 			},
 			&discordgo.MessageEmbedField{
-				Name:  "liqqable",
-				Value: "get liquidatable accounts",
+				Name:  "liqqable <opts>",
+				Value: "get liquidatable accounts. opts: paginated (optional)",
 			},
 			&discordgo.MessageEmbedField{
 				Name:  "heatlh-check <acct>",
