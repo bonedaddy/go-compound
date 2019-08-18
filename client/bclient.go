@@ -190,6 +190,62 @@ func (bc *BClient) GetBorrowRate(ctx context.Context, address Address) (*big.Int
 	return rate, nil
 }
 
+// GetSupplyRate calls SupplyRatePerBlock to retrieve the current borrow interest rate
+func (bc *BClient) GetSupplyRate(ctx context.Context, address Address) (*big.Int, error) {
+	var (
+		rate *big.Int
+		err  error
+	)
+	switch address {
+	case CompoundBAT:
+		contract, err := cbat.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	case CompoundETH:
+		contract, err := ceth.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	case CompoundREP:
+		contract, err := crep.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	case CompoundUSDC:
+		contract, err := cusdc.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	case CompoundWBTC:
+		contract, err := cwbtc.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	case CompoundZRX:
+		contract, err := czrx.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.SupplyRatePerBlock(nil)
+	}
+	if err != nil {
+		return nil, err
+	}
+	return rate, nil
+}
+
 // LiquidateOpts is used to provide input parameters to
 // LiquidateBorrow functinos
 type LiquidateOpts struct {
