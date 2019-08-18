@@ -23,18 +23,45 @@ var (
 	imgurClient *imgur.Client
 	url         = "https://api.compound.finance/api/v2"
 	help        string
+	helpEmbed   *discordgo.MessageEmbed
 )
 
 func init() {
 	flag.Parse()
-	var hlp string
-	hlp = fmt.Sprintf("%scommands:\neth-price: get ethereum price from cmc", hlp)
-	hlp = fmt.Sprintf("%s\ndai-price: get dai price from cmc", hlp)
-	hlp = fmt.Sprintf("%s\nliqqable: get liquidatable accounts", hlp)
-	hlp = fmt.Sprintf("%s\nhealth-check <acct>: get account health", hlp)
-	hlp = fmt.Sprintf("%s\ncollateral-value <acct>: get account collateral value", hlp)
-	hlp = fmt.Sprintf("%s\nborrow-value <acct>: get account borrow value", hlp)
-	help = hlp
+	helpEmbed = &discordgo.MessageEmbed{
+		Title:       "MoneyBags Help Menu",
+		Description: "all commands must be invoked with !moneybags <cmd>\nAnything with <..> after command name expects an argument",
+		Thumbnail: &discordgo.MessageEmbedThumbnail{
+			URL: "https://gateway.temporal.cloud/ipfs/QmSky8KsZ6q9zz6kmj3TrbNTTvwhGtGmVbYB9iXWLPD5VC",
+		},
+		Color: 0x00ff00,
+		Fields: []*discordgo.MessageEmbedField{
+			&discordgo.MessageEmbedField{
+				Name:  "eth-price",
+				Value: "get ethereum price from cmc",
+			},
+			&discordgo.MessageEmbedField{
+				Name:  "dai-price",
+				Value: "get dai price from cmc",
+			},
+			&discordgo.MessageEmbedField{
+				Name:  "liqqable",
+				Value: "get liquidatable accounts",
+			},
+			&discordgo.MessageEmbedField{
+				Name:  "heatlh-check <acct>",
+				Value: "get account health",
+			},
+			&discordgo.MessageEmbedField{
+				Name:  "collateral-value <acct>",
+				Value: "get the account collateral value",
+			},
+			&discordgo.MessageEmbedField{
+				Name:  "borrow-value <acct>",
+				Value: "get the account borrow value",
+			},
+		},
+	}
 }
 
 func main() {
@@ -63,7 +90,7 @@ func main() {
 }
 
 func sendHelp(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if _, err := s.ChannelMessageSend(m.ChannelID, help); err != nil {
+	if _, err := s.ChannelMessageSendEmbed(m.ChannelID, helpEmbed); err != nil {
 		fmt.Println("error sending message: ", err.Error())
 		return
 	}
@@ -76,6 +103,7 @@ func liqqable(s *discordgo.Session, m *discordgo.MessageCreate) {
 		fmt.Println("failed to get liquidatable accounts ", err.Error())
 		return
 	}
+	s.ChannelMessageSend(m.ChannelID, "fetching liqqable accounts...")
 	p := dgwidgets.NewPaginator(s, m.ChannelID)
 	for k, v := range accts {
 		// get the account collateral value
