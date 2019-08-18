@@ -6,11 +6,14 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"math"
 	"os"
 
 	"strconv"
 
 	"context"
+
+	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/postables/go-compound/client"
@@ -98,6 +101,70 @@ func loadBlockchainCommands() cli.Commands {
 						cli.StringFlag{
 							Name:  "eth.address, ea",
 							Usage: "eth address to lookup",
+						},
+					},
+				},
+				cli.Command{
+					Name:  "borrow-rate",
+					Usage: "get asset borrow rate",
+					Action: func(c *cli.Context) error {
+						if c.String("asset.name") == "" {
+							return errors.New("asset.name flag is empty")
+						}
+						bc, err := client.NewBClient(nil, ethURL, true)
+						if err != nil {
+							return err
+						}
+						resp, err := bc.GetBorrowRate(
+							context.Background(),
+							client.CompoundTokens[c.String("asset.name")],
+						)
+						if err != nil {
+							return err
+						}
+						yearRate := new(big.Int).Mul(resp, big.NewInt(2102400))
+						apr := new(big.Float)
+						apr.SetString(yearRate.String())
+						ethValue := new(big.Float).Quo(apr, big.NewFloat(math.Pow10(18)))
+						fmt.Println(ethValue)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "asset.name, an",
+							Usage: "asset name, ie cDAI",
+						},
+					},
+				},
+				cli.Command{
+					Name:  "supply-rate",
+					Usage: "get asset supply rate",
+					Action: func(c *cli.Context) error {
+						if c.String("asset.name") == "" {
+							return errors.New("asset.name flag is empty")
+						}
+						bc, err := client.NewBClient(nil, ethURL, true)
+						if err != nil {
+							return err
+						}
+						resp, err := bc.GetSupplyRate(
+							context.Background(),
+							client.CompoundTokens[c.String("asset.name")],
+						)
+						if err != nil {
+							return err
+						}
+						yearRate := new(big.Int).Mul(resp, big.NewInt(2102400))
+						apr := new(big.Float)
+						apr.SetString(yearRate.String())
+						ethValue := new(big.Float).Quo(apr, big.NewFloat(math.Pow10(18)))
+						fmt.Println(ethValue)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "asset.name, an",
+							Usage: "asset name, ie cDAI",
 						},
 					},
 				},
