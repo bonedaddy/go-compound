@@ -81,3 +81,9 @@ If you like this application feel free to send me some ETH, or whatever (shit)co
 
 * Q: on the compound token contracts, what's the different between `exchangeRateCurrent` and `exchangeRateStored`
 * A: Current calls accrueInterest - stored returns the last computed value
+
+* Q: How many number of blocks in a year do the contracts use?
+* A: 2102400
+
+* Q: how was the number 2102400 arrived at? is this a static number
+* A: It’s static and assumes 15 second block speed
