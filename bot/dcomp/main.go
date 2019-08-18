@@ -162,17 +162,9 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate, args []stri
 	if len(args) == 2 {
 		switch args[1] {
 		case "eth-price":
-			val, err := RetrieveUsdPrice("ethereum")
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
-			}
-			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
+			ethPrice(s, m)
 		case "dai-price":
-			val, err := RetrieveUsdPrice("dai")
-			if err != nil {
-				s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
-			}
-			s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
+			daiPrice(s, m)
 		case "liqqable":
 			liqqable(s, m)
 		}
@@ -187,6 +179,22 @@ func handleCommand(s *discordgo.Session, m *discordgo.MessageCreate, args []stri
 			borrowValue(s, m, args[2])
 		}
 	}
+}
+
+func ethPrice(s *discordgo.Session, m *discordgo.MessageCreate) {
+	val, err := RetrieveUsdPrice("ethereum")
+	if err != nil {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get eth price: "+err.Error())
+	}
+	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
+}
+
+func daiPrice(s *discordgo.Session, m *discordgo.MessageCreate) {
+	val, err := RetrieveUsdPrice("dai")
+	if err != nil {
+		s.ChannelMessageSend(m.ChannelID, "[ERROR]: failed to get dai price: "+err.Error())
+	}
+	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("eth price: $%.3fUSD\n", val))
 }
 
 func borrowValue(s *discordgo.Session, m *discordgo.MessageCreate, account string) {
