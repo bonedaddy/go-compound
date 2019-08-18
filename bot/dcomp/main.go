@@ -30,7 +30,7 @@ func init() {
 	flag.Parse()
 	helpEmbed = &discordgo.MessageEmbed{
 		Title:       "MoneyBags Help Menu",
-		Description: "all commands must be invoked with !moneybags <cmd>\nAnything with <..> after command name expects an argument",
+		Description: "all commands must be invoked with !moneybags <cmd>\nAnything with <..> after command name expects an argument\nAnything with [..] after command name is an optional argument",
 		Thumbnail: &discordgo.MessageEmbedThumbnail{
 			URL: "https://gateway.temporal.cloud/ipfs/QmSky8KsZ6q9zz6kmj3TrbNTTvwhGtGmVbYB9iXWLPD5VC",
 		},
@@ -45,7 +45,7 @@ func init() {
 				Value: "get dai price from cmc",
 			},
 			&discordgo.MessageEmbedField{
-				Name:  "liqqable <opts>",
+				Name:  "liqqable [opts]",
 				Value: "get liquidatable accounts. opts: paginated (optional)",
 			},
 			&discordgo.MessageEmbedField{

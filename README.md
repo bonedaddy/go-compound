@@ -16,6 +16,10 @@
 
 # Current Capabilities
 
+# Discord Bot
+
+* A discord bot allowing access to the client library via discord
+
 ## APIs
 
 * Complete [AccountService](https://compound.finance/developers/api#AccountService) calls
