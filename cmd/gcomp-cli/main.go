@@ -105,6 +105,39 @@ func loadBlockchainCommands() cli.Commands {
 					},
 				},
 				cli.Command{
+					Name:  "exchange-rate",
+					Usage: "get stored exchange rate",
+					Action: func(c *cli.Context) error {
+						if c.String("asset.name") == "" {
+							return errors.New("asset.name flag is empty")
+						}
+						bc, err := client.NewBClient(nil, ethURL, true)
+						if err != nil {
+							return err
+						}
+						resp, err := bc.GetExchangeRate(
+							context.Background(),
+							client.CompoundTokens[c.String("asset.name")],
+						)
+						if err != nil {
+							return err
+						}
+						fmt.Println(resp.Int64())
+						exchangeRate := new(big.Float)
+						exchangeRate.SetString(resp.String())
+						fmt.Println(exchangeRate.String())
+						ethValue := new(big.Float).Quo(exchangeRate, big.NewFloat(math.Pow10(18)))
+						fmt.Println(ethValue)
+						return nil
+					},
+					Flags: []cli.Flag{
+						cli.StringFlag{
+							Name:  "asset.name, an",
+							Usage: "asset name, ie cDAI",
+						},
+					},
+				},
+				cli.Command{
 					Name:  "borrow-rate",
 					Usage: "get asset borrow rate",
 					Action: func(c *cli.Context) error {
