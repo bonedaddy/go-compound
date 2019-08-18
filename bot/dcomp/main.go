@@ -388,8 +388,10 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if len(args) == 0 {
 		return
 	}
-	// ensure the first field is a valid invocation of dpinner
+	// ensure the first field is a valid invocation of moneybags
 	if args[0] != "!moneybags" {
+		s.ChannelMessageSend(m.ChannelID, "invalid invocation, see help message:")
+		sendHelp(s, m)
 		fmt.Println("invalid invocation")
 		return
 	}
