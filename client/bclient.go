@@ -339,7 +339,12 @@ func (bc *BClient) Liquidate(ctx context.Context, borrowToken Address, opts Liqu
 		if err != nil {
 			return err
 		}
+		// here we need to set the value of the transaction as this is a payable function
+		bc.auth.Value = opts.RepayAmount
+		// create the tx
 		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.CTokenCollateral.EthAddress())
+		// reset value opts
+		bc.auth.Value = nil
 	case CompoundREP:
 		contract, err := crep.NewBindings(borrowToken.EthAddress(), bc.client)
 		if err != nil {
