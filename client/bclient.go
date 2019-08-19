@@ -305,13 +305,18 @@ func (bc *BClient) GetSupplyRate(ctx context.Context, address Address) (*big.Int
 // LiquidateOpts is used to provide input parameters to
 // LiquidateBorrow functinos
 type LiquidateOpts struct {
-	Borrower         common.Address
-	RepayAmount      *big.Int
+	// this is the account with negative liquidity that we are liquidating
+	Borrower common.Address
+	// the amount in wei we are repaying
+	RepayAmount *big.Int
+	// the address of the cToken currently held as collateral by a borrower
+	// this is the token the liquidator shall seize
 	CTokenCollateral Address
 }
 
-// GetLiqd is used to liquidate a borrower
-func (bc *BClient) GetLiqd(ctx context.Context, borrowToken Address, opts LiquidateOpts) error {
+// Liquidate is used to liquidate an account
+// borrowToken is the cToken that the account we are liquidating "borrowed"
+func (bc *BClient) Liquidate(ctx context.Context, borrowToken Address, opts LiquidateOpts) error {
 	var (
 		tx  *types.Transaction
 		err error
