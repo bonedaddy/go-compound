@@ -1,6 +1,7 @@
 .PHONY: bindings
 bindings:
 	abigen --abi abi/cbat.json --pkg bindings --out bindings/cbat/cbat.go
+	abigen --abi abi/cdai.json --pkg bindings --out bindings/cdai/cdai.go
 	abigen --abi abi/csai.json --pkg bindings --out bindings/csai/csai.go
 	abigen --abi abi/ceth.json --pkg bindings --out bindings/ceth/ceth.go
 	abigen --abi abi/crep.json --pkg bindings --out bindings/crep/crep.go
