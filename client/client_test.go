@@ -19,7 +19,7 @@ func Test_Client(t *testing.T) {
 	if _, err := client.GetAccounts(); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := client.GetCToken(CompoundDAI.String()); err != nil {
+	if _, err := client.GetCToken(CompoundSAI.String()); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := client.GetCTokens(); err != nil {
@@ -50,6 +50,7 @@ func Test_CompoundAddresses(t *testing.T) {
 	}{
 		{"cBAT", args{"cBAT"}, CompoundBAT},
 		{"cDAI", args{"cDAI"}, CompoundDAI},
+		{"cSAI", args{"cSAI"}, CompoundSAI},
 		{"cETH", args{"cETH"}, CompoundETH},
 		{"cREP", args{"cREP"}, CompoundREP},
 		{"cUSDC", args{"cUSDC"}, CompoundUSDC},

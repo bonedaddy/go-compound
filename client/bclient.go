@@ -14,6 +14,7 @@ import (
 	ceth "github.com/postables/go-compound/bindings/ceth"
 	comptroller "github.com/postables/go-compound/bindings/comptroller"
 	crep "github.com/postables/go-compound/bindings/crep"
+	csai "github.com/postables/go-compound/bindings/csai"
 	cusdc "github.com/postables/go-compound/bindings/cusdc"
 	cwbtc "github.com/postables/go-compound/bindings/cusdc"
 	czrx "github.com/postables/go-compound/bindings/cusdc"
@@ -81,6 +82,12 @@ func (bc *BClient) Borrow(ctx context.Context, address Address, borrowAmount *bi
 			return err
 		}
 		tx, err = contract.Borrow(bc.auth, borrowAmount)
+	case CompoundSAI:
+		contract, err := csai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.Borrow(bc.auth, borrowAmount)
 	case CompoundETH:
 		contract, err := ceth.NewBindings(address.EthAddress(), bc.client)
 		if err != nil {
@@ -140,6 +147,12 @@ func (bc *BClient) GetBorrowRate(ctx context.Context, address Address) (*big.Int
 		rate, err = contract.BorrowRatePerBlock(nil)
 	case CompoundDAI:
 		contract, err := cdai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.BorrowRatePerBlock(nil)
+	case CompoundSAI:
+		contract, err := csai.NewBindings(address.EthAddress(), bc.client)
 		if err != nil {
 			return nil, err
 		}
@@ -204,6 +217,12 @@ func (bc *BClient) GetLiqd(ctx context.Context, borrowToken Address, opts Liquid
 		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
 	case CompoundDAI:
 		contract, err := cdai.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundSAI:
+		contract, err := csai.NewBindings(borrowToken.EthAddress(), bc.client)
 		if err != nil {
 			return err
 		}

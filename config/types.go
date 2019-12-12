@@ -5,7 +5,7 @@ type Config struct {
 	// the ethereum address you use for compound
 	Address string `yaml:"address"`
 	// map of names to contract address
-	// ex. cDAI key could be used to return the cDAI contract address
+	// ex. cSAI key could be used to return the cSAI contract address
 	Contracts  map[string]string `yaml:"contracts"`
 	Blockchain `yaml:"blockchain"`
 }
