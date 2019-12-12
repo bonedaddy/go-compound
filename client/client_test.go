@@ -49,6 +49,7 @@ func Test_CompoundAddresses(t *testing.T) {
 		wantToken Address
 	}{
 		{"cBAT", args{"cBAT"}, CompoundBAT},
+		{"cDAI", args{"cDAI"}, CompoundDAI},
 		{"cSAI", args{"cSAI"}, CompoundSAI},
 		{"cETH", args{"cETH"}, CompoundETH},
 		{"cREP", args{"cREP"}, CompoundREP},
