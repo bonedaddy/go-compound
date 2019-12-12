@@ -10,10 +10,11 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
 	cbat "github.com/postables/go-compound/bindings/cbat"
-	csai "github.com/postables/go-compound/bindings/csai"
+	cdai "github.com/postables/go-compound/bindings/cdai"
 	ceth "github.com/postables/go-compound/bindings/ceth"
 	comptroller "github.com/postables/go-compound/bindings/comptroller"
 	crep "github.com/postables/go-compound/bindings/crep"
+	csai "github.com/postables/go-compound/bindings/csai"
 	cusdc "github.com/postables/go-compound/bindings/cusdc"
 	cwbtc "github.com/postables/go-compound/bindings/cusdc"
 	czrx "github.com/postables/go-compound/bindings/cusdc"
@@ -71,6 +72,12 @@ func (bc *BClient) Borrow(ctx context.Context, address Address, borrowAmount *bi
 	switch address {
 	case CompoundBAT:
 		contract, err := cbat.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.Borrow(bc.auth, borrowAmount)
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(address.EthAddress(), bc.client)
 		if err != nil {
 			return err
 		}
@@ -138,6 +145,12 @@ func (bc *BClient) GetBorrowRate(ctx context.Context, address Address) (*big.Int
 			return nil, err
 		}
 		rate, err = contract.BorrowRatePerBlock(nil)
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		rate, err = contract.BorrowRatePerBlock(nil)
 	case CompoundSAI:
 		contract, err := csai.NewBindings(address.EthAddress(), bc.client)
 		if err != nil {
@@ -198,6 +211,12 @@ func (bc *BClient) GetLiqd(ctx context.Context, borrowToken Address, opts Liquid
 	switch borrowToken {
 	case CompoundBAT:
 		contract, err := cbat.NewBindings(borrowToken.EthAddress(), bc.client)
+		if err != nil {
+			return err
+		}
+		tx, err = contract.LiquidateBorrow(bc.auth, opts.Borrower, opts.RepayAmount, opts.CTokenCollateral.EthAddress())
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(borrowToken.EthAddress(), bc.client)
 		if err != nil {
 			return err
 		}
