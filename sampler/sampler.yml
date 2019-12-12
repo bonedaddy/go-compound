@@ -9,7 +9,7 @@ barcharts:
             | awk '{print $NF}'
       - label: dai-supply-interest
         sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704"
-            --token.name cDAI | awk '{print $NF}'
+            --token.name cSAI | awk '{print $NF}'
       - label: usdc-supply-interest
         sample: gcomp-cli acct supply-interest -eth.address "0xe18999d3f7e1a84e35bf9c15699b79e46eb44704"
             --token.name cUSDC | awk '{print $NF}'
