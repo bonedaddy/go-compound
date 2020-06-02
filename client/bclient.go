@@ -51,8 +51,14 @@ func NewBClient(auth *bind.TransactOpts, client *ethclient.Client) *BClient {
 	return &BClient{auth: auth, client: client}
 }
 
-// GetPrice returns the price/exchange rate of the cToken
+// GetPrice returns the price/exchange rate of the cToken (WIP)
 func (bc *BClient) GetPrice(ctx context.Context, address Address) (*big.Int, error) {
+	/*
+		no. Firstly, a cToken is worth significantly less than the underlying asset. This conversion is given by ‘exchangeRateCurrent’. To get the dollar value, you will need to get exchange rates from the oracle which get you to eth value. Then get the exchange rate to usdc to get dollar value.
+		Here is the oracle address: 0xddc46a3b076aec7ab3fc37420a8edd2959764ec4
+		You need to fetch an exchange rate for your cToken, multiply by the underlying quantity and then divide the total by 1e18 to get eth value
+		If you want to get to $ value, just do the opposite with usdc. Fetch cUSDC exchange rate from oracle, multiply previous product by 1e18, then divide this by the usdc exchange rate. You should get usdc value
+	*/
 	switch address {
 	case CompoundBAT:
 		contract, err := cbat.NewBindings(address.EthAddress(), bc.client)
