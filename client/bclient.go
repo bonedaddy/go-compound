@@ -1,8 +1,10 @@
 package client
 
 import (
+	"bytes"
 	"context"
 	"errors"
+	"io/ioutil"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
@@ -18,6 +20,7 @@ import (
 	cusdc "github.com/postables/go-compound/bindings/cusdc"
 	cwbtc "github.com/postables/go-compound/bindings/cusdc"
 	czrx "github.com/postables/go-compound/bindings/cusdc"
+	"github.com/postables/go-compound/config"
 )
 
 // BClient is an ethereum blockchain client
@@ -26,9 +29,82 @@ type BClient struct {
 	client *ethclient.Client
 }
 
+// ConfigToOpts structs the optios needed for a bclient
+func ConfigToOpts(cfg *config.Config) (*bind.TransactOpts, *ethclient.Client, error) {
+	client, err := ethclient.Dial(cfg.Blockchain.Endpoint)
+	if err != nil {
+		return nil, nil, err
+	}
+	keyFileBytes, err := ioutil.ReadFile(cfg.Blockchain.KeyFile)
+	if err != nil {
+		return nil, nil, err
+	}
+	auth, err := bind.NewTransactor(bytes.NewReader(keyFileBytes), cfg.Blockchain.KeyPass)
+	if err != nil {
+		client.Close()
+	}
+	return auth, client, err
+}
+
 // NewBClient registers a new blockchain client
 func NewBClient(auth *bind.TransactOpts, client *ethclient.Client) *BClient {
 	return &BClient{auth: auth, client: client}
+}
+
+// GetPrice returns the price/exchange rate of the cToken
+func (bc *BClient) GetPrice(ctx context.Context, address Address) (*big.Int, error) {
+	switch address {
+	case CompoundBAT:
+		contract, err := cbat.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundDAI:
+		contract, err := cdai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundSAI:
+		contract, err := csai.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundETH:
+		contract, err := ceth.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundREP:
+		contract, err := crep.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundUSDC:
+		contract, err := cusdc.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundWBTC:
+		contract, err := cwbtc.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	case CompoundZRX:
+		contract, err := czrx.NewBindings(address.EthAddress(), bc.client)
+		if err != nil {
+			return nil, err
+		}
+		return contract.ExchangeRateStored(nil)
+	default:
+		return nil, errors.New("invalid contract type")
+	}
 }
 
 // CanLiquidate is used to check whether or not the given address can be liquidated
@@ -269,4 +345,13 @@ func (bc *BClient) GetLiqd(ctx context.Context, borrowToken Address, opts Liquid
 		return errors.New("tx receipt status is not 1, indicating a failure occurred")
 	}
 	return nil
+}
+
+// GetAccountSnapshot returns a snapshot of the account state
+func (bc *BClient) GetAccountSnapshot(ctx context.Context, address Address) {
+	/*
+		* https://github.com/compound-finance/compound-protocol/blob/f37f7bf8b6e1fb39239e43a4fb12fd15cf8b7c69/contracts/CErc20Delegator.sol#L226
+		* https://github.com/compound-finance/compound-protocol/blob/f37f7bf8b6e1fb39239e43a4fb12fd15cf8b7c69/contracts/CToken.sol#L203
+		(possible error, token balance, borrow balance, exchange rate mantissa)
+	*/
 }

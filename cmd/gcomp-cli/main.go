@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -11,6 +12,7 @@ import (
 	"strconv"
 
 	"github.com/postables/go-compound/client"
+	"github.com/postables/go-compound/config"
 	"github.com/urfave/cli"
 )
 
@@ -48,10 +50,65 @@ func loadFlags() []cli.Flag {
 			Value:       "https://api.compound.finance/api/v2",
 			Destination: &url,
 		},
+		cli.StringFlag{
+			Name:  "eth.rpc, er",
+			Usage: "endpoint for JSON-RPC access",
+			Value: "http://localhost:8500",
+		},
+		cli.StringFlag{
+			Name:  "key.file, kf",
+			Usage: "path to ethereum key file",
+		},
+		cli.StringFlag{
+			Name:  "key.pass, kp",
+			Usage: "password for key file",
+		},
 	}
 }
+
 func loadCommands() cli.Commands {
-	return loadAccountCommands()
+	return append(loadAccountCommands(), loadPriceCommands()...)
+}
+
+func loadPriceCommands() cli.Commands {
+	return cli.Commands{
+		cli.Command{
+			Name:  "price",
+			Usage: "price related functionality",
+			Subcommands: cli.Commands{
+				cli.Command{
+					Name:  "current",
+					Usage: "retrieves current price of asset",
+					Action: func(c *cli.Context) error {
+						ctx, cancel := context.WithCancel(context.Background())
+						defer cancel()
+						cfg := config.Config{Blockchain: config.Blockchain{
+							Endpoint: c.GlobalString("eth.rpc"),
+							KeyFile:  c.GlobalString("key.file"),
+							KeyPass:  c.GlobalString("key.pass"),
+						}}
+						auth, ethclient, err := client.ConfigToOpts(&cfg)
+						if err != nil {
+							return err
+						}
+						bclient := client.NewBClient(auth, ethclient)
+						price, err := bclient.GetPrice(ctx, client.CompoundTokens[c.GlobalString("eth.address")])
+						if err != nil {
+							return err
+						}
+						log.Println("price: ", price.String())
+						return nil
+					},
+				},
+			},
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "eth.address",
+					Usage: "the address to lookup",
+				},
+			},
+		},
+	}
 }
 
 func loadAccountCommands() cli.Commands {

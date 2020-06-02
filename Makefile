@@ -56,3 +56,7 @@ fmt:
 omit:
 	sed -i 's/\"`/,omitempty\"\`/g' models/account.go
 	sed -i 's/\"`/,omitempty\"\`/g' models/ctoken.go 
+
+.PHONY: cli
+cli:
+	go build -o gcomp-cli ./cmd/gcomp-cli
