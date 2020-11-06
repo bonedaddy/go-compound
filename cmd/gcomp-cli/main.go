@@ -148,16 +148,25 @@ func loadAccountCommands() cli.Commands {
 				cli.Command{
 					Name:   "all",
 					Hidden: true,
-					Usage:  "return all accounts, only a test command not intended for use",
+					Usage:  "return all accounts in a paginated format",
 					Action: func(c *cli.Context) error {
 						cl := client.NewClient(url)
-						accts, err := cl.GetAccounts()
+						accts, err := cl.GetAccounts(c.String("page.size"), c.String("page.num"))
 						if err != nil {
 							return err
 						}
-						log.Println("number of accounts: ", len(accts.Accounts))
 						log.Printf("%#v\n", accts)
 						return nil
+					},
+					Flags: []cli.Flag{
+						&cli.StringFlag{
+							Name:  "page.size",
+							Usage: "number of entries per page",
+						},
+						&cli.StringFlag{
+							Name:  "page.num",
+							Usage: "page number to display",
+						},
 					},
 				},
 				cli.Command{
@@ -328,7 +337,7 @@ func loadAccountCommands() cli.Commands {
 					Usage:   "get all liquidatable accounts",
 					Action: func(c *cli.Context) error {
 						cl := client.NewClient(url)
-						accts, err := cl.GetLiquidatableAccounts()
+						accts, err := cl.GetLiquidatableAccounts("", "")
 						if err != nil {
 							return err
 						}

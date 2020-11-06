@@ -105,8 +105,8 @@ func (c *Client) GetBorrowInterestedAccrued(token Address, resp *models.AccountR
 // GetLiquidatableAccounts is used to return all accounts with health below 1.0
 // indicating they can be liquidated. The keys of the map are the addresses
 // and the values are their health
-func (c *Client) GetLiquidatableAccounts() (map[string]float64, error) {
-	resp, err := c.GetAccounts()
+func (c *Client) GetLiquidatableAccounts(pageSize, pageNum string) (map[string]float64, error) {
+	resp, err := c.GetAccounts(pageSize, pageNum)
 	if err != nil {
 		return nil, err
 	}

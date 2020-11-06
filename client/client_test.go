@@ -16,7 +16,7 @@ func Test_Client(t *testing.T) {
 	if _, err := client.GetAccount(account); err != nil {
 		t.Fatal(err)
 	}
-	if _, err := client.GetAccounts(); err != nil {
+	if _, err := client.GetAccounts("", ""); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := client.GetCToken(CompoundSAI.String()); err != nil {
@@ -25,7 +25,7 @@ func Test_Client(t *testing.T) {
 	if _, err := client.GetCTokens(); err != nil {
 		t.Fatal(err)
 	}
-	if accts, err := client.GetLiquidatableAccounts(); err != nil {
+	if accts, err := client.GetLiquidatableAccounts("", ""); err != nil {
 		t.Fatal(err)
 	} else if len(accts) == 0 {
 		t.Fatal("no accounts at risk of liquidation")

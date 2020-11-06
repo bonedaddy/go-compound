@@ -59,9 +59,15 @@ func (c *Client) GetAccount(address string) (*models.AccountResponse, error) {
 }
 
 // GetAccounts is used to retrieve information on many accounts
-func (c *Client) GetAccounts() (*models.AccountResponse, error) {
+func (c *Client) GetAccounts(pageSize, pageNum string) (*models.AccountResponse, error) {
 	// https://api.compound.finance/api/v2/account
-	apiURL := fmt.Sprintf("%s/account", c.url)
+	if pageSize == "" {
+		pageSize = "10"
+	}
+	if pageNum == "" {
+		pageNum = "0"
+	}
+	apiURL := fmt.Sprintf("%s/account?page_size=%s&page_num=%s", c.url, pageSize, pageNum)
 	bodyBytes, err := c.sendRequest(apiURL)
 	if err != nil {
 		return nil, err
