@@ -146,6 +146,21 @@ func loadAccountCommands() cli.Commands {
 			Aliases: []string{"acct"},
 			Subcommands: cli.Commands{
 				cli.Command{
+					Name:   "all",
+					Hidden: true,
+					Usage:  "return all accounts, only a test command not intended for use",
+					Action: func(c *cli.Context) error {
+						cl := client.NewClient(url)
+						accts, err := cl.GetAccounts()
+						if err != nil {
+							return err
+						}
+						log.Println("number of accounts: ", len(accts.Accounts))
+						log.Printf("%#v\n", accts)
+						return nil
+					},
+				},
+				cli.Command{
 					Name:  "collateral-value",
 					Usage: "get account collateral value in eth",
 					Action: func(c *cli.Context) error {
