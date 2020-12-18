@@ -7,8 +7,8 @@ import (
 
 	"strconv"
 
+	"github.com/bonedaddy/go-compound/v2/models"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/postables/go-compound/models"
 )
 
 // Address is a compound contract address type

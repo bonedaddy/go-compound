@@ -7,7 +7,7 @@ import (
 
 	"strconv"
 
-	"github.com/postables/go-compound/models"
+	"github.com/bonedaddy/go-compound/v2/models"
 )
 
 // Client is used to interact with the compound.finance api

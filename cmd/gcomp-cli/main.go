@@ -11,8 +11,8 @@ import (
 
 	"strconv"
 
-	"github.com/postables/go-compound/client"
-	"github.com/postables/go-compound/config"
+	"github.com/bonedaddy/go-compound/v2/client"
+	"github.com/bonedaddy/go-compound/v2/config"
 	"github.com/urfave/cli"
 )
 
