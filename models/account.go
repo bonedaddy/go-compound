@@ -14,14 +14,12 @@ type AccountResponse struct {
 }
 
 type Account struct {
-	Address      string      `json:"address"`
-	BlockUpdated interface{} `json:"block_updated"`
-	Health       struct {
-		Value string `json:"value"`
-	} `json:"health"`
-	Tokens                    []Token `json:"tokens"`
-	TotalBorrowValueInEth     Value   `json:"total_borrow_value_in_eth"`
-	TotalCollateralValueInEth Value   `json:"total_collateral_value_in_eth"`
+	Address                   string      `json:"address"`
+	BlockUpdated              interface{} `json:"block_updated"`
+	Health                    Value       `json:"health"`
+	Tokens                    []Token     `json:"tokens"`
+	TotalBorrowValueInEth     Value       `json:"total_borrow_value_in_eth"`
+	TotalCollateralValueInEth Value       `json:"total_collateral_value_in_eth"`
 }
 
 type PaginationSummary struct {
@@ -47,10 +45,8 @@ type Value struct {
 
 // Token is an individual token
 type Token struct {
-	Address                 string `json:"address"`
-	BorrowBalanceUnderlying struct {
-		Value string `json:"value"`
-	} `json:"borrow_balance_underlying"`
+	Address                       string      `json:"address"`
+	BorrowBalanceUnderlying       Value       `json:"borrow_balance_underlying"`
 	LifetimeBorrowInterestAccrued Value       `json:"lifetime_borrow_interest_accrued"`
 	LifetimeSupplyInterestAccrued Value       `json:"lifetime_supply_interest_accrued"`
 	SupplyBalanceUnderlying       Value       `json:"supply_balance_underlying"`
