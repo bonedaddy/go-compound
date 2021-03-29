@@ -67,7 +67,7 @@ func (c *Client) GetAccounts(pageSize, pageNum string) (*models.AccountResponse,
 	if pageNum == "" {
 		pageNum = "0"
 	}
-	apiURL := fmt.Sprintf("%s/account?page_size=%s&page_num=%s", c.url, pageSize, pageNum)
+	apiURL := fmt.Sprintf("%s/account?page_size=%s&page_number=%s", c.url, pageSize, pageNum)
 	bodyBytes, err := c.sendRequest(apiURL)
 	if err != nil {
 		return nil, err
